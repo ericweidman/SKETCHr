@@ -15,7 +15,6 @@ import java.sql.SQLException;
  */
 
 @RestController
-
 public class SKETCHrController {
     @Autowired
     UserRepository users;
