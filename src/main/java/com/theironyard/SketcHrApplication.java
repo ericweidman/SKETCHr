@@ -9,5 +9,4 @@ public class SketcHrApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SketcHrApplication.class, args);
 	}
-
 }
