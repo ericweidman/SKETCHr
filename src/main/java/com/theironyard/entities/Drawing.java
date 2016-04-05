@@ -16,9 +16,18 @@ public class Drawing {
     @GeneratedValue
     int id;
 
-    @Lob @Basic(fetch = FetchType.LAZY)
-    @Column(columnDefinition = "BLOB NOT NULL")
-    byte[] sketch;
+    @Column(nullable = false)
+    String fileName;
 
 
+    public Drawing() {
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 }
