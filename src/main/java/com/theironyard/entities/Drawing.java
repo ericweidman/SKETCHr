@@ -1,11 +1,9 @@
 package com.theironyard.entities;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Lazy;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by ericweidman on 4/3/16.
@@ -17,6 +15,10 @@ public class Drawing {
     @Id
     @GeneratedValue
     int id;
+
+    @Lob @Basic(fetch = FetchType.LAZY)
+    @Column(columnDefinition = "BLOB NOT NULL")
+    byte[] sketch;
 
 
 }
