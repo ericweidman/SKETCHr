@@ -1,9 +1,9 @@
 package com.theironyard.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Lazy;
+
+import javax.persistence.*;
 
 /**
  * Created by ericweidman on 4/3/16.
@@ -16,4 +16,22 @@ public class Drawing {
     @GeneratedValue
     int id;
 
+    @Column(nullable = false)
+    String fileName;
+
+
+    public Drawing() {
+    }
+
+    public Drawing(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 }
