@@ -1,0 +1,127 @@
+body{
+  display: inline-block;
+  width: 100%;
+  font-family: 'Fjalla One', sans-serif;
+  background-color: #F1F1F1;
+}
+
+#canvas{
+  display: inline-block;
+  border: 1px solid black;
+  float: left;
+  margin: 1%;
+  background-color: white;
+
+}
+.sidebar{
+  display: inline-block;
+  width: 25%;
+  border: 1px solid black;
+  height: 500px;
+  float: left;
+  margin: 1%;
+  padding:1%;
+  background-color: white;
+}
+
+.colorButtons{
+  height: 40px;
+  border: 1px solid black;
+  padding: 5%;
+}
+#white{
+  background-color: white;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+#black{
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#red{
+  background-color:#BB3437;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#blue{
+  background-color:#4E69A2;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#yellow{
+  background-color:#FBDE5F;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#orange{
+  background-color:#D2872A;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#green{
+  background-color:#89CF3A;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#purple{
+  background-color:#725C93;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#grey{
+  background-color:#C2C2C2;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+
+#size2{
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: red;
+}
+
+#size5{
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: black;
+}
+#size10{
+  border-radius: 50%;
+  border: 3px solid black;
+  background-color: black;
+}
+#size20{
+  border-radius: 50%;
+  border: 4px solid black;
+  background-color: black;
+}
+#size40{
+  border-radius: 50%;
+  border: 5px solid black;
+  background-color: black;
+}
+#size80{
+  border-radius: 50%;
+  border: 6px solid black;
+  background-color: black;
+}
+#size160{
+  border-radius: 50%;
+  border: 7px solid black;
+  background-color: black;
+}
+
+h1{
+  margin-top: 2%;
+  border-top: 5px solid black;
+}
+
+span{
+  color: red;
+}
+h4{
+  font-size: 12px;
+}
