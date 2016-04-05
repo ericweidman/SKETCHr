@@ -23,6 +23,10 @@ public class Drawing {
     public Drawing() {
     }
 
+    public Drawing(String fileName) {
+        this.fileName = fileName;
+    }
+
     public String getFileName() {
         return fileName;
     }

@@ -16,7 +16,10 @@ import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.SQLException;
+
 
 /**
  * Created by ericweidman on 4/3/16.
@@ -43,12 +46,20 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing upload(MultipartFile drawing, HttpSession session, HttpServletResponse response) {
-        return null;
+    public Drawing upload(MultipartFile drawing, HttpSession session, HttpServletResponse response) throws IOException {
+
+
+        File drawingFile = File.createTempFile("drawing", drawing.getOriginalFilename(), new File("public"));
+        FileOutputStream fos = new FileOutputStream(drawingFile);
+        fos.write(drawing.getBytes());
+        Drawing d = new Drawing(drawingFile.getName());
+        drawings.save(d);
+        response.sendRedirect("/");
+        return d;
     }
-    @RequestMapping(path = "/upload", method = RequestMethod.GET)
-    public Drawing getDrawing(MultipartFile drawing){
-        return null;
+    @RequestMapping(path = "/photos/{id}", method = RequestMethod.GET)
+    public Drawing getDrawing(MultipartFile drawing, @PathVariable("id") int id){
+        return drawings.findOne(id);
     }
     @RequestMapping(path = "/upload/{id}", method = RequestMethod.DELETE)
     public void deleteDrawing(@PathVariable("id") int id){
