@@ -1,14 +1,12 @@
 package com.theironyard.controllers;
 
 import com.theironyard.entities.Drawing;
+import com.theironyard.entities.User;
 import com.theironyard.services.DrawingRepository;
 import com.theironyard.services.UserRepository;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
@@ -45,6 +43,21 @@ public class SKETCHrController {
         dbui.stop();
     }
 
+
+    @RequestMapping(path = "/user", method = RequestMethod.POST)
+    public User addUser(@RequestBody User user, HttpSession session){
+        users.save(user);
+        return user;
+    }
+
+    @RequestMapping(path = "/user", method = RequestMethod.GET)
+    public User getUser(@RequestBody User user, HttpSession session){
+        return user;
+    }
+
+
+
+
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public Drawing upload(MultipartFile drawing, HttpSession session, HttpServletResponse response) throws IOException {
 
@@ -69,4 +82,10 @@ public class SKETCHrController {
     public Drawing editDrawing(@PathVariable("id") int id, MultipartFile drawing){
         return null;
     }
+
+    @RequestMapping(path = "/logout", method = RequestMethod.POST)
+    public void logout(HttpSession session){
+        session.invalidate();
+    }
+
 }
