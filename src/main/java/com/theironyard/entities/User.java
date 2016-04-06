@@ -17,15 +17,15 @@ public class User {
     String userName;
 
     @Column(nullable = false)
-    String userPass;
+    String passwordHash;
 
 
     public User() {
     }
 
-    public User(String userName, String userPass) {
+    public User(String userName, String passwordHash) {
         this.userName = userName;
-        this.userPass = userPass;
+        this.passwordHash = passwordHash;
     }
 
     public String getUserName() {
@@ -36,11 +36,11 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserPass() {
-        return userPass;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 }
