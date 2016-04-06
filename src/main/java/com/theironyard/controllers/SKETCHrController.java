@@ -77,6 +77,8 @@ public class SKETCHrController {
         drawings.save(d);
 
         return null;
+
+
     }
     @RequestMapping(path = "/photos/{id}", method = RequestMethod.GET)
     public Drawing getDrawing( @PathVariable("id") int id){
