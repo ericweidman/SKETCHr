@@ -58,13 +58,13 @@ function saveCanvasImg(canvasDATA){
 
 
 document.getElementById('save').addEventListener('click',function(){
+  var context2= canvas.getContext('2d');
   var canvasDATA = canvas.toDataURL(0, 0, canvas.width, canvas.height);
-  console.log(canvasDATA);
+  var thingToSend = JSON.stringify(canvasDATA);
+  saveCanvasImg(thingToSend);
   console.log(JSON.stringify(canvasDATA));
-
-
-  // var c2= document.getElementById("c2");
-  // var context2= c2.getContext("2d");
+  // var canvasDat= document.getElementById("canvasDat");
+  // var context2= canvasDat.getContext("2d");
   // context2.putImageData(data,0,0);
 });
 
