@@ -6,7 +6,6 @@ import com.theironyard.services.DrawingRepository;
 import com.theironyard.services.UserRepository;
 import com.theironyard.utils.PasswordStorage;
 import org.h2.tools.Server;
-import org.hibernate.engine.spi.QueryParameters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +14,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.multi.MultiInternalFrameUI;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -67,19 +65,27 @@ public class SKETCHrController {
         return user;
     }
 
+//    @RequestMapping(path = "/upload", method = RequestMethod.POST)
+//    public Drawing upload(MultipartFile drawing) throws IOException {
+//
+//        File drawingFile = File.createTempFile("drawing", drawing.getOriginalFilename(), new File("public"));
+//        FileOutputStream fos = new FileOutputStream(drawingFile);
+//        fos.write(drawing.getBytes());
+//        Drawing d = new Drawing(drawingFile.getName());
+//        drawings.save(d);
+//
+//        return null;
+//    }
+
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing upload(MultipartFile drawing) throws IOException {
+    public Drawing stringUp(@RequestBody String drawingString){
 
-        File drawingFile = File.createTempFile("drawing", drawing.getOriginalFilename(), new File("public"));
-        FileOutputStream fos = new FileOutputStream(drawingFile);
-        fos.write(drawing.getBytes());
-        Drawing d = new Drawing(drawingFile.getName());
-        drawings.save(d);
-
+        Drawing drawing = new Drawing(drawingString);
+        drawings.save(drawing);
         return null;
 
-
     }
+
     @RequestMapping(path = "/photos/{id}", method = RequestMethod.GET)
     public Drawing getDrawing( @PathVariable("id") int id){
         return drawings.findOne(id);
