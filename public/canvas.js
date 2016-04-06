@@ -44,27 +44,29 @@ var canvasApp ={
   }
 };
 
+// var formData= new FormData();
 
-function saveCanvasImg(canvasDATA){
+function saveCanvasImg(canvasDATA, canvasString){
   $.ajax({
     url:canvasApp.urls.saveCanvas,
     method:'POST',
-    contentType: false,
-    processData: false,
-    data: {saveCanvas: canvasDATA},
+    // async: false,
+    // cache: false,
+    // contentType: false,
+    // processData: false,
+    data: {saveCanvas:canvasString},
     success: function(saveCanvas){
       console.log(canvasDATA);
     }
   });
 }
 
-// var data = new FormData();
-// jquery.each(jquery())
-
 document.getElementById('save').addEventListener('click',function(){
   var canvasDATA = canvas.toDataURL('image/png');
   saveCanvasImg(canvasDATA);
   console.log(canvasDATA);
+  var canvasString = JSON.stringify(canvasDATA);
+  console.log(canvasString);
   // var canvasDat= document.getElementById("canvasDat");
   // var context2= canvasDat.getContext("2d");
   // context2.putImageData(data,0,0);
