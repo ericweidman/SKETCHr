@@ -55,11 +55,8 @@ public class SKETCHrController {
         return user;
     }
 
-
-
-
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing upload(MultipartFile drawing, HttpSession session, HttpServletResponse response) throws IOException {
+    public Drawing upload(MultipartFile drawing, HttpServletResponse response) throws IOException {
 
 
         File drawingFile = File.createTempFile("drawing", drawing.getOriginalFilename(), new File("public"));
