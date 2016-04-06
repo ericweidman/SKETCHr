@@ -58,7 +58,7 @@ public class SKETCHrController {
         return d;
     }
     @RequestMapping(path = "/photos/{id}", method = RequestMethod.GET)
-    public Drawing getDrawing(MultipartFile drawing, @PathVariable("id") int id){
+    public Drawing getDrawing( @PathVariable("id") int id){
         return drawings.findOne(id);
     }
     @RequestMapping(path = "/upload/{id}", method = RequestMethod.DELETE)
