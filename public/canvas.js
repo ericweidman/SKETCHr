@@ -58,16 +58,16 @@ function saveCanvasImg(canvasDATA){
   });
 }
 
+// var data = new FormData();
+// jquery.each(jquery())
 
 document.getElementById('save').addEventListener('click',function(){
-  var context2= canvas.getContext('2d');
-  var canvasDATA = canvas.toDataURL(0, 0, canvas.width, canvas.height);
-  var thingToSend = JSON.stringify(canvasDATA);
-  saveCanvasImg(thingToSend);
-  console.log(JSON.stringify(canvasDATA));
-  var canvasDat= document.getElementById("canvasDat");
-  var context2= canvasDat.getContext("2d");
-  context2.putImageData(data,0,0);
+  var canvasDATA = canvas.toDataURL('image/png');
+  saveCanvasImg(canvasDATA);
+  console.log(canvasDATA);
+  // var canvasDat= document.getElementById("canvasDat");
+  // var context2= canvasDat.getContext("2d");
+  // context2.putImageData(data,0,0);
 });
 
 //add click property
