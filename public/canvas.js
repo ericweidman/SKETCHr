@@ -49,6 +49,8 @@ function saveCanvasImg(canvasDATA){
   $.ajax({
     url:canvasApp.urls.saveCanvas,
     method:'POST',
+    contentType: false,
+    processData: false,
     data: {saveCanvas: canvasDATA},
     success: function(saveCanvas){
       console.log(canvasDATA);
@@ -63,9 +65,9 @@ document.getElementById('save').addEventListener('click',function(){
   var thingToSend = JSON.stringify(canvasDATA);
   saveCanvasImg(thingToSend);
   console.log(JSON.stringify(canvasDATA));
-  // var canvasDat= document.getElementById("canvasDat");
-  // var context2= canvasDat.getContext("2d");
-  // context2.putImageData(data,0,0);
+  var canvasDat= document.getElementById("canvasDat");
+  var context2= canvasDat.getContext("2d");
+  context2.putImageData(data,0,0);
 });
 
 //add click property
