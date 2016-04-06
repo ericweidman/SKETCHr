@@ -41,20 +41,20 @@ public class SketcHrApplicationTests {
         mockMvc = MockMvcBuilders.webAppContextSetup(wap).build();
     }
 
-	@Test
-	public void addDrawing() throws Exception {
-		Drawing drawing = new Drawing();
-		drawing.setFileName("Test");
-
-		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(drawing);
-
-        mockMvc.perform(
-                MockMvcRequestBuilders.post("/upload")
-                        .content(json)
-                        .contentType("application/json")
-		);
-		Assert.assertTrue(drawings.count() == 1);
-	}
+//	@Test
+//	public void addDrawing() throws Exception {
+//		Drawing drawing = new Drawing();
+//		drawing.setFileName("Test");
+//
+//		ObjectMapper mapper = new ObjectMapper();
+//		String json = mapper.writeValueAsString(drawing);
+//
+//        mockMvc.perform(
+//                MockMvcRequestBuilders.post("/upload")
+//                        .content(json)
+//                        .contentType("application/json")
+//		);
+//		Assert.assertTrue(drawings.count() == 1);
+//	}
 
 }
