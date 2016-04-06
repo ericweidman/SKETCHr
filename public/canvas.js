@@ -7,7 +7,6 @@ canvas.setAttribute('height', '500');
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
 
-
 if(typeof G_vmlCanvasManager != 'undefined'){
   canvas = G_vmlCanvasManager.initElement(canvas);
 }
@@ -37,7 +36,37 @@ $('#canvas').mouseleave(function(e){
   paint=false;
 });
 
+
 ///history
+var canvasApp ={
+  urls:{
+    saveCanvas: '/upload'
+  }
+};
+
+
+function saveCanvasImg(canvasDATA){
+  $.ajax({
+    url:canvasApp.urls.saveCanvas,
+    method:'POST',
+    data: {saveCanvas: canvasDATA},
+    success: function(saveCanvas){
+      console.log(canvasDATA);
+    }
+  });
+}
+
+
+document.getElementById('save').addEventListener('click',function(){
+  var canvasDATA = canvas.toDataURL(0, 0, canvas.width, canvas.height);
+  console.log(canvasDATA);
+  console.log(JSON.stringify(canvasDATA));
+
+
+  // var c2= document.getElementById("c2");
+  // var context2= c2.getContext("2d");
+  // context2.putImageData(data,0,0);
+});
 
 //add click property
 var clickX = new Array();
