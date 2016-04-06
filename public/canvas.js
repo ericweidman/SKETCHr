@@ -44,30 +44,32 @@ var canvasApp ={
   }
 };
 
+// var formData= new FormData();
 
-function saveCanvasImg(canvasDATA){
+function saveCanvasImg(canvasDATA, canvasString){
   $.ajax({
     url:canvasApp.urls.saveCanvas,
     method:'POST',
-    contentType: false,
-    processData: false,
-    data: {saveCanvas: canvasDATA},
+    // async: false,
+    // cache: false,
+    // contentType: false,
+    // processData: false,
+    data: {saveCanvas:canvasString},
     success: function(saveCanvas){
       console.log(canvasDATA);
     }
   });
 }
 
-
 document.getElementById('save').addEventListener('click',function(){
-  var context2= canvas.getContext('2d');
-  var canvasDATA = canvas.toDataURL(0, 0, canvas.width, canvas.height);
-  var thingToSend = JSON.stringify(canvasDATA);
-  saveCanvasImg(thingToSend);
-  console.log(JSON.stringify(canvasDATA));
-  var canvasDat= document.getElementById("canvasDat");
-  var context2= canvasDat.getContext("2d");
-  context2.putImageData(data,0,0);
+  var canvasDATA = canvas.toDataURL('image/png');
+  saveCanvasImg(canvasDATA);
+  console.log(canvasDATA);
+  var canvasString = JSON.stringify(canvasDATA);
+  console.log(canvasString);
+  // var canvasDat= document.getElementById("canvasDat");
+  // var context2= canvasDat.getContext("2d");
+  // context2.putImageData(data,0,0);
 });
 
 //add click property
