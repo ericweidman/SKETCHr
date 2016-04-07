@@ -76,4 +76,19 @@ public class SketcHrApplicationTests {
 //        Assert.assertTrue(users.count() ==  1);
 //    }
 
+
+//    @Test
+//    public void deleteDrawing() throws Exception {
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        String json = mapper.writeValueAsString(1);
+//        mockMvc.perform(
+//                MockMvcRequestBuilders.delete("/photo/1")
+//                .content(json)
+//                .contentType("application/json")
+//        );
+//        Assert.assertTrue(drawings.count() == 5);
+//    }
+
+
 }
