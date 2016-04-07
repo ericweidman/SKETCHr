@@ -70,7 +70,7 @@ public class SKETCHrController {
         return null;
     }
 
-    @RequestMapping(path = "/photos/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/photo/{id}", method = RequestMethod.GET)
     public Drawing getDrawing( @PathVariable("id") int id){
         Drawing drawing = drawings.findOne(id);
         return drawing;
