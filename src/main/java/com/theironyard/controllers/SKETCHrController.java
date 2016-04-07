@@ -68,12 +68,12 @@ public class SKETCHrController {
         Drawing drawing = new Drawing(drawingString);
         drawings.save(drawing);
         return null;
-
     }
 
     @RequestMapping(path = "/photos/{id}", method = RequestMethod.GET)
     public Drawing getDrawing( @PathVariable("id") int id){
-        return drawings.findOne(id);
+        Drawing drawing = drawings.findOne(id);
+        return drawing;
 
     }
 
