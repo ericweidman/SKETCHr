@@ -52,7 +52,6 @@ public class SKETCHrController {
             throw new Exception("Invalid password!");
         }
          session.setAttribute("userName", userName);
-         response.sendRedirect("/");
          return user;
     }
 
@@ -82,10 +81,12 @@ public class SKETCHrController {
         drawings.delete(id);
 
     }
+
+
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.PUT)
     public Drawing editDrawing(@PathVariable("id") int id, @RequestBody Drawing drawing){
         Drawing oldDrawing = drawings.findOne(id);
-        drawing = oldDrawing;
+        oldDrawing = drawing;
         drawings.save(drawing);
         return drawing;
     }
