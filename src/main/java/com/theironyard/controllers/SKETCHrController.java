@@ -65,17 +65,6 @@ public class SKETCHrController {
         return user;
     }
 
-//    @RequestMapping(path = "/upload", method = RequestMethod.POST)
-//    public Drawing upload(MultipartFile drawing) throws IOException {
-//
-//        File drawingFile = File.createTempFile("drawing", drawing.getOriginalFilename(), new File("public"));
-//        FileOutputStream fos = new FileOutputStream(drawingFile);
-//        fos.write(drawing.getBytes());
-//        Drawing d = new Drawing(drawingFile.getName());
-//        drawings.save(d);
-//
-//        return null;
-//    }
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public Drawing stringUp(@RequestBody String drawingString){
