@@ -1,14 +1,15 @@
 var canvasApp ={
   urls:{
-    saveCanvas: '/upload'
+    canvasIMG: '/upload',
+    canvasIMGget: '/photo/{5}',
   }
 };
 function saveCanvasImg(canvasString){
   $.ajax({
-    url:canvasApp.urls.saveCanvas,
+    url:canvasApp.urls.canvasIMG,
     method:'POST',
-    data: {saveCanvas:canvasString},
-    success: function(saveCanvas){
+    data: {canvasIMG:canvasString},
+    success: function(canvasIMG){
       // console.log(canvasDATA);
       alert('it worked!');
     }
@@ -21,3 +22,17 @@ document.getElementById('save').addEventListener('click',function(){
   console.log(canvasString);
   saveCanvasImg(canvasString);
 });
+function getCanvasImg(){
+  $.ajax({
+    method:'GET',
+    url:'/photo/5',
+    data: canvasIMG,
+    success: function(canvasIMG){
+      // console.log(canvasDATA);
+      alert('it worked!');
+    }
+  });
+}
+document.getElementById('open').addEventListener('click', function(){
+  $('openTEST').append('canvasIMG');
+})

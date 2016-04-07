@@ -119,12 +119,22 @@ document.getElementById('grey').addEventListener('click',function(){
 
 //add tools
 var clickTool = new Array();
-var curTool = "crayon";
-var curTool = "marker";
-var curTool = "eraser";
+var curTool='marker';
+var crayon = "crayon";
+var marker = "marker";
+var eraser = "eraser";
 
 
-
+document.getElementById('eraser').addEventListener('click',function(){
+  curTool='eraser';
+});
+document.getElementById('marker').addEventListener('click',function(){
+  curTool='marker';
+});
+var crayonImg =
+document.getElementById('crayon').addEventListener('click',function(){
+  curTool='crayon';
+});
 
 ///add click
 function addClick(x,y,dragging)
@@ -132,11 +142,11 @@ function addClick(x,y,dragging)
 clickX.push(x);
 clickY.push(y);
 clickDrag.push(dragging);
-//if(curTool == "eraser"){
-  //clickColor.push("white");
-//}else{
+if(curTool == "eraser"){
+  clickColor.push("white");
+}else{
     clickColor.push(current);
-//  }
+    }
 
 lineSize.push(currentSize);
 }
@@ -162,8 +172,8 @@ function draw(){
     context.stroke();
   }
   if(curTool == "crayon") {
-  context.globalAlpha = 0.4;
-  context.drawImage(crayonTextureImage, 0, 0, canvasWidth, canvasHeight);
+  context.globalAlpha = 0.1;
+  context.drawImage(0,0,canvas.width,canvas.height);
 }
 context.globalAlpha = 1; // Transparency
 }
