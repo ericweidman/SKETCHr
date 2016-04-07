@@ -37,8 +37,6 @@ $('#canvas').mouseleave(function(e){
 });
 
 
-///history
-
 //add click property
 var clickX = new Array();
 var clickY = new Array();
