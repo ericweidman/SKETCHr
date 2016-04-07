@@ -77,7 +77,6 @@ public class SKETCHrController {
 
     }
 
-
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.DELETE)
     public void deleteDrawing(@PathVariable("id") int id){
         drawings.delete(id);
