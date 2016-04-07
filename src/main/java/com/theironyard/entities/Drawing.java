@@ -16,7 +16,7 @@ public class Drawing {
     @GeneratedValue
     int id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100000)
     String fileName;
 
 

@@ -43,29 +43,23 @@ var canvasApp ={
     saveCanvas: '/upload'
   }
 };
-
-
-function saveCanvasImg(canvasDATA){
+function saveCanvasImg(canvasString){
   $.ajax({
     url:canvasApp.urls.saveCanvas,
     method:'POST',
-    data: {saveCanvas: canvasDATA},
+    data: {saveCanvas:canvasString},
     success: function(saveCanvas){
-      console.log(canvasDATA);
+      // console.log(canvasDATA);
+      alert('it worked!');
     }
   });
 }
 
-
 document.getElementById('save').addEventListener('click',function(){
-  var canvasDATA = canvas.toDataURL(0, 0, canvas.width, canvas.height);
-  console.log(canvasDATA);
-  console.log(JSON.stringify(canvasDATA));
-
-
-  // var c2= document.getElementById("c2");
-  // var context2= c2.getContext("2d");
-  // context2.putImageData(data,0,0);
+  var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
+  var canvasString = JSON.stringify(canvasDATA);
+  console.log(canvasString);
+  saveCanvasImg(canvasString);
 });
 
 //add click property
