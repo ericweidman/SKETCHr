@@ -125,3 +125,9 @@ span{
 h4{
   font-size: 12px;
 }
+.openTEST{
+  float: left;
+  display: inline-block;
+  width: 700px;
+  margin-right: 25%;
+}
