@@ -8,15 +8,11 @@ import com.theironyard.utils.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.SQLException;
 
 
@@ -78,14 +74,21 @@ public class SKETCHrController {
     @RequestMapping(path = "/photos/{id}", method = RequestMethod.GET)
     public Drawing getDrawing( @PathVariable("id") int id){
         return drawings.findOne(id);
-    }
-    @RequestMapping(path = "/upload/{id}", method = RequestMethod.DELETE)
-    public void deleteDrawing(@PathVariable("id") int id){
 
     }
-    @RequestMapping(path = "/upload/{id}", method = RequestMethod.PUT)
-    public Drawing editDrawing(@PathVariable("id") int id, MultipartFile drawing){
-        return null;
+
+
+    @RequestMapping(path = "/photo/{id}", method = RequestMethod.DELETE)
+    public void deleteDrawing(@PathVariable("id") int id){
+        drawings.delete(id);
+
+    }
+    @RequestMapping(path = "/photo/{id}", method = RequestMethod.PUT)
+    public Drawing editDrawing(@PathVariable("id") int id, @RequestBody Drawing drawing){
+        Drawing oldDrawing = drawings.findOne(id);
+        drawing = oldDrawing;
+        drawings.save(drawing);
+        return drawing;
     }
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
