@@ -123,5 +123,18 @@ span{
   color: red;
 }
 h4{
-  font-size: 12px;
+
+  font-size: 14px;
+}
+
+#crayon, #marker, #eraser {
+  width: 30px;
+  margin-top: 20px;
+}
+
+#clear, #save {
+  width: 99px;
+  font-size: 18px;
+  margin-top: 20px;
+  display: block;
 }
