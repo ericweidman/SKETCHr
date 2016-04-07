@@ -61,15 +61,12 @@ public class SketcHrApplicationTests {
 //	}
 
 //    @Test
-//    public void addUser() throws Exception {
+//    public void login() throws Exception {
 //
-//
-//
-//
-//
+//        User user = new User("Eric", PasswordStorage.createHash("Password"));
 //
 //        ObjectMapper mapper = new ObjectMapper();
-//        String json = mapper.writeValueAsString();
+//        String json = mapper.writeValueAsString(user);
 //
 //        mockMvc.perform(
 //                MockMvcRequestBuilders.post("/login")

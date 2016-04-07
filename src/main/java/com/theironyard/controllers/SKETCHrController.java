@@ -42,7 +42,8 @@ public class SKETCHrController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public User login(String userName, String password, HttpSession session, HttpServletResponse response) throws Exception {
+    public User login(String userName, String password, HttpSession session) throws Exception {
+
         User user = users.findByUserName(userName);
         if(user == null){
             user = new User(userName, PasswordStorage.createHash(password));
@@ -52,7 +53,8 @@ public class SKETCHrController {
             throw new Exception("Invalid password!");
         }
          session.setAttribute("userName", userName);
-         return user;
+         return null;
+
     }
 
     @RequestMapping(path = "/user", method = RequestMethod.GET)
