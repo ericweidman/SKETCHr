@@ -138,3 +138,9 @@ h4{
   margin-top: 20px;
   display: block;
 }
+.openTEST{
+  float: left;
+  display: inline-block;
+  width: 700px;
+  margin-right: 25%;
+}
