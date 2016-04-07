@@ -180,5 +180,9 @@ context.globalAlpha = 1; // Transparency
 //clears canvas
 
  document.getElementById('clear').addEventListener('click', function() {
-       context.clearRect(0, 0, canvas.width, canvas.height);
-     });
+   context.clearRect(0, 0, canvas.width, canvas.height);
+   clickX = [];
+   clickY = [];
+
+
+ });
