@@ -148,15 +148,30 @@ document.getElementById('grey').addEventListener('click',function(){
   current=grey;
 });
 
+//add tools
+var clickTool = new Array();
+var curTool = "crayon";
+var curTool = "marker";
+var curTool = "eraser";
+
+
+
+
 ///add click
 function addClick(x,y,dragging)
 {
 clickX.push(x);
 clickY.push(y);
 clickDrag.push(dragging);
-clickColor.push(current);
+//if(curTool == "eraser"){
+  //clickColor.push("white");
+//}else{
+    clickColor.push(current);
+//  }
+
 lineSize.push(currentSize);
 }
+
 ///defines draw
 function draw(){
   context.clearRect(0, 0, context.canvas.width, context.canvas.height);
@@ -177,5 +192,14 @@ function draw(){
     context.lineWidth = lineSize[i];
     context.stroke();
   }
+  if(curTool == "crayon") {
+  context.globalAlpha = 0.4;
+  context.drawImage(crayonTextureImage, 0, 0, canvasWidth, canvasHeight);
+}
+context.globalAlpha = 1; // Transparency
 }
 //clears canvas
+
+ document.getElementById('clear').addEventListener('click', function() {
+       context.clearRect(0, 0, canvas.width, canvas.height);
+     });
