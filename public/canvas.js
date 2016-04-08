@@ -82,45 +82,53 @@ document.getElementById('size160').addEventListener('click',function(){
 
 //colors
 
-var white='#ffffff';
-var black='#000000';
-var red='#BB3437';
-var blue='#4E69A2';
-var yellow='#FBDE5F';
-var green='#89CF3A';
-var orange='#D2872A';
-var purple='#725C93';
-var grey='#C2C2C2';
-var current=black;
+// var white='#ffffff';
+// var black='#000000';
+// var red='#BB3437';
+// var blue='#4E69A2';
+// var yellow='#FBDE5F';
+// var green='#89CF3A';
+// var orange='#D2872A';
+// var purple='#725C93';
+// var grey='#C2C2C2';
+var current='#000000';
 var clickColor= new Array();
 //colors
-document.getElementById('black').addEventListener('click',function(){
-  current=black;
+
+document.getElementById('colorPick').addEventListener('click', function(){
+  current=this.value;
+  console.log(current);
 });
-document.getElementById('white').addEventListener('click',function(){
-  current=white;
-});
-document.getElementById('red').addEventListener('click',function(){
-  current=red;
-});
-document.getElementById('blue').addEventListener('click',function(){
-  current=blue;
-});
-document.getElementById('yellow').addEventListener('click',function(){
-  current=yellow;
-});
-document.getElementById('green').addEventListener('click',function(){
-  current=green;
-});
-document.getElementById('orange').addEventListener('click',function(){
-  current=orange;
-});
-document.getElementById('purple').addEventListener('click',function(){
-  current=purple;
-});
-document.getElementById('grey').addEventListener('click',function(){
-  current=grey;
-});
+
+
+
+// document.getElementById('black').addEventListener('click',function(){
+//   current=black;
+// });
+// document.getElementById('white').addEventListener('click',function(){
+//   current=white;
+// });
+// document.getElementById('red').addEventListener('click',function(){
+//   current=red;
+// });
+// document.getElementById('blue').addEventListener('click',function(){
+//   current=blue;
+// });
+// document.getElementById('yellow').addEventListener('click',function(){
+//   current=yellow;
+// });
+// document.getElementById('green').addEventListener('click',function(){
+//   current=green;
+// });
+// document.getElementById('orange').addEventListener('click',function(){
+//   current=orange;
+// });
+// document.getElementById('purple').addEventListener('click',function(){
+//   current=purple;
+// });
+// document.getElementById('grey').addEventListener('click',function(){
+//   current=grey;
+// });
 
 //add tools
 var clickTool = new Array();
@@ -179,12 +187,15 @@ function draw(){
     context.stroke();
   }
   if(curTool == "crayon") {
+  var CRAYimg ='/public/img/TEST2.bmp';
   context.globalAlpha = 0.1;
-  context.drawImage(0,0,canvas.width,canvas.height);
+  context.drawImage(CRAYimg,0,0,canvas.width,canvas.height);
 }
 context.globalAlpha = 1; // Transparency
 }
 //clears canvas
+
+
 
  document.getElementById('clear').addEventListener('click', function() {
  context.clearRect(0,0,canvas.width,canvas.height);
