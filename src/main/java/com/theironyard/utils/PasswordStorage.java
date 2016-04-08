@@ -1,3 +1,7 @@
+
+//All credit for this code should go to defuse @ github.
+//Class can be found here https://github.com/defuse/password-hashing
+
 package com.theironyard.utils;
 
 import java.security.SecureRandom;
