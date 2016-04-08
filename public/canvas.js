@@ -12,6 +12,11 @@ if(typeof G_vmlCanvasManager != 'undefined'){
 }
 context = canvas.getContext('2d');
 
+var memory = document.createElement('canvas');
+// memory.width='500';
+// memory.height='500';
+var memoryCTX= memory.getContext('2d')
+
 //clicking the mouse
 $('#canvas').mousedown(function(e){
   var moveX = e.pageX - this.offsetLeft;
@@ -136,6 +141,8 @@ document.getElementById('crayon').addEventListener('click',function(){
   curTool='crayon';
 });
 
+
+
 ///add click
 function addClick(x,y,dragging)
 {
@@ -180,9 +187,13 @@ context.globalAlpha = 1; // Transparency
 //clears canvas
 
  document.getElementById('clear').addEventListener('click', function() {
-   context.clearRect(0, 0, canvas.width, canvas.height);
-   clickX = [];
-   clickY = [];
+  context.clearRect(0,0,canvas.width,canvas.height);
+  memoryCTX.clearRect(0,0,canvas.width,canvas.height);
 
-
+ });
+ document.getElementById('lineTool').addEventListener('click', function() {
+   console.log('clicked');
+   context.moveTo(10, 100);
+   context.lineTo(20, 204);
+   context.stroke();
  });

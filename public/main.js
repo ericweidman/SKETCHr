@@ -2,7 +2,8 @@ var canvasApp ={
   urls:{
     canvasIMG: '/upload',
     getCanvasImg: '/photo/',
-    canvasGallery: '/gallery/'
+    canvasGallery: '/gallery',
+    deleteCanvas: '/photo/'
   }
 };
 function saveCanvasImg(canvasString){
@@ -17,26 +18,34 @@ function saveCanvasImg(canvasString){
   });
 }
 
-var id = '33';
-
 function getGallery(){
   $.ajax({
     url:canvasApp.urls.canvasGallery,
     method:'GET',
-    success: function(){
-      console.log('here they are',canvasApp.urls.canvasGallery);
+    success: function(data){
+      console.log('here is my data',data);
       // alert('it worked!');
     }
   });
 }
 
+function deleteImg(){
+  $.ajax({
+    method:'DELETE',
+    url: canvasApp.urls.deleteCanvas + id,
+    success: function(){
+      console.log('deleted!');
+    }
+  });
+}
 
 
+id = '35';
 
-function getCanvasImg(canvasIMGID){
+function getCanvasImg(){
   $.ajax({
     method:'GET',
-    url:canvasApp.urls.getCanvasImg + id,
+    url:canvasApp.urls.getCanvasImg + 1,
     success: function(canvasIMG){
       var img = new Image();
       var canvasGet = decodeURIComponent(canvasIMG.fileName).split('=')[1].substr(1);
@@ -57,13 +66,12 @@ document.getElementById('save').addEventListener('click',function(){
   saveCanvasImg(canvasString);
 });
 
+document.getElementById('delete').addEventListener('click', function(){
+  deleteImg();
+});
+
 
 document.getElementById('open').addEventListener('click', function(){
   getCanvasImg();
   getGallery();
-
-  // var img = new Image();
-  // img.src = decodeURIComponent(canvasIMG);
-  // console.log(window.glob.fileName);
-  // $('openTEST').append(canvasIMG);
 });
