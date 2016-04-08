@@ -187,13 +187,14 @@ context.globalAlpha = 1; // Transparency
 //clears canvas
 
  document.getElementById('clear').addEventListener('click', function() {
-  context.clearRect(0,0,canvas.width,canvas.height);
-  memoryCTX.clearRect(0,0,canvas.width,canvas.height);
+ context.clearRect(0,0,canvas.width,canvas.height);
+ clickX = [];
+ clickY = [];
 
  });
  document.getElementById('lineTool').addEventListener('click', function() {
    console.log('clicked');
-   context.moveTo(10, 100);
+   context.moveTo(100, 130);
    context.lineTo(20, 204);
    context.stroke();
  });
