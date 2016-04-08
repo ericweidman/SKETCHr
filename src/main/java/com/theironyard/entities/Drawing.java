@@ -34,4 +34,8 @@ public class Drawing {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    public int getId() {
+        return id;
+    }
 }

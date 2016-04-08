@@ -61,15 +61,12 @@ public class SketcHrApplicationTests {
 //	}
 
 //    @Test
-//    public void addUser() throws Exception {
+//    public void login() throws Exception {
 //
-//
-//
-//
-//
+//        User user = new User("Eric", PasswordStorage.createHash("Password"));
 //
 //        ObjectMapper mapper = new ObjectMapper();
-//        String json = mapper.writeValueAsString();
+//        String json = mapper.writeValueAsString(user);
 //
 //        mockMvc.perform(
 //                MockMvcRequestBuilders.post("/login")
@@ -78,5 +75,20 @@ public class SketcHrApplicationTests {
 //        );
 //        Assert.assertTrue(users.count() ==  1);
 //    }
+
+
+//    @Test
+//    public void deleteDrawing() throws Exception {
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        String json = mapper.writeValueAsString(1);
+//        mockMvc.perform(
+//                MockMvcRequestBuilders.delete("/photo/1")
+//                .content(json)
+//                .contentType("application/json")
+//        );
+//        Assert.assertTrue(drawings.count() == 5);
+//    }
+
 
 }
