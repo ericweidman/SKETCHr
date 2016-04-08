@@ -38,7 +38,7 @@ public class SKETCHrController {
     }
 
     @PreDestroy
-    public void destroy(){
+    public void destroy() {
         dbui.stop();
     }
 
@@ -47,26 +47,25 @@ public class SKETCHrController {
     public User login(String userName, String password, HttpSession session) throws Exception {
 
         User user = users.findByUserName(userName);
-        if(user == null){
+        if (user == null) {
             user = new User(userName, PasswordStorage.createHash(password));
             users.save(user);
-        }
-        else if(!PasswordStorage.verifyPassword(password, user.getPasswordHash())){
+        } else if (!PasswordStorage.verifyPassword(password, user.getPasswordHash())) {
             throw new Exception("Invalid password!");
         }
-         session.setAttribute("userName", userName);
-         return null;
+        session.setAttribute("userName", userName);
+        return null;
 
     }
 
     @RequestMapping(path = "/user", method = RequestMethod.GET)
-    public User getUser(@RequestBody User user, HttpSession session){
+    public User getUser(@RequestBody User user, HttpSession session) {
         return user;
     }
 
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing stringUp(@RequestBody String drawingString){
+    public Drawing stringUp(@RequestBody String drawingString) {
 
         Drawing drawing = new Drawing(drawingString);
         drawings.save(drawing);
@@ -74,28 +73,28 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.GET)
-    public Drawing getDrawing(@PathVariable("id") int id){
+    public Drawing getDrawing(@PathVariable("id") int id) {
         Drawing drawing = drawings.findOne(id);
         return drawing;
 
     }
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.DELETE)
-    public void deleteDrawing(@PathVariable("id") int id){
+    public void deleteDrawing(@PathVariable("id") int id) {
         drawings.delete(id);
 
     }
 
-   @RequestMapping(path = "/gallery", method = RequestMethod.GET)
-    public List<Drawing> allDrawings(){
-      List<Drawing> allDrawings = (List<Drawing>) drawings.findAll();
-       return allDrawings;
+    @RequestMapping(path = "/gallery", method = RequestMethod.GET)
+    public List<Drawing> allDrawings() {
+        List<Drawing> allDrawings = (List<Drawing>) drawings.findAll();
+        return allDrawings;
 
-     }
+    }
 
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.PUT)
-    public Drawing editDrawing(@PathVariable("id") int id, @RequestBody Drawing drawing){
+    public Drawing editDrawing(@PathVariable("id") int id, @RequestBody Drawing drawing) {
         Drawing oldDrawing = drawings.findOne(id);
         oldDrawing = drawing;
         drawings.save(drawing);
@@ -103,7 +102,7 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
-    public void logout(HttpSession session){
+    public void logout(HttpSession session) {
         session.invalidate();
     }
 
