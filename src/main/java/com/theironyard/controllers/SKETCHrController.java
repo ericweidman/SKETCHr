@@ -13,6 +13,9 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.List;
+
+import static org.aspectj.weaver.tools.cache.SimpleCacheFactory.path;
 
 
 /**
@@ -39,7 +42,7 @@ public class SKETCHrController {
         dbui.stop();
     }
 
-
+    //right now this route acts as both the login and create user function
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public User login(String userName, String password, HttpSession session) throws Exception {
 
@@ -71,7 +74,7 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.GET)
-    public Drawing getDrawing( @PathVariable("id") int id){
+    public Drawing getDrawing(@PathVariable("id") int id){
         Drawing drawing = drawings.findOne(id);
         return drawing;
 
@@ -82,6 +85,13 @@ public class SKETCHrController {
         drawings.delete(id);
 
     }
+
+   @RequestMapping(path = "/gallery", method = RequestMethod.GET)
+    public List<Drawing> allDrawings(){
+      List<Drawing> allDrawings = (List<Drawing>) drawings.findAll();
+       return allDrawings;
+
+     }
 
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.PUT)
