@@ -21,21 +21,22 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SketcHrApplication.class)
 @WebAppConfiguration
 public class SketcHrApplicationTests {
 
 
-
-	@Autowired
-	UserRepository users;
+    @Autowired
+    UserRepository users;
 
     @Autowired
-	DrawingRepository drawings;
+    DrawingRepository drawings;
 
     @Autowired
-	WebApplicationContext wap;
+    WebApplicationContext wap;
 
     MockMvc mockMvc;
 
@@ -89,6 +90,21 @@ public class SketcHrApplicationTests {
 //        );
 //        Assert.assertTrue(drawings.count() == 5);
 //    }
-
+//
+//    @Test
+//    public void getGallery() throws Exception {
+//
+//        List<Drawing> allDrawings = (List<Drawing>) drawings.findAll();
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        String json = mapper.writeValueAsString(allDrawings);
+//        mockMvc.perform(
+//                MockMvcRequestBuilders.get("/gallery")
+//                .content(json)
+//                .contentType("application/json")
+//        );
+//        Assert.assertTrue(!allDrawings.isEmpty());
+//
+//    }
 
 }

@@ -8,14 +8,12 @@ import com.theironyard.utils.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
-import static org.aspectj.weaver.tools.cache.SimpleCacheFactory.path;
 
 
 /**
@@ -92,7 +90,6 @@ public class SKETCHrController {
 
     }
 
-
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.PUT)
     public Drawing editDrawing(@PathVariable("id") int id, @RequestBody Drawing drawing) {
         Drawing oldDrawing = drawings.findOne(id);
@@ -105,5 +102,4 @@ public class SKETCHrController {
     public void logout(HttpSession session) {
         session.invalidate();
     }
-
 }
