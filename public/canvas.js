@@ -12,34 +12,7 @@ if(typeof G_vmlCanvasManager != 'undefined'){
 }
 context = canvas.getContext('2d');
 
-var memory = document.createElement('canvas');
-// memory.width='500';
-// memory.height='500';
-var memoryCTX= memory.getContext('2d')
-
 //clicking the mouse
-$('#canvas').mousedown(function(e){
-  var moveX = e.pageX - this.offsetLeft;
-  var moveY = e.pageY - this.offsetTop;
-  paint = true;
-  addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-  draw();
-});
-//moving the mouse after clicked
-$('#canvas').mousemove(function(e){
-  if(paint){
-    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-    draw();
-  }
-});
-//after the mouse button is released
-$('#canvas').mouseup(function(e){
-  paint=false;
-});
-//when the mouse leaves the canvas
-$('#canvas').mouseleave(function(e){
-  paint=false;
-});
 
 
 //add click property
@@ -78,57 +51,8 @@ document.getElementById('size160').addEventListener('click',function(){
   currentSize=160;
 });
 
-
-
-//colors
-
-// var white='#ffffff';
-// var black='#000000';
-// var red='#BB3437';
-// var blue='#4E69A2';
-// var yellow='#FBDE5F';
-// var green='#89CF3A';
-// var orange='#D2872A';
-// var purple='#725C93';
-// var grey='#C2C2C2';
 var current='#000000';
 var clickColor= new Array();
-//colors
-
-document.getElementById('colorPick').addEventListener('click', function(){
-  current=this.value;
-  console.log(current);
-});
-
-
-
-// document.getElementById('black').addEventListener('click',function(){
-//   current=black;
-// });
-// document.getElementById('white').addEventListener('click',function(){
-//   current=white;
-// });
-// document.getElementById('red').addEventListener('click',function(){
-//   current=red;
-// });
-// document.getElementById('blue').addEventListener('click',function(){
-//   current=blue;
-// });
-// document.getElementById('yellow').addEventListener('click',function(){
-//   current=yellow;
-// });
-// document.getElementById('green').addEventListener('click',function(){
-//   current=green;
-// });
-// document.getElementById('orange').addEventListener('click',function(){
-//   current=orange;
-// });
-// document.getElementById('purple').addEventListener('click',function(){
-//   current=purple;
-// });
-// document.getElementById('grey').addEventListener('click',function(){
-//   current=grey;
-// });
 
 //add tools
 var clickTool = new Array();
@@ -136,19 +60,6 @@ var curTool='marker';
 var crayon = "crayon";
 var marker = "marker";
 var eraser = "eraser";
-
-
-document.getElementById('eraser').addEventListener('click',function(){
-  curTool='eraser';
-});
-document.getElementById('marker').addEventListener('click',function(){
-  curTool='marker';
-});
-var crayonImg =
-document.getElementById('crayon').addEventListener('click',function(){
-  curTool='crayon';
-});
-
 
 
 ///add click
@@ -187,15 +98,37 @@ function draw(){
     context.stroke();
   }
   if(curTool == "crayon") {
-  var CRAYimg ='/public/img/TEST2.bmp';
-  context.globalAlpha = 0.1;
-  context.drawImage(CRAYimg,0,0,canvas.width,canvas.height);
+  console.log('crayon');
+  var crayonImg= new Image();
+  crayonImg.globalAlpha=0.1;
+  // crayonImg.src='/img/crayonTEST.png',
+  // context.drawImage(crayonImg,0,0,canvas.width,canvas.height);
 }
 context.globalAlpha = 1; // Transparency
 }
-//clears canvas
 
-
+$('#canvas').mousedown(function(e){
+  var moveX = e.pageX - this.offsetLeft;
+  var moveY = e.pageY - this.offsetTop;
+  paint = true;
+  addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+  draw();
+});
+//moving the mouse after clicked
+$('#canvas').mousemove(function(e){
+  if(paint){
+    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+    draw();
+  }
+});
+//after the mouse button is released
+$('#canvas').mouseup(function(e){
+  paint=false;
+});
+//when the mouse leaves the canvas
+$('#canvas').mouseleave(function(e){
+  paint=false;
+});
 
  document.getElementById('clear').addEventListener('click', function() {
   context.clearRect(0,0,canvas.width,canvas.height);
@@ -207,4 +140,20 @@ context.globalAlpha = 1; // Transparency
    context.moveTo(10, 100);
    context.lineTo(20, 204);
    context.stroke();
+ });
+
+ document.getElementById('eraser').addEventListener('click',function(){
+   curTool='eraser';
+ });
+ document.getElementById('marker').addEventListener('click',function(){
+   curTool='marker';
+ });
+
+ document.getElementById('crayon').addEventListener('click',function(){
+   curTool='crayon';
+ });
+
+ document.getElementById('colorPick').addEventListener('click', function(){
+   current=this.value;
+   console.log(current);
  });
