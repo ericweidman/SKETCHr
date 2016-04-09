@@ -127,7 +127,7 @@ h4{
   font-size: 14px;
 }
 
-#crayon, #marker, #eraser {
+#crayon, #marker, #eraser, {
   width: 30px;
   margin-top: 20px;
 }
@@ -143,4 +143,8 @@ h4{
   display: inline-block;
   width: 700px;
   margin-right: 25%;
+}
+
+#spray {
+  width: 120px;
 }

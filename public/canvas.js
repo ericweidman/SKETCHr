@@ -205,7 +205,7 @@ context.globalAlpha = 1; // Transparency
  });
  document.getElementById('lineTool').addEventListener('click', function() {
    console.log('clicked');
-   context.moveTo(100, 130);
-   context.lineTo(20, 204);
+   context.moveTo(300, 100);
+   context.lineTo(100, 100);
    context.stroke();
  });
