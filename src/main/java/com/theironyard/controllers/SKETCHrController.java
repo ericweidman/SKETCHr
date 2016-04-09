@@ -8,12 +8,12 @@ import com.theironyard.utils.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
-
 
 
 /**
@@ -40,25 +40,37 @@ public class SKETCHrController {
         dbui.stop();
     }
 
-    //right now this route acts as both the login and create user function
-    @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public User login(String userName, String password, HttpSession session) throws Exception {
 
-        User user = users.findByUserName(userName);
+    @RequestMapping(path = "/create-user", method = RequestMethod.POST)
+    public User createUser(@RequestBody User newUser, HttpSession session) throws Exception {
+
+        User user = users.findByUserName(newUser.getUserName());
         if (user == null) {
-            user = new User(userName, PasswordStorage.createHash(password));
+            user = new User(newUser.getUserName(), PasswordStorage.createHash(newUser.getPasswordHash()));
             users.save(user);
-        } else if (!PasswordStorage.verifyPassword(password, user.getPasswordHash())) {
+            session.setAttribute("userName", user.getUserName());
+        } else {
+            throw new Exception("Username already taken.");
+        }
+        return user;
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public User login(@RequestBody User assumedUser, HttpSession session) throws Exception {
+        User user = users.findByUserName(assumedUser.getUserName());
+        if (user == null) {
+            throw new Exception("Username does not exist.");
+        } else if (!PasswordStorage.verifyPassword(assumedUser.getPasswordHash(), user.getPasswordHash())) {
             throw new Exception("Invalid password!");
         }
-        session.setAttribute("userName", userName);
-        return null;
-
+        session.setAttribute("userName", user.getUserName());
+        return user;
     }
+
 
     @RequestMapping(path = "/user", method = RequestMethod.GET)
     public User getUser(@RequestBody User user, HttpSession session) {
-        return user;
+        return null;
     }
 
 
@@ -87,7 +99,6 @@ public class SKETCHrController {
     public List<Drawing> allDrawings() {
         List<Drawing> allDrawings = (List<Drawing>) drawings.findAll();
         return allDrawings;
-
     }
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.PUT)
