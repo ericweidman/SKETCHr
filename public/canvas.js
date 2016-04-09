@@ -106,11 +106,7 @@ function draw(){
 }
 context.globalAlpha = 1; // Transparency
 }
-<<<<<<< HEAD
 
-
-//clears canvas
-=======
 
 $('#canvas').mousedown(function(e){
   var moveX = e.pageX - this.offsetLeft;
@@ -134,7 +130,7 @@ $('#canvas').mouseup(function(e){
 $('#canvas').mouseleave(function(e){
   paint=false;
 });
->>>>>>> c7e9fa3c956401e33056756ec1d1ac408c4e035d
+
 
  document.getElementById('clear').addEventListener('click', function() {
  context.clearRect(0,0,canvas.width,canvas.height);
