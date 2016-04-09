@@ -1,27 +1,30 @@
 package com.theironyard;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.entities.Drawing;
 import com.theironyard.entities.User;
 import com.theironyard.services.DrawingRepository;
 import com.theironyard.services.UserRepository;
 import com.theironyard.utils.PasswordStorage;
-import org.h2.util.New;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
+import javax.servlet.http.HttpSession;
 import java.util.List;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SketcHrApplication.class)
@@ -60,7 +63,7 @@ public class SketcHrApplicationTests {
 //		);
 //		Assert.assertTrue(drawings.count() == 1);
 //	}
-
+//
 //    @Test
 //    public void login() throws Exception {
 //
@@ -76,8 +79,8 @@ public class SketcHrApplicationTests {
 //        );
 //        Assert.assertTrue(users.count() ==  1);
 //    }
-
-
+//
+//
 //    @Test
 //    public void deleteDrawing() throws Exception {
 //
@@ -106,5 +109,18 @@ public class SketcHrApplicationTests {
 //        Assert.assertTrue(!allDrawings.isEmpty());
 //
 //    }
+//
+//    @Test
+//    public void testLogout() throws Exception {
+//        ResultActions ra = mockMvc.perform(
+//                MockMvcRequestBuilders.post("/logout")
+//        );
+//        MvcResult result = ra.andReturn();
+//        MockHttpServletRequest request = result.getRequest();
+//        HttpSession session = request.getSession();
+//        Assert.assertTrue(session.getAttribute("") == null);
+//
+//    }
+
 
 }
