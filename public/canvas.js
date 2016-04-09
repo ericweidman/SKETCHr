@@ -28,29 +28,6 @@ var paint;
 var currentSize= 5;
 var lineSize= new Array();
 
-document.getElementById('size2').addEventListener('click',function(){
-  currentSize=2;
-});
-
-document.getElementById('size5').addEventListener('click',function(){
-  currentSize=5;
-});
-document.getElementById('size10').addEventListener('click',function(){
-  currentSize=10;
-});
-document.getElementById('size20').addEventListener('click',function(){
-  currentSize=20;
-});
-document.getElementById('size40').addEventListener('click',function(){
-  currentSize=40;
-});
-document.getElementById('size80').addEventListener('click',function(){
-  currentSize=80;
-});
-document.getElementById('size160').addEventListener('click',function(){
-  currentSize=160;
-});
-
 var current='#000000';
 var clickColor= new Array();
 
@@ -194,7 +171,11 @@ canvasID.onmouseup = function() {
    curTool='crayon';
  });
 
- document.getElementById('colorPick').addEventListener('click', function(){
+ $('#colorPick').on('change', function(){
    current=this.value;
    console.log(current);
+ });
+ $('#slider').on('input', function(){
+   currentSize=this.value;
+   console.log(this.value);
  });
