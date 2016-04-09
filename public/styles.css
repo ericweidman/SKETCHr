@@ -1,8 +1,11 @@
 body{
   display: inline-block;
   width: 100%;
-  font-family: 'Fjalla One', sans-serif;
-  background-color: #F1F1F1;
+  font-family: 'open sans', sans-serif;
+  background-color: #1D1F20;
+  color: white;
+  tex
+
 }
 
 #canvas{
@@ -16,66 +19,26 @@ body{
 .sidebar{
   display: inline-block;
   width: 25%;
-  border: 1px solid black;
   height: 500px;
   float: left;
   margin: 1%;
-  padding:1%;
-  background-color: white;
+  background: radial-gradient(#474748,#1D1F20);
+  box-shadow: 4px 4px 4px solid black;
+  border-radius: 10px;
+  border: 2px solid #474748;
+}
+h4{
+  font-size: 14px;
+  background: linear-gradient(#474748,#1D1F20);
+  border-radius: 5px;
+  border: 2px solid #474748;
 }
 
-.colorButtons{
-  height: 40px;
-  border: 1px solid black;
-  padding: 5%;
+.button{
+  display: inline-block;
+  float: right;
+  margin: 2%;
 }
-#white{
-  background-color: white;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-
-#black{
-  background-color: black;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-#red{
-  background-color:#BB3437;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-#blue{
-  background-color:#4E69A2;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-#yellow{
-  background-color:#FBDE5F;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-#orange{
-  background-color:#D2872A;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-#green{
-  background-color:#89CF3A;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-#purple{
-  background-color:#725C93;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-#grey{
-  background-color:#C2C2C2;
-  border-radius: 50px;
-  border: 2px solid black;
-}
-
 
 #size2{
   border-radius: 50%;
@@ -115,16 +78,15 @@ body{
 }
 
 h1{
-  margin-top: 2%;
   border-top: 5px solid black;
+  text-shadow: 2px 2px 2px black;
+  color: white;
+  background-color: #3F4041;
+  height: 50px;
 }
 
 span{
-  color: red;
-}
-h4{
-
-  font-size: 14px;
+  color:#d35400;
 }
 
 #crayon, #marker, #eraser {
@@ -132,12 +94,6 @@ h4{
   margin-top: 20px;
 }
 
-#clear, #save {
-  width: 99px;
-  font-size: 18px;
-  margin-top: 20px;
-  display: block;
-}
 .openTEST{
   float: left;
   display: inline-block;
