@@ -110,7 +110,7 @@ $('#canvas').mouseleave(function(e){
 
 
 // SPRAY TOOL
-var timeout;
+/*var timeout;
 var density = 50;
 
 function getRandomFloat(min, max) {
@@ -141,7 +141,7 @@ canvasID.onmousemove = function(e) {
 };
 canvasID.onmouseup = function() {
   clearTimeout(timeout);
-};
+};*/
 
 // Clear canvas
  document.getElementById('clear').addEventListener('click', function() {
@@ -157,9 +157,9 @@ canvasID.onmouseup = function() {
    context.stroke();
  });
 
- document.getElementById('spray').addEventListener('click',function(){
+ /*document.getElementById('spray').addEventListener('click',function(){
    curTool='spray';
- });
+ });*/
  document.getElementById('eraser').addEventListener('click',function(){
    curTool='eraser';
  });
