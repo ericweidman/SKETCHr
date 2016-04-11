@@ -61,10 +61,30 @@ span{
   float: right;
   margin-top:1%;
 }
+
 .button:hover{
   background: none;
   background-color:#d35400;
   border-radius: 5px;
+}
+
+.statusButton{
+  display: inline-block;
+  background: linear-gradient(#1D1F20,#3F4041);
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+  border: none;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 15px;
+  margin-top:1%;
+}
+
+.statusButton:hover{
+  background: none;
+  background-color:#d35400;
 }
 
 

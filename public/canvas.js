@@ -150,13 +150,7 @@ canvasID.onmouseup = function() {
  clickY = [];
 
  });
- document.getElementById('lineTool').addEventListener('click', function() {
-   console.log('clicked');
-   context.moveTo(300, 100);
-   context.lineTo(100, 100);
-   context.stroke();
- });
-
+ 
  /*document.getElementById('spray').addEventListener('click',function(){
    curTool='spray';
  });*/
