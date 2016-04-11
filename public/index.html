@@ -8,7 +8,7 @@
   </head>
   <body>
 
-    <section>
+    <section class= "new-user">
       <h1>Create New User</h1>
       <form id='userForm'>
       <div class="newUser">
@@ -22,18 +22,24 @@
      </div>
    </form>
    <form id="logIn">
-        <input type="text" name="Name" placeholder="user name">
-       <input type="text" name="Password" placeholder="password">
+          <input type="text" name="Name" placeholder="user name">
+          <input type="text" name="Password" placeholder="password">
           <button class='button user' type="submit" name="submit">Log In</button>
+
    </form>
 
     </section>
+
+    <section class="main-canvas">
+
+
     <h1>SKETCH<span>r</span>
 
         <input class='button' type='button' id='clear' value='clear all'>
         <input class='button' type='button' id='save' value='save'>
         <input class='button' type="button" id='delete' value="remove">
         <input class='button' type='button' id='open' value='open'>
+        <button class='logOut' type="submit" name="out">Log Out</button>
 
     </h1>
     <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
@@ -60,7 +66,7 @@
     <section class='openTEST'>
       <h1>POST TESTING SPACE</h1>
     </section>
-
+    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="templates.js" charset="utf-8"></script>
     <script src="canvas.js" charset="utf-8"></script>
