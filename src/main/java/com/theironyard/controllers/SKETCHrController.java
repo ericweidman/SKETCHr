@@ -45,17 +45,16 @@ public class SKETCHrController {
 
 
     @RequestMapping(path = "/create-user", method = RequestMethod.POST)
-    public String createUser(@RequestBody User newUser, HttpSession session) throws Exception {
-
+    public String createUser(@RequestBody User newUser) throws Exception {
         User user = users.findByUserName(newUser.getUserName());
         if (user == null) {
             user = new User(newUser.getUserName(), PasswordStorage.createHash(newUser.getPasswordHash()));
             users.save(user);
-            session.setAttribute("userName", user.getUserName());
+            return null;
         } else {
             throw new Exception("Username already taken.");
         }
-        return user.getUserName();
+
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
@@ -63,14 +62,17 @@ public class SKETCHrController {
         User user = users.findByUserName(assumedUser.getUserName());
         if (user == null) {
             throw new Exception("Username does not exist.");
-        } else if (!PasswordStorage.verifyPassword(assumedUser.getPasswordHash(), user.getPasswordHash())) {
+        }
+        else if (!PasswordStorage.verifyPassword(assumedUser.getPasswordHash(), user.getPasswordHash())) {
             //Compares the assumedUsers password hash to the one in the DB.
             throw new Exception("Invalid password!");
         }
-        session.setAttribute("userName", user.getUserName());
-        return user.getUserName();
-    }
+        else {
+            session.setAttribute("userName", user.getUserName());
+            return user.getUserName();
 
+        }
+    }
 
     @RequestMapping(path = "/user", method = RequestMethod.GET)
     public User getUser(@RequestBody User user, HttpSession session) {
@@ -79,8 +81,11 @@ public class SKETCHrController {
 
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing stringUp(@RequestBody String drawing, HttpSession session) {
+    public Drawing stringUp(@RequestBody String drawing, HttpSession session) throws Exception {
         String userName = (String) session.getAttribute("userName");
+        if(userName == null){
+            throw new Exception("You must be logged in to upload photos.");
+        }
         User user = users.findByUserName(userName);
         Drawing newDrawing = new Drawing(drawing, user);
         drawings.save(newDrawing);
@@ -88,7 +93,7 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.GET)
-    public Drawing getDrawing(@PathVariable("id") int id) {
+    public Drawing getDrawing(@PathVariable("id") int id, HttpSession session) {
         Drawing drawing = drawings.findOne(id);
         return drawing;
 
@@ -98,6 +103,14 @@ public class SKETCHrController {
     public void deleteDrawing(@PathVariable("id") int id) {
         drawings.delete(id);
 
+    }
+
+    @RequestMapping(path ="/user-photos", method = RequestMethod.GET)
+    public List<Drawing> userDrawings(HttpSession session){
+        String userName = (String) session.getAttribute("userName");
+        User user = users.findByUserName(userName);
+        List<Drawing> userDrawings = (List<Drawing>) drawings.findByUserId(user.getId());
+        return userDrawings;
     }
 
     @RequestMapping(path = "/gallery", method = RequestMethod.GET)
