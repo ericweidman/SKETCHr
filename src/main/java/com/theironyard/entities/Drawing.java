@@ -19,12 +19,24 @@ public class Drawing {
     @Column(nullable = false, length = 100000)
     String fileName;
 
+    @ManyToOne
+    User user;
+
 
     public Drawing() {
     }
 
     public Drawing(String fileName) {
         this.fileName = fileName;
+    }
+
+    public Drawing(User user) {
+        this.user = user;
+    }
+
+    public Drawing(String fileName, User user) {
+        this.fileName = fileName;
+        this.user = user;
     }
 
     public String getFileName() {
@@ -37,5 +49,13 @@ public class Drawing {
 
     public int getId() {
         return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
