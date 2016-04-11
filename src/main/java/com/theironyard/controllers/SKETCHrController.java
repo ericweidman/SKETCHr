@@ -2,6 +2,7 @@ package com.theironyard.controllers;
 
 import com.theironyard.entities.Drawing;
 import com.theironyard.entities.User;
+import com.theironyard.services.CommentRepository;
 import com.theironyard.services.DrawingRepository;
 import com.theironyard.services.UserRepository;
 import com.theironyard.utils.PasswordStorage;
@@ -26,6 +27,8 @@ public class SKETCHrController {
     UserRepository users;
     @Autowired
     DrawingRepository drawings;
+    @Autowired
+    CommentRepository comments;
 
     Server dbui = null;
 

@@ -9,8 +9,10 @@ import com.theironyard.services.UserRepository;
 import com.theironyard.utils.PasswordStorage;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -29,6 +31,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SketcHrApplication.class)
 @WebAppConfiguration
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SketcHrApplicationTests {
 
 
