@@ -81,6 +81,10 @@ span{
   border-radius: 15px;
   margin-top:1%;
 }
+.user{
+  float: none;
+  width: 100px;
+}
 
 .statusButton:hover{
   background: none;
