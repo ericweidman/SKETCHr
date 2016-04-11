@@ -4,7 +4,8 @@ var canvasApp ={
     getCanvasImg: '/photo/',
     canvasGallery: '/gallery',
     deleteCanvas: '/photo/',
-    createUser: "/create-user/"
+    createUser: "/create-user/",
+    logIt: '/login',
   }
 };
 
@@ -20,6 +21,22 @@ function addUser(user){
     },
     error: function(error){
       console.log("Add User", error);
+    }
+  });
+}
+
+function logUser(curUser){
+  $.ajax({
+    url: canvasApp.urls.logIt,
+    method: "POST",
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    data: JSON.stringify(curUser),
+    success: function(data){
+      console.log('user logged in!', data);
+    },
+    error: function(error){
+      console.log("user not logged in", error);
     }
   });
 }
@@ -82,6 +99,15 @@ $('#userForm').submit(function(event){
   user.passwordHash = $('input[name="newPassword"]').val();
   addUser(user);
   console.log('submitted');
+});
+
+$('#logIn').submit(function(event){
+  event.preventDefault();
+  var curUser= {};
+  curUser.userName = $('input[name="Name"]').val();
+  curUser.passwordHash = $('input[name="Password"]').val();
+  logUser(curUser);
+  console.log('loggedIn');
 });
 
 document.getElementById('save').addEventListener('click',function(){
