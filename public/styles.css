@@ -68,7 +68,7 @@ span{
 }
 
 
-#crayon, #marker, #eraser {
+#crayon, #marker, #eraser, {
   width: 30px;
   margin-top: 20px;
 }
@@ -78,4 +78,8 @@ span{
   display: inline-block;
   width: 700px;
   margin-right: 25%;
+}
+
+#spray {
+  width: 120px;
 }
