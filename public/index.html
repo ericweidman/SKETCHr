@@ -23,10 +23,12 @@
 
     </section>
     <h1>SKETCH<span>r</span>
+
         <input class='button' type='button' id='clear' value='clear all'>
         <input class='button' type='button' id='save' value='save'>
         <input class='button' type="button" id='delete' value="remove">
         <input class='button' type='button' id='open' value='open'>
+
     </h1>
     <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
     <input class='statusButton' type='button' value='↻' id='redo'><span>REDO</span>
@@ -35,11 +37,13 @@
     </div>
     <section class="sidebar">
       <h4>Tools</h4>
-      <img src="img/rubber.png"  id="crayon" value='crayon'>
-      <img src="#"  id="lineTool" value='lineTool'>
-      <img src="img/tool.png"   id="marker" value='marker'>
-      <img src="img/delete.png"  id="eraser" value='eraser'>
-      <input type="button" name="spray" value="spray">
+
+      <button class= "tools" type="button" name="crayon" value='crayon'>crayon</button>
+      <button class= "tools" type="button" name="marker" value='marker'>marker</button>
+      <button class= "tools" type="button" name="eraser" value='eraser'>eraser</button>
+      <button class= "tools" type="button" name="spray" value="spray">spray</button>
+      <button class= "tools" type="button" name="lineTool" value='lineTool'>line tool</button>
+
       <h4>Size</h4>
       <input id="slider" type ="range" min ="2" max="200" step ="2" value ="10"/>
       <h4>Color</h4>
