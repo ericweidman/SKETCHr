@@ -1,5 +1,5 @@
 
-var canvasApp ={
+/*var canvasApp ={
 urls: {
   createUser: "/create-user"
 }
@@ -22,4 +22,4 @@ addUser: function(userName){
 getUsernameFromDom: function getUsernameFromDom() {
   var username = $('input[name="newName"]').val();
   return username;
-},
+},*/
