@@ -1,0 +1,8 @@
+var templates = {
+newUser: [
+
+
+
+]
+.join(""),
+}
