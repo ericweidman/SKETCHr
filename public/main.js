@@ -6,6 +6,7 @@ var canvasApp ={
     deleteCanvas: '/photo/',
     createUser: "/create-user/",
     logIt: '/login',
+    logOut: '/logout',
   }
 };
 
@@ -35,11 +36,18 @@ function logUser(curUser){
     success: function(data){
       console.log('user logged in!', data);
     },
-    error: function(error){
-      console.log("user not logged in", error);
-    }
   });
 }
+
+function logout(){
+    $.ajax({
+      url: canvasApp.urls.logout,
+      method: 'POST',
+      success: function(data){
+        console.log('LOGGED OUT!',data);
+        }
+      })
+    };
 
 function saveCanvasImg(canvasString){
   $.ajax({
@@ -110,6 +118,16 @@ $('#logIn').submit(function(event){
   console.log('loggedIn');
 });
 
+$('#logOut').on('click',function(){
+  event.preventDefault();
+  logout();
+});
+
+function hideHomePage(event) {
+  $(".new-user").addClass('inactive');
+  $(".main-canvas").removeClass('inactive');
+}
+
 document.getElementById('save').addEventListener('click',function(){
   var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
   var canvasString = JSON.stringify(canvasDATA);
@@ -118,7 +136,7 @@ document.getElementById('save').addEventListener('click',function(){
 });
 
 document.getElementById('delete').addEventListener('click', function(){
-  deleteImg();
+  // deleteImg();
 });
 
 
