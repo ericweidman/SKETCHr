@@ -42,7 +42,7 @@ public class SKETCHrController {
 
 
     @RequestMapping(path = "/create-user", method = RequestMethod.POST)
-    public User createUser(@RequestBody User newUser, HttpSession session) throws Exception {
+    public String createUser(@RequestBody User newUser, HttpSession session) throws Exception {
 
         User user = users.findByUserName(newUser.getUserName());
         if (user == null) {
@@ -52,19 +52,20 @@ public class SKETCHrController {
         } else {
             throw new Exception("Username already taken.");
         }
-        return user;
+        return user.getUserName();
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public User login(@RequestBody User assumedUser, HttpSession session) throws Exception {
+    public String login(@RequestBody User assumedUser, HttpSession session) throws Exception {
         User user = users.findByUserName(assumedUser.getUserName());
         if (user == null) {
             throw new Exception("Username does not exist.");
         } else if (!PasswordStorage.verifyPassword(assumedUser.getPasswordHash(), user.getPasswordHash())) {
+            //Compares the assumedUsers password hash to the one in the DB.
             throw new Exception("Invalid password!");
         }
         session.setAttribute("userName", user.getUserName());
-        return user;
+        return user.getUserName();
     }
 
 
