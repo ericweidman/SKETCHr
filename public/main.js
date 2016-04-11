@@ -3,9 +3,27 @@ var canvasApp ={
     canvasIMG: '/upload',
     getCanvasImg: '/photo/',
     canvasGallery: '/gallery',
-    deleteCanvas: '/photo/'
+    deleteCanvas: '/photo/',
+    createUser: "/create-user/"
   }
 };
+
+function addUser(user){
+  $.ajax({
+    url: canvasApp.urls.createUser,
+    method: "POST",
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    data: JSON.stringify(user),
+    success: function(data){
+      console.log('user added!', data);
+    },
+    error: function(error){
+      console.log("Add User", error);
+    }
+  });
+}
+
 function saveCanvasImg(canvasString){
   $.ajax({
     url:canvasApp.urls.canvasIMG,
@@ -38,8 +56,6 @@ function deleteImg(){
     }
   });
 }
-
-
 id = '35';
 
 function getCanvasImg(){
@@ -58,6 +74,15 @@ function getCanvasImg(){
     }
   });
 }
+
+$('#userForm').submit(function(event){
+  event.preventDefault();
+  var user= {};
+  user.userName = $('input[name="newName"]').val();
+  user.passwordHash = $('input[name="newPassword"]').val();
+  addUser(user);
+  console.log('submitted');
+});
 
 document.getElementById('save').addEventListener('click',function(){
   var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
