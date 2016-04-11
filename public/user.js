@@ -19,7 +19,13 @@ addUser: function(userName){
     }
   });
 }
-getUsernameFromDom: function getUsernameFromDom() {
-  var username = $('input[name="newName"]').val();
-  return username;
-},
+// getUsernameFromDom: function getUsernameFromDom() {
+//   var username = $('input[name="newName"]').val();
+//
+// },
+$('#userForm').on('submit', function(event){
+  event.preventDefault();
+  var addName= "";
+  addName = $('input[name="newName"],[password="newPassword"]').val();
+  canvasApp.addUser(userName);
+})
