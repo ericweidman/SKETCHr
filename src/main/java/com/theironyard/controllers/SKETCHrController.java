@@ -61,6 +61,7 @@ public class SKETCHrController {
         if (user == null) {
             throw new Exception("Username does not exist.");
         } else if (!PasswordStorage.verifyPassword(assumedUser.getPasswordHash(), user.getPasswordHash())) {
+            //Compares the assumedUsers password hash to the one in the DB.
             throw new Exception("Invalid password!");
         }
         session.setAttribute("userName", user.getUserName());
