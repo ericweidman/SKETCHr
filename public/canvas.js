@@ -148,9 +148,13 @@ canvasID.onmouseup = function() {
  context.clearRect(0,0,canvas.width,canvas.height);
  clickX = [];
  clickY = [];
+ clickTool = [];
+ clickColor = [];
+ clickDrag = [];
+ lineSize = []
 
  });
- 
+
  /*document.getElementById('spray').addEventListener('click',function(){
    curTool='spray';
  });*/
