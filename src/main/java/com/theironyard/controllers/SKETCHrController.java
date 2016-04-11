@@ -76,10 +76,11 @@ public class SKETCHrController {
 
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing stringUp(@RequestBody String drawingString) {
-
-        Drawing drawing = new Drawing(drawingString);
-        drawings.save(drawing);
+    public Drawing stringUp(@RequestBody String drawing, HttpSession session) {
+        String userName = (String) session.getAttribute("userName");
+        User user = users.findByUserName(userName);
+        Drawing newDrawing = new Drawing(drawing, user);
+        drawings.save(newDrawing);
         return null;
     }
 
