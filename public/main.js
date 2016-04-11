@@ -1,12 +1,13 @@
 var canvasApp ={
+
   urls:{
-    canvasIMG: '/upload',
-    getCanvasImg: '/photo/',
-    canvasGallery: '/gallery',
-    deleteCanvas: '/photo/',
-    createUser: "/create-user/",
-    logIt: '/login',
-    logOut: '/logout',
+    canvasIMG:        '/upload',
+    getCanvasImg:     '/photo/',
+    canvasGallery:    '/gallery',
+    deleteCanvas:     '/photo/',
+    createUser:       '/create-user/',
+    logIt:            '/login',
+    logOut:           '/logout',
   }
 };
 
@@ -35,6 +36,7 @@ function logUser(curUser){
     data: JSON.stringify(curUser),
     success: function(data){
       console.log('user logged in!', data);
+      console.log('this');
     },
   });
 }
@@ -46,7 +48,7 @@ function logout(){
       success: function(data){
         console.log('LOGGED OUT!',data);
         }
-      })
+      });
     };
 
 function saveCanvasImg(canvasString){
@@ -116,6 +118,8 @@ $('#logIn').submit(function(event){
   curUser.passwordHash = $('input[name="Password"]').val();
   logUser(curUser);
   console.log('loggedIn');
+  console.log(curUser.userName);
+  $('.artist').append("<p class='artist'>"+curUser.userName+"</p>");
 });
 
 $('#logOut').on('click',function(){
