@@ -8,7 +8,7 @@ var canvasApp ={
     createUser:       '/create-user/',
     logIt:            '/login',
     logOut:           '/logout',
-    getOneImg:        '/user-photos'
+    getAllImg:        '/user-photos'
   }
 };
 
@@ -98,13 +98,13 @@ id = '35';
 function getCanvasImg(){
   $.ajax({
     method:'GET',
-    url:canvasApp.urls.getOneImg,
-    success: function(canvasIMG){
+    url:canvasApp.urls.getAllImg,
+    success: function(getAllImg){
       var img = new Image();
-      var canvasGet = decodeURIComponent(canvasIMG.fileName).split('=')[1].substr(1);
-      console.log('got it 2', canvasGet);
+      var canvasGet = decodeURIComponent(getAllImg.fileName).split('=')[1];
+      console.log('got it 2', getAllImg);
       // console.log('here it is again',canvasGet);
-      img.src = decodeURIComponent(canvasGet);
+      img.src = decodeURIComponent(getAllImg);
       // console.log('and decoded',img);
       document.body.appendChild(img);
       alert('gotIT!');
@@ -129,7 +129,7 @@ $('#logIn').submit(function(event){
   logUser(curUser);
 });
 
-$('.logOut').on('click',function(){
+$('#logOut').on('click',function(){
   event.preventDefault();
   logout();
   $(".new-user").removeClass('inactive');
