@@ -129,8 +129,6 @@ span {
 
 
 .openTEST{
-  float: left;
-  display: inline-block;
   width: 700px;
   margin-right: 25%;
 }
@@ -153,8 +151,13 @@ span {
  width: 50%;
  text-align: center;
  color: white;
+<<<<<<< HEAD
  border: 2px solid #D35400;
  background: #1D1F20;
+=======
+ box-shadow: 1px 0px 34px 9px #D35400;
+ background: radial-gradient(#474748,#1D1F20);
+>>>>>>> 80500a74a02cc37929b144b26c5d2e0dcb60d385
  margin-left: 10%;
  margin-top: 10%;
 
