@@ -8,6 +8,10 @@ body{
 
 }
 
+.artist{
+  color:white;
+}
+
 #canvas{
   display: inline-block;
   border: 1px solid black;
@@ -33,6 +37,10 @@ h4{
   border-radius: 5px;
   border: 2px solid #474748;
 
+}
+
+#colorPick{
+  margin-left: 25%;
 }
 
 
@@ -71,7 +79,12 @@ span{
   background-color:#d35400;
   border-radius: 5px;
 }
-
+.statusButton:focus{
+  outline: none;
+}
+.button:focus{
+  outline: none;
+}
 .statusButton{
   display: inline-block;
   background: linear-gradient(#1D1F20,#3F4041);
@@ -94,6 +107,10 @@ span{
 .user{
   float: none;
   width: 100px;
+}
+
+.icon{
+  font-size: 25px;
 }
 
 .statusButton:hover{
