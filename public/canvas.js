@@ -23,6 +23,8 @@ var paint;
 // console.log(paint);
 // console.log(canvasID);
 
+///history
+
 ///sizes
 
 var currentSize= 5;
