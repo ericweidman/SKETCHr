@@ -136,6 +136,18 @@ $('.logOut').on('click',function(){
   $(".main-canvas").addClass('inactive');
 });
 
+$('#galleryHome').on('click',function(){
+  event.preventDefault();
+  $(".main-canvas").addClass('inactive');
+  $('.gallery').removeClass('inactive');
+})
+
+$('#canvasHome').on('click',function(){
+  event.preventDefault();
+  $('.main-canvas').removeClass('inactive');
+  $('.gallery').addClass('inactive');
+})
+
 function hideHomePage(event) {
   $(".new-user").addClass('inactive');
   $(".main-canvas").removeClass('inactive');
