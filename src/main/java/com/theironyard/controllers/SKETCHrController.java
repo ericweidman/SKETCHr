@@ -109,7 +109,8 @@ public class SKETCHrController {
     public List<Drawing> userDrawings(HttpSession session){
         String userName = (String) session.getAttribute("userName");
         User user = users.findByUserName(userName);
-        List<Drawing> userDrawings = (List<Drawing>) drawings.findByUserId(user.getId());
+        List<Drawing> userDrawings = drawings.findByUser(user);
+
         return userDrawings;
     }
 
