@@ -32,12 +32,16 @@ function logUser(curUser){
     url: canvasApp.urls.logIt,
     method: "POST",
     contentType: 'application/json; charset=utf-8',
-    dataType: 'json',
     data: JSON.stringify(curUser),
     success: function(data){
       console.log('user logged in!', data);
       console.log('this');
+      $('.artist').append("<span class='artistName'>"+" "+curUser.userName+"</span>");
     },
+    error: function(error){
+        console.log('not logged in',error);
+        $('.error').append("user name or password incorrect");
+    }
   });
 }
 
@@ -88,7 +92,7 @@ id = '35';
 function getCanvasImg(){
   $.ajax({
     method:'GET',
-    url:canvasApp.urls.getCanvasImg + 1,
+    url:canvasApp.urls.getCanvasImg + ID,
     success: function(canvasIMG){
       var img = new Image();
       var canvasGet = decodeURIComponent(canvasIMG.fileName).split('=')[1].substr(1);
@@ -117,9 +121,6 @@ $('#logIn').submit(function(event){
   curUser.userName = $('input[name="Name"]').val();
   curUser.passwordHash = $('input[name="Password"]').val();
   logUser(curUser);
-  console.log('loggedIn');
-  console.log(curUser.userName);
-  $('.artist').append("<p class='artist'>"+curUser.userName+"</p>");
 });
 
 $('#logOut').on('click',function(){
@@ -146,5 +147,4 @@ document.getElementById('delete').addEventListener('click', function(){
 
 document.getElementById('open').addEventListener('click', function(){
   getCanvasImg();
-  getGallery();
 });
