@@ -11,7 +11,10 @@ body{
   text-align: center;
 }
 .new-user{
-  margin-left: 10%;
+  background: radial-gradient(#474748,#1D1F20);
+  height: 100%;
+  width:100%;
+  margin:0;
 }
 
 .error{
@@ -55,7 +58,7 @@ h4{
 }
 
 
-h1{
+h1 {
   border-top: 5px solid black;
   text-shadow: 2px 2px 2px black;
   color: white;
@@ -66,10 +69,10 @@ h1{
   padding-right: 2%;
 }
 
-span{
+span {
   color:#d35400;
 }
-.button{
+.button {
   display: inline-block;
   background: linear-gradient(#1D1F20,#3F4041);
   height: 30px;
@@ -146,7 +149,62 @@ span{
 
 }
 
-.inactive{
+.inactive {
 
   display: none;
+}
+
+.pageOne {
+ width: 50%;
+ text-align: center;
+ color: white;
+ box-shadow: 1px 0px 34px 9px #D35400;
+ background: #1D1F20;
+ margin-left: 10%;
+ margin-top: 10%;
+
+}
+
+#userForm {
+  margin-right: 0;
+  width: 32%;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+#logIn {
+  width: 32%;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.button-user {
+  display: inline-block;
+  background: linear-gradient(#1D1F20,#3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 85px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 5px;
+}
+
+.button-user:hover{
+  background: none;
+  background-color:#d35400;
+  border-radius: 5px;
+}
+
+.button-user:focus{
+  outline: none;
+}
+
+#userForm input, #logIn input {
+  width: 140px;
+  height: 30px;
+  margin: -5px 2px 0 3px;
 }
