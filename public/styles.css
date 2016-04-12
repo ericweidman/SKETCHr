@@ -10,12 +10,6 @@ body{
 .splashHeader{
   text-align: center;
 }
-.new-user{
-  background: radial-gradient(#474748,#1D1F20);
-  height: 100%;
-  width:100%;
-  margin:0;
-}
 
 .error{
   color:red;
@@ -134,8 +128,6 @@ span {
 
 
 .openTEST{
-  float: left;
-  display: inline-block;
   width: 700px;
   margin-right: 25%;
 }
@@ -159,7 +151,7 @@ span {
  text-align: center;
  color: white;
  box-shadow: 1px 0px 34px 9px #D35400;
- background: #1D1F20;
+ background: radial-gradient(#474748,#1D1F20);
  margin-left: 10%;
  margin-top: 10%;
 

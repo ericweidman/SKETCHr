@@ -8,7 +8,7 @@ var canvasApp ={
     createUser:       '/create-user/',
     logIt:            '/login',
     logOut:           '/logout',
-    getOneImg:        '/user-photos'
+    getAllImg:        '/user-photos'
   }
 };
 
@@ -98,16 +98,26 @@ id = '35';
 function getCanvasImg(){
   $.ajax({
     method:'GET',
-    url:canvasApp.urls.getOneImg,
-    success: function(canvasIMG){
+    url:canvasApp.urls.getAllImg,
+    // contentType: 'json',
+    success: function(data){
+      console.log(data);
+      var enc = decodeURIComponent(data[2].fileName);
+      var imgSrc = enc.slice(11,enc.length - 1);
       var img = new Image();
-      var canvasGet = decodeURIComponent(canvasIMG.fileName).split('=')[1].substr(1);
-      console.log('got it 2', canvasGet);
-      // console.log('here it is again',canvasGet);
-      img.src = decodeURIComponent(canvasGet);
-      // console.log('and decoded',img);
+      img.src = imgSrc;
       document.body.appendChild(img);
-      alert('gotIT!');
+
+      // var img = new Image();
+      // var canvasGet = decodeURIComponent(data)[0];
+      // console.log(canvasGet);
+      // window.glob = data;
+      // console.log('got it', data[0].fileName);
+      // // console.log('here it is again',canvasGet);
+      // img.src = canvasGet;
+      // // console.log('and decoded',img);
+      // document.body.appendChild(img);
+      // alert('gotIT!');
     }
   });
 }
@@ -129,12 +139,24 @@ $('#logIn').submit(function(event){
   logUser(curUser);
 });
 
-$('.logOut').on('click',function(){
+$('#logOut').on('click',function(){
   event.preventDefault();
   logout();
   $(".new-user").removeClass('inactive');
   $(".main-canvas").addClass('inactive');
 });
+
+$('#galleryHome').on('click',function(){
+  event.preventDefault();
+  $(".main-canvas").addClass('inactive');
+  $('.gallery').removeClass('inactive');
+})
+
+$('#canvasHome').on('click',function(){
+  event.preventDefault();
+  $('.main-canvas').removeClass('inactive');
+  $('.gallery').addClass('inactive');
+})
 
 function hideHomePage(event) {
   $(".new-user").addClass('inactive');
