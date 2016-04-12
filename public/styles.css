@@ -7,9 +7,12 @@ body{
   margin-left: 6%;
 
 }
+.error{
+  color:red;
+}
 
-.artist{
-  color:white;
+.artistName{
+  color:#d35400;
 }
 
 #canvas{
