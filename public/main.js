@@ -99,15 +99,25 @@ function getCanvasImg(){
   $.ajax({
     method:'GET',
     url:canvasApp.urls.getAllImg,
-    success: function(getAllImg){
+    // contentType: 'json',
+    success: function(data){
+      console.log(data);
+      var enc = decodeURIComponent(data[2].fileName);
+      var imgSrc = enc.slice(11,enc.length - 1);
       var img = new Image();
-      var canvasGet = decodeURIComponent(getAllImg.fileName).split('=')[1];
-      console.log('got it 2', getAllImg);
-      // console.log('here it is again',canvasGet);
-      img.src = decodeURIComponent(getAllImg);
-      // console.log('and decoded',img);
+      img.src = imgSrc;
       document.body.appendChild(img);
-      alert('gotIT!');
+
+      // var img = new Image();
+      // var canvasGet = decodeURIComponent(data)[0];
+      // console.log(canvasGet);
+      // window.glob = data;
+      // console.log('got it', data[0].fileName);
+      // // console.log('here it is again',canvasGet);
+      // img.src = canvasGet;
+      // // console.log('and decoded',img);
+      // document.body.appendChild(img);
+      // alert('gotIT!');
     }
   });
 }

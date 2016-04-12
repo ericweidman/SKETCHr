@@ -13,27 +13,29 @@
       <div class="splashHeader">
         <h1>SKETCH<span>r</span>
       </div>
+
+
+    <div class="pageOne">
+        <p>"Draw Something!"</p>
       <form id='userForm'>
-
           <input type="text" name="newName" placeholder="new user name">
-
-
          <input type="text" name="newPassword" placeholder="new password">
-
-
-       <button class='button user' type="submit" name="submit">Sign Up!</button>
+       <button class='button-user' type="submit" name="submit">Sign Up!</button>
 
    </form>
    <form id="logIn">
           <input type="text" name="Name" placeholder="user name">
           <input type="text" name="Password" placeholder="password">
-          <button class='button user' type="submit" name="submit">Log In</button>
+          <button class='button-user' type="submit" name="submit">Log In</button>
           <p class='error'></p>
    </form>
-
+          <div class='about'>
+   </div>
     </section>
 
+
     <section class="main-canvas inactive">
+
 
 
     <h1>SKETCH<span>r</span>
@@ -66,6 +68,7 @@
           <input id='colorPick' type="color"/>
       </section>
 
+
     </section>
 
     <section class='gallery inactive'>
@@ -78,7 +81,8 @@
             <input class='button' type="button" id='delete' value="remove">
             <input class='button' type='button' id='open' value='open'>
           </section>
-    <section>
+    </section>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="templates.js" charset="utf-8"></script>
     <script src="canvas.js" charset="utf-8"></script>
