@@ -8,6 +8,7 @@ var canvasApp ={
     createUser:       '/create-user/',
     logIt:            '/login',
     logOut:           '/logout',
+    getOneImg:        '/user-photos'
   }
 };
 
@@ -34,6 +35,7 @@ function logUser(curUser){
     contentType: 'application/json; charset=utf-8',
     data: JSON.stringify(curUser),
     success: function(data){
+      hideHomePage();
       console.log('user logged in!', data);
       console.log('this');
       $('.artist').append("<span class='artistName'>"+" "+curUser.userName+"</span>");
@@ -46,11 +48,14 @@ function logUser(curUser){
 }
 
 function logout(){
+  //if success window.sessionStorage.removeItem(VALUEOFSESSIONNAME);
     $.ajax({
-      url: canvasApp.urls.logout,
+      url: canvasApp.urls.logOut,
       method: 'POST',
       success: function(data){
         console.log('LOGGED OUT!',data);
+          location.reload();//hacky solution
+          window.sessionStorage.removeItem('JSESSION');
         }
       });
     };
@@ -66,6 +71,7 @@ function saveCanvasImg(canvasString){
     }
   });
 }
+
 
 function getGallery(){
   $.ajax({
@@ -92,7 +98,7 @@ id = '35';
 function getCanvasImg(){
   $.ajax({
     method:'GET',
-    url:canvasApp.urls.getCanvasImg + ID,
+    url:canvasApp.urls.getOneImg,
     success: function(canvasIMG){
       var img = new Image();
       var canvasGet = decodeURIComponent(canvasIMG.fileName).split('=')[1].substr(1);
@@ -123,9 +129,11 @@ $('#logIn').submit(function(event){
   logUser(curUser);
 });
 
-$('#logOut').on('click',function(){
+$('.logOut').on('click',function(){
   event.preventDefault();
   logout();
+  $(".new-user").removeClass('inactive');
+  $(".main-canvas").addClass('inactive');
 });
 
 function hideHomePage(event) {
@@ -148,3 +156,7 @@ document.getElementById('delete').addEventListener('click', function(){
 document.getElementById('open').addEventListener('click', function(){
   getCanvasImg();
 });
+
+function grabSessionValue(name) {
+  return window.sessionStorage.getItem(name);
+}
