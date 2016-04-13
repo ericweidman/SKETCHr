@@ -155,13 +155,14 @@ $('#galleryHome').on('click',function(){
   $(".main-canvas").addClass('inactive');
   $('.gallery').removeClass('inactive');
   getGallery();
-})
+});
 
 $('#canvasHome').on('click',function(){
   event.preventDefault();
   $('.main-canvas').removeClass('inactive');
   $('.gallery').addClass('inactive');
-})
+  console.log('clicked');
+});
 
 function hideHomePage(event) {
   $(".new-user").addClass('inactive');
