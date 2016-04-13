@@ -206,6 +206,8 @@ span {
     margin-top: 5%;
     text-align: center;
     color: #D35400 ;
+    border: none;
+    background-color: black;
     background: rgba(255, 255, 255, 0);
 }
 #logIn input {
@@ -214,8 +216,10 @@ span {
     margin-left: 18%;
     margin-top: 5%;
     text-align: center;
+    background-color: black;
     color: #D35400 ;
-    background: rgba(255, 255, 255, 0);
+    border: none;
+    /*background: rgba(255, 255, 255, 0);*/
 }
 
 #userForm input, #logIn input:focus{
@@ -226,7 +230,7 @@ span {
   color:yellow;
   font-size: 12px;
 }
-<<<<<<< HEAD
+
 
 img{
   background-color: white;
@@ -243,8 +247,6 @@ img{
   width: 200px;
   display: inline-block;
   border: 2px solid red;
-=======
+
 .draw {
   font-size: 20px;
->>>>>>> a626a6b72c86b3aa119ab268a5c997141491851e
-}
