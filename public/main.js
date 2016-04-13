@@ -87,7 +87,7 @@ function getGallery(){
         img.src = imgSrc;
         $('.gallerySpace').append(img);
         $('.gallerySpace').append('<p>'+'created by '+arter+'</p>');
-      })
+      });
     }
   });
 }
