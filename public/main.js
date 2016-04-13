@@ -64,15 +64,27 @@ function saveCanvasImg(canvasString){
   $.ajax({
     url:canvasApp.urls.canvasIMG,
     method:'POST',
-    data: {imgName:picName,canvasIMG:canvasString},
-    success: function(canvasIMG){
-       //////
+    data: {
+      thingName:namedImg,
+      canvasIMG:canvasString
+    },
+    success: function(canvasIMG,imgName){
+      var namedImg = JSON.stringify(imgName);
       var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
       var canvasString = JSON.stringify(canvasDATA);
       alert('it worked!');
     }
   });
 }
+
+$('#nameImg').submit(function(event){
+  event.preventDefault();
+  var imgName={};
+  imgName.picName = $('input[class="nameImg"]').val();
+  saveCanvasImg(imgName);
+  console.log('image give a name');
+});
+
 
 
 function getGallery(){
@@ -128,15 +140,6 @@ function getCanvasImg(){
   });
 }
 
-$('#nameImg').submit(function(event){
-  event.preventDefault();
-  var imgName={};
-  imgName.picName = $('input[class="nameImg"]').val();
-  saveCanvasImg(imgName);
-  console.log('image give a name')
-})
-
-
 $('#userForm').submit(function(event){
   event.preventDefault();
   var user= {};
@@ -182,8 +185,7 @@ function hideHomePage(event) {
 }
 
 document.getElementById('save').addEventListener('click',function(){
-  console.log(canvasString);
-  saveCanvasImg(canvasString);
+  saveCanvasImg();
 });
 
 document.getElementById('delete').addEventListener('click', function(){
