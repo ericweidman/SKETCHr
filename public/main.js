@@ -88,15 +88,44 @@ function saveCanvasImg(canvasString,imgName){
   $.ajax({
     url:canvasApp.urls.canvasIMG,
     method:'POST',
+    dataType:'json',
     data: {
-      canvasIMG:canvasString,
       imgName:imgString,
+      canvasIMG:canvasString
     },
     success: function(canvasIMG){
       alert('it worked!');
     }
   });
 }
+
+
+
+/////===============DO NOT EDIT THIS =================///////
+//
+// function saveCanvasImg(canvasString){
+//   $.ajax({
+//     url:canvasApp.urls.canvasIMG,
+//     method:'POST',
+//     data: {canvasIMG:canvasString},
+//     success: function(canvasIMG){
+//       // console.log(canvasDATA);
+//       alert('it worked!');
+//     }
+//   });
+// }
+
+
+//
+// document.getElementById('save').addEventListener('click',function(){
+//   var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
+//   var canvasString = JSON.stringify(canvasDATA);
+//   console.log(canvasString);
+//   saveCanvasImg(canvasString);
+// });
+
+/////===============DO NOT EDIT THIS =================///////
+
 
 
 function getGallery(){
