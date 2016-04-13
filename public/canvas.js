@@ -86,10 +86,6 @@ function draw(){
 context.globalAlpha = 1; // Transparency
 }
 
-//UNDO
-//function undoLastPoint(){
-//  var lastPoint=clickX.pop(x), clickY.pop(y);
-  //}
 
 
 $('#canvas').mousedown(function(e){
