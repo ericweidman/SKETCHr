@@ -159,14 +159,9 @@ span {
  width: 50%;
  text-align: center;
  color: white;
-<<<<<<< HEAD
- border: 2px solid #D35400;
- background: #1D1F20;
-=======
- box-shadow: 1px 0px 34px 9px #D35400;
+ border:2px solid #d35400;
  background: radial-gradient(#474748,#1D1F20);
->>>>>>> 80500a74a02cc37929b144b26c5d2e0dcb60d385
- margin-left: 10%;
+ margin-left: 20%;
  margin-top: 10%;
 
 }
@@ -237,4 +232,7 @@ span {
 #comingSoon{
   color:yellow;
   font-size: 12px;
+}
+.draw {
+  font-size: 20px;
 }
