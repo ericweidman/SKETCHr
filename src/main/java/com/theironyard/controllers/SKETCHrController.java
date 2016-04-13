@@ -88,13 +88,13 @@ public class SKETCHrController {
 
      //Adds the picName
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing drawingUp(@RequestBody String picName, String fileName, HttpSession session) throws Exception {
+    public Drawing drawingUp(@RequestBody Drawing drawing, HttpSession session) throws Exception {
         String userName = (String) session.getAttribute("userName");
         if(userName == null){
             throw new Exception("You must be logged in to upload photos.");
         }
         User user = users.findByUserName(userName);
-        Drawing newDrawing = new Drawing(picName, fileName, user);
+        Drawing newDrawing = new Drawing(drawing.getPicName(), drawing.getFileName(), user);
         drawings.save(newDrawing);
         return null;
     }
