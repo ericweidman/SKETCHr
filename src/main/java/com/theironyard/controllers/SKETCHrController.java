@@ -73,15 +73,27 @@ public class SKETCHrController {
 
         }
     }
-
+     //Old code, before we were using picNames
+//    @RequestMapping(path = "/upload", method = RequestMethod.POST)
+//    public Drawing stringUp(@RequestBody String drawing, HttpSession session) throws Exception {
+//        String userName = (String) session.getAttribute("userName");
+//        if(userName == null){
+//            throw new Exception("You must be logged in to upload photos.");
+//        }
+//        User user = users.findByUserName(userName);
+//        Drawing newDrawing = new Drawing(drawing, user);
+//        drawings.save(newDrawing);
+//        return null;
+//    }
+    // Adds the picName
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing stringUp(@RequestBody String drawing, HttpSession session) throws Exception {
+    public Drawing drawingUp(@RequestBody String picName, String drawing, HttpSession session) throws Exception {
         String userName = (String) session.getAttribute("userName");
         if(userName == null){
             throw new Exception("You must be logged in to upload photos.");
         }
         User user = users.findByUserName(userName);
-        Drawing newDrawing = new Drawing(drawing, user);
+        Drawing newDrawing = new Drawing(picName, drawing, user);
         drawings.save(newDrawing);
         return null;
     }
