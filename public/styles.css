@@ -7,13 +7,6 @@ body{
   color: white;
 }
 
-.gallerySpace{
-  height: 600px;
-  width: 600px;
-  border: 10px solid #d35400;
-  background-color: white;
-}
-
 .splashHeader{
   text-align: center;
 }
@@ -212,4 +205,21 @@ span {
 #comingSoon{
   color:yellow;
   font-size: 12px;
+}
+
+img{
+  background-color: white;
+}
+
+.gallerySpace{
+  height: 600px;
+  width: 600px;
+  overflow-y: scroll;
+}
+
+.gallerySpace img{
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  border: 2px solid red;
 }
