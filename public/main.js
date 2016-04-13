@@ -101,23 +101,21 @@ function getCanvasImg(){
     url:canvasApp.urls.getAllImg,
     // contentType: 'json',
     success: function(data){
-      console.log(data);
-      var enc = decodeURIComponent(data[2].fileName);
-      var imgSrc = enc.slice(11,enc.length - 1);
-      var img = new Image();
-      img.src = imgSrc;
-      document.body.appendChild(img);
+      $.each(json, function(key,data){
+        console.log(data);
+        var enc = decodeURIComponent(data[0].fileName);
+        var imgSrc = enc.slice(11,enc.length - 1);
+        var img = new Image();
+        img.src = imgSrc;
+        $('.gallerySpace').append(img);
 
+      })
+      // console.log(data);
+      // var enc = decodeURIComponent(data[0].fileName);
+      // var imgSrc = enc.slice(11,enc.length - 1);
       // var img = new Image();
-      // var canvasGet = decodeURIComponent(data)[0];
-      // console.log(canvasGet);
-      // window.glob = data;
-      // console.log('got it', data[0].fileName);
-      // // console.log('here it is again',canvasGet);
-      // img.src = canvasGet;
-      // // console.log('and decoded',img);
-      // document.body.appendChild(img);
-      // alert('gotIT!');
+      // img.src = imgSrc;
+      // $('.gallerySpace').append(img);
     }
   });
 }

@@ -1,10 +1,17 @@
 body{
   display: inline-block;
   width: 100%;
+  font-size: 12px;
   font-family: 'open sans', sans-serif;
   background-color: #1D1F20;
   color: white;
-  margin-left: 6%;
+}
+
+.gallerySpace{
+  height: 600px;
+  width: 600px;
+  border: 10px solid #d35400;
+  background-color: white;
 }
 
 .splashHeader{
@@ -59,9 +66,8 @@ h1 {
   color: white;
   background: linear-gradient(#3F4041,#1D1F20);
   height: 30px;
-  width: 66%;
-  margin-left: 7px;
-  padding-right: 2%;
+  width: 80%;
+  font-size: 40px;
 }
 
 span {
@@ -131,6 +137,8 @@ span {
 .openTEST{
   width: 700px;
   margin-right: 25%;
+  height: 100px;
+  display: inline-block;
 }
 
 .tools {
@@ -224,4 +232,9 @@ span {
 
 #userForm input, #logIn input:focus{
   outline: none;
+}
+
+#comingSoon{
+  color:yellow;
+  font-size: 12px;
 }
