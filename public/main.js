@@ -64,9 +64,11 @@ function saveCanvasImg(canvasString){
   $.ajax({
     url:canvasApp.urls.canvasIMG,
     method:'POST',
-    data: {canvasIMG:canvasString},
+    data: {imgName:picName,canvasIMG:canvasString},
     success: function(canvasIMG){
-      // console.log(canvasDATA);
+       //////
+      var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
+      var canvasString = JSON.stringify(canvasDATA);
       alert('it worked!');
     }
   });
@@ -81,7 +83,7 @@ function getGallery(){
       $('.gallerySpace').html('');
       data.forEach(function(element,idx) {
         var enc = decodeURIComponent(element.fileName);
-        console.log(element.user.userName);
+        console.log(data);
         var arter= element.user.userName;
         var imgSrc = enc.slice(11,enc.length - 1);
         var img = new Image();
@@ -125,6 +127,15 @@ function getCanvasImg(){
     }
   });
 }
+
+$('#nameImg').submit(function(event){
+  event.preventDefault();
+  var imgName={};
+  imgName.picName = $('input[class="nameImg"]').val();
+  saveCanvasImg(imgName);
+  console.log('image give a name')
+})
+
 
 $('#userForm').submit(function(event){
   event.preventDefault();
@@ -171,8 +182,6 @@ function hideHomePage(event) {
 }
 
 document.getElementById('save').addEventListener('click',function(){
-  var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
-  var canvasString = JSON.stringify(canvasDATA);
   console.log(canvasString);
   saveCanvasImg(canvasString);
 });

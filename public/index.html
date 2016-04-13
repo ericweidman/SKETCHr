@@ -19,13 +19,13 @@
         <p class="draw">"Draw Something!"</p>
       <form id='userForm'>
           <input type="text" name="newName" placeholder="new user name">
-         <input type="text" name="newPassword" placeholder="new password">
+         <input type="password" name="newPassword" placeholder="new password">
        <button class='button-user' type="submit" name="submit">Sign Up!</button>
 
    </form>
    <form id="logIn">
           <input type="text" name="Name" placeholder="user name">
-          <input type="text" name="Password" placeholder="password">
+          <input type="password" name="Password" placeholder="password">
           <button class='button-user' type="submit" name="submit">Log In</button>
           <p class='error'></p>
    </form>
@@ -55,6 +55,7 @@
     <div id="empty">
       <div id="canvasID"></div>
     </div>
+    <!-- <input type="text" name="Password" placeholder="give your picture a name"> -->
     <section class="sidebar">
       <h4>Tools</h4>
 
@@ -70,7 +71,13 @@
       <input id="slider" type ="range" min ="2" max="200" step ="2" value ="10"/>
       <h4>Color</h4>
           <input id='colorPick' type="color"/>
+
+          <form id='nameImg'>
+            <input class='nameImg' type="text" name="name" placeholder="name this image">
+          </form>
+
       </section>
+
 
 
     </section>
