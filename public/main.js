@@ -28,6 +28,16 @@ function addUser(user){
   });
 }
 
+$('#userForm').submit(function(event){
+  event.preventDefault();
+  var user= {};
+  user.userName = $('input[name="newName"]').val();
+  user.passwordHash = $('input[name="newPassword"]').val();
+  addUser(user);
+  console.log('submitted');
+});
+
+
 function logUser(curUser){
   $.ajax({
     url: canvasApp.urls.logIt,
@@ -60,31 +70,33 @@ function logout(){
       });
     };
 
-function saveCanvasImg(canvasString){
+
+
+document.getElementById('save').addEventListener('click',function(){
+  event.preventDefault();
+  var imgName={};
+  imgName.picName = $('input[class="nameImg"]').val();
+  console.log('image give a name');
+  var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
+  var canvasString = JSON.stringify(canvasDATA);
+  saveCanvasImg(canvasString,imgName);
+});
+
+function saveCanvasImg(canvasString,imgName){
+  var imgString=JSON.stringify(imgName);
+  console.log(imgString,canvasString);
   $.ajax({
     url:canvasApp.urls.canvasIMG,
     method:'POST',
     data: {
-      thingName:namedImg,
-      canvasIMG:canvasString
+      canvasIMG:canvasString,
+      imgName:imgString,
     },
-    success: function(canvasIMG,imgName){
-      var namedImg = JSON.stringify(imgName);
-      var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
-      var canvasString = JSON.stringify(canvasDATA);
+    success: function(canvasIMG){
       alert('it worked!');
     }
   });
 }
-
-$('#nameImg').submit(function(event){
-  event.preventDefault();
-  var imgName={};
-  imgName.picName = $('input[class="nameImg"]').val();
-  saveCanvasImg(imgName);
-  console.log('image give a name');
-});
-
 
 
 function getGallery(){
@@ -140,15 +152,6 @@ function getCanvasImg(){
   });
 }
 
-$('#userForm').submit(function(event){
-  event.preventDefault();
-  var user= {};
-  user.userName = $('input[name="newName"]').val();
-  user.passwordHash = $('input[name="newPassword"]').val();
-  addUser(user);
-  console.log('submitted');
-});
-
 $('#logIn').submit(function(event){
   event.preventDefault();
   var curUser= {};
@@ -184,9 +187,6 @@ function hideHomePage(event) {
   $(".main-canvas").removeClass('inactive');
 }
 
-document.getElementById('save').addEventListener('click',function(){
-  saveCanvasImg();
-});
 
 document.getElementById('delete').addEventListener('click', function(){
   // deleteImg();
