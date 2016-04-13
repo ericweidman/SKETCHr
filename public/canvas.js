@@ -164,16 +164,17 @@ canvasID.onmouseup = function() {
 
  //UNDO
 
- document.getElementById('undo').addEventListener('click', function() {
- context.clearRect(clickX,clickY,canvas.width,canvas.height);
- clickX = [];
- clickY = [];
- clickTool = [];
- clickColor = [];
- clickDrag = [];
- lineSize = []
-
+ function undo(){
+   clickX.pop();
+   clickY.pop();
+   draw();
+ }
+ $('#undo').mousedown(function() {
+   interval = setInterval(undo,50)
  });
+ $('#undo').mouseup(function(){
+   clearInterval(interval);
+ })
 
  document.getElementById('spray').addEventListener('click',function(){
  });
