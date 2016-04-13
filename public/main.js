@@ -78,8 +78,16 @@ function getGallery(){
     url:canvasApp.urls.canvasGallery,
     method:'GET',
     success: function(data){
-      console.log('here is my data',data);
-      // alert('it worked!');
+      data.forEach(function(element,idx) {
+        var enc = decodeURIComponent(element.fileName);
+        console.log(element.user.userName);
+        var arter= element.user.userName;
+        var imgSrc = enc.slice(11,enc.length - 1);
+        var img = new Image();
+        img.src = imgSrc;
+        $('.gallerySpace').append(img);
+        $('.gallerySpace').append('<p>'+'created by '+arter+'</p>');
+      });
     }
   });
 }
@@ -101,15 +109,12 @@ function getCanvasImg(){
     url:canvasApp.urls.getAllImg,
     // contentType: 'json',
     success: function(data){
-      $.each(json, function(key,data){
         console.log(data);
         var enc = decodeURIComponent(data[0].fileName);
         var imgSrc = enc.slice(11,enc.length - 1);
         var img = new Image();
         img.src = imgSrc;
-        $('.gallerySpace').append(img);
-
-      })
+        $('.profileSpace').append(img);
       // console.log(data);
       // var enc = decodeURIComponent(data[0].fileName);
       // var imgSrc = enc.slice(11,enc.length - 1);
@@ -140,14 +145,16 @@ $('#logIn').submit(function(event){
 $('#logOut').on('click',function(){
   event.preventDefault();
   logout();
-  $(".new-user").removeClass('inactive');
-  $(".main-canvas").addClass('inactive');
+  page.reload();
+  // $(".new-user").removeClass('inactive');
+  // $(".main-canvas").addClass('inactive');
 });
 
 $('#galleryHome').on('click',function(){
   event.preventDefault();
   $(".main-canvas").addClass('inactive');
   $('.gallery').removeClass('inactive');
+  getGallery();
 })
 
 $('#canvasHome').on('click',function(){
