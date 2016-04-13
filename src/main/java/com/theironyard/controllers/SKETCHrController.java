@@ -74,12 +74,6 @@ public class SKETCHrController {
         }
     }
 
-    @RequestMapping(path = "/user", method = RequestMethod.GET)
-    public User getUser(@RequestBody User user, HttpSession session) {
-        return null;
-    }
-
-
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public Drawing stringUp(@RequestBody String drawing, HttpSession session) throws Exception {
         String userName = (String) session.getAttribute("userName");
@@ -93,7 +87,7 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.GET)
-    public Drawing getDrawing(@PathVariable("id") int id, HttpSession session) {
+    public Drawing getDrawing(@PathVariable("id") int id) {
         Drawing drawing = drawings.findOne(id);
         return drawing;
 
