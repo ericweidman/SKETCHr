@@ -245,8 +245,8 @@ img{
 .gallerySpace img{
   height: 200px;
   width: 200px;
-  display: inline-block;
   border: 2px solid red;
 
-.draw {
+/*.draw {
   font-size: 20px;
+}*/

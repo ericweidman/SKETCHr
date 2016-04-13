@@ -78,6 +78,7 @@ function getGallery(){
     url:canvasApp.urls.canvasGallery,
     method:'GET',
     success: function(data){
+      $('.gallerySpace').html('');
       data.forEach(function(element,idx) {
         var enc = decodeURIComponent(element.fileName);
         console.log(element.user.userName);
@@ -150,14 +151,14 @@ $('#logOut').on('click',function(){
   // $(".main-canvas").addClass('inactive');
 });
 
-$('#galleryHome').on('click',function(){
+$('#galleryHome').click('click',function(){
   event.preventDefault();
   $(".main-canvas").addClass('inactive');
   $('.gallery').removeClass('inactive');
   getGallery();
 });
 
-$('#canvasHome').on('click',function(){
+$('#canvasHome').click('click',function(){
   event.preventDefault();
   $('.main-canvas').removeClass('inactive');
   $('.gallery').addClass('inactive');
