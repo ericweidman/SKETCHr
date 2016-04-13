@@ -226,25 +226,8 @@ span {
   color:yellow;
   font-size: 12px;
 }
-<<<<<<< HEAD
 
-img{
-  background-color: white;
-}
-
-.gallerySpace{
-  height: 600px;
-  width: 600px;
-  overflow-y: scroll;
-}
-
-.gallerySpace img{
-  height: 200px;
-  width: 200px;
-  display: inline-block;
-  border: 2px solid red;
-=======
 .draw {
   font-size: 20px;
->>>>>>> a626a6b72c86b3aa119ab268a5c997141491851e
+
 }
