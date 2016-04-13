@@ -11,7 +11,7 @@
 
     <section class= "new-user">
       <div class="splashHeader">
-        <h1>SKETCH<span>r</span>
+        <h1>SKETCH<span>r</span></h1>
       </div>
 
 
@@ -44,10 +44,14 @@
         <input class='button' type='button' id='save' value='save'>
         <button class='button' id='logout' type="button" name="out">Log Out</button>
             <h3>Hey<span class='artist'></span>, lets get sketching!<h3>
+              <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>Means these features aren't ready yet, but they will be soon!
 
     </h1>
-    <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
-    <input class='statusButton' type='button' value='↻' id='redo'><span>REDO</span>
+       <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
+       <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+  <input class='statusButton' type='button' value='↻' id='redo'><span>REDO</span>
+    <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+
     <div id="empty">
       <div id="canvasID"></div>
     </div>
@@ -57,10 +61,10 @@
       <button class= "statusButton icon" type="button" id="crayon" value='crayon'><i class="fa fa-pencil"></i></button>
       <button class= "statusButton icon" type="button" id="marker" value='marker'><i class="fa fa-paint-brush"></i></button>
       <button class= "statusButton icon" type="button" id="eraser" value='eraser'><i class="fa fa-eraser"></i></button>
-      <button class= "statusButton icon" type="button" id="spray" value="spray"><i class="fa fa-tint" aria-hidden="true"></i></button>
-      <button class= "statusButton icon" type="button" id="lineTool" value='lineTool'><i class="fa fa-arrows-h" aria-hidden="true"></i>
-</button>
-
+ <button class= "statusButton icon" type="button" id="lineTool" value='lineTool'><i class="fa fa-arrows-h" aria-hidden="true"></i></button>
+<i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+<button class= "statusButton icon" type="button" id="spray" value="spray"><i class="fa fa-tint" aria-hidden="true"></i></button>
+<i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
 
       <h4>Size</h4>
       <input id="slider" type ="range" min ="2" max="200" step ="2" value ="10"/>
@@ -73,14 +77,17 @@
 
     <section class='gallery inactive'>
         <h1>SKETCH<span>r</span>
+          <input class='button' type='button' id='canvasHome' value='Canvas'>
+          <input class='button' type="button" id='delete' value="remove">
+          <input class='button' type='button' id='open' value='open'>
+        </h1>
 
           <section class='openTEST'>
-            <h1>POST TESTING SPACE</h1>
-            <input class='button' type='button' id='canvasHome' value='Canvas'>
-            <h4><span class='artist'></span>this is your gallery!</h4>
-            <input class='button' type="button" id='delete' value="remove">
-            <input class='button' type='button' id='open' value='open'>
+          <h4><span class='artist'></span> this is your gallery!</h4>
           </section>
+          <div class="gallerySpace">
+
+          </div>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>

@@ -157,9 +157,8 @@ canvasID.onmouseup = function() {
 
  });
 
- /*document.getElementById('spray').addEventListener('click',function(){
-   curTool='spray';
- });*/
+ document.getElementById('spray').addEventListener('click',function(){
+ });
  document.getElementById('eraser').addEventListener('click',function(){
    curTool='eraser';
  });
