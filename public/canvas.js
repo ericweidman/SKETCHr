@@ -86,6 +86,11 @@ function draw(){
 context.globalAlpha = 1; // Transparency
 }
 
+//UNDO
+//function undoLastPoint(){
+//  var lastPoint=clickX.pop(x), clickY.pop(y);
+  //}
+
 
 $('#canvas').mousedown(function(e){
   var moveX = e.pageX - this.offsetLeft;
@@ -148,6 +153,19 @@ canvasID.onmouseup = function() {
 // Clear canvas
  document.getElementById('clear').addEventListener('click', function() {
  context.clearRect(0,0,canvas.width,canvas.height);
+ clickX = [];
+ clickY = [];
+ clickTool = [];
+ clickColor = [];
+ clickDrag = [];
+ lineSize = []
+
+ });
+
+ //UNDO
+
+ document.getElementById('undo').addEventListener('click', function() {
+ context.clearRect(clickX,clickY,canvas.width,canvas.height);
  clickX = [];
  clickY = [];
  clickTool = [];
