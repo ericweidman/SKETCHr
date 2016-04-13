@@ -86,6 +86,11 @@ function draw(){
 context.globalAlpha = 1; // Transparency
 }
 
+//UNDO
+//function undoLastPoint(){
+//  var lastPoint=clickX.pop(x), clickY.pop(y);
+  //}
+
 
 $('#canvas').mousedown(function(e){
   var moveX = e.pageX - this.offsetLeft;
@@ -156,6 +161,20 @@ canvasID.onmouseup = function() {
  lineSize = []
 
  });
+
+ //UNDO
+
+ function undo(){
+   clickX.pop();
+   clickY.pop();
+   draw();
+ }
+ $('#undo').mousedown(function() {
+   interval = setInterval(undo,50)
+ });
+ $('#undo').mouseup(function(){
+   clearInterval(interval);
+ })
 
  document.getElementById('spray').addEventListener('click',function(){
  });
