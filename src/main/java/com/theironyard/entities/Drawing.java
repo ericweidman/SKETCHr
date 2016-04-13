@@ -16,6 +16,9 @@ public class Drawing {
     @GeneratedValue
     int id;
 
+    @Column(nullable = false, unique = true)
+    String picName;
+
     @Column(nullable = false, length = 100000)
     String fileName;
 
@@ -32,6 +35,20 @@ public class Drawing {
 
     public Drawing(User user) {
         this.user = user;
+    }
+
+    public Drawing(String picName, String fileName, User user) {
+        this.picName = picName;
+        this.fileName = fileName;
+        this.user = user;
+    }
+
+    public String getPicName() {
+        return picName;
+    }
+
+    public void setPicName(String picName) {
+        this.picName = picName;
     }
 
     public Drawing(String fileName, User user) {
