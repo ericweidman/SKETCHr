@@ -7,6 +7,7 @@ canvas.setAttribute('height', '500');
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
 
+
 if(typeof G_vmlCanvasManager != 'undefined'){
   canvas = G_vmlCanvasManager.initElement(canvas);
 }
@@ -42,6 +43,8 @@ var curTool='marker';
 var crayon = "crayon";
 var marker = "marker";
 var eraser = "eraser";
+var spray ='spray';
+
 
 
 ///add click
@@ -55,42 +58,48 @@ if(curTool == "eraser"){
 }else{
     clickColor.push(current);
     }
-
 lineSize.push(currentSize);
 }
 
-
-function clearThis(){
-  context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+function changeBlur(){
+  if(curTool=='spray'){
+    context.shadowBlur=40;
+    context.shadowColor=current;
+    console.log('this is spray color',current);
+  }
+  else{
+    context.shadowBlur=0;
+    context.shadowColor=current;
+  }
 }
 
-///defines draw
+// function clearThis(){
+//   context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+// }
+
+
 function draw(){
-// context.strokeStyle = '#000000';
 context.lineJoin = 'round';
-// context.lineWidth = 2;
-
-for(var i=0; i < clickX.length; i++){
-  if(curTool == "crayon") {
-    context.drawImage(crayonImg,clickX[i],clickY[i],canvas.width,canvas.height);
-  }
-  else {
-    context.beginPath();
-    if(clickDrag[i] && i){
-      context.moveTo(clickX[i-1], clickY[i-1]);
-    }else{
-      context.moveTo(clickX[i]-1, clickY[i]);
-    }
-    context.lineTo(clickX[i], clickY[i]);
-    context.closePath();
-    context.strokeStyle = clickColor[i];
-    context.lineWidth = lineSize[i];
-    context.stroke();
-
-  }
-
+var j=clickY.length-1
+var i=clickX.length-1;
+/////code by ZACH ⚔ ^//
+if(curTool == "crayon") {
+  context.globalAlpha=0.3;
+  context.drawImage(crayonImg,clickX[i],clickY[j],currentSize,currentSize)
 }
-
+else {
+  context.beginPath();
+  if(clickDrag[i] && i){
+    context.moveTo(clickX[i-1], clickY[i-1]);
+  }else{
+    context.moveTo(clickX[i]-1, clickY[i]);
+  }
+  context.lineTo(clickX[i], clickY[i]);
+  context.closePath();
+  context.strokeStyle = clickColor[i];
+  context.lineWidth = lineSize[i];
+  context.stroke();
+}
 context.globalAlpha = 1; // Transparency
 }
 
@@ -146,22 +155,29 @@ $('#canvas').mouseleave(function(e){
    clearInterval(interval);
  })
 
- document.getElementById('spray').addEventListener('click',function(){
+$('#spray').click('click',function(){
+   curTool='spray';
+   changeBlur();
+   console.log('spray',curTool);
  });
  document.getElementById('eraser').addEventListener('click',function(){
    curTool='eraser';
+   changeBlur();
  });
  document.getElementById('marker').addEventListener('click',function(){
    curTool='marker';
+   changeBlur();
  });
 
  document.getElementById('crayon').addEventListener('click',function(){
    curTool='crayon';
+   changeBlur();
    console.log("WHAT IS curTool", curTool)
  });
 
  $('#colorPick').on('change', function(){
    current=this.value;
+   context.shadowColor=this.value;
    console.log(current);
  });
  $('#slider').on('input', function(){
