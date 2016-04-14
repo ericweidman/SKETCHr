@@ -79,9 +79,9 @@ function draw(){
   if(curTool == "crayon") {
   console.log('crayon');
   var crayonImg= new Image();
-  crayonImg.globalAlpha=0.1;
-  // crayonImg.src='/img/crayonTEST.png',
-  // context.drawImage(crayonImg,0,0,canvas.width,canvas.height);
+  crayonImg.globalAlpha=0.4;
+  crayonImg.src='/img/crayon-tool.png',
+  context.drawImage(crayonImg,0,0,canvas.width,canvas.height);
 }
 context.globalAlpha = 1; // Transparency
 }
