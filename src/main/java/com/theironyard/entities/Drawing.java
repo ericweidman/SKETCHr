@@ -16,7 +16,7 @@ public class Drawing {
     @GeneratedValue
     int id;
 
-    @Column(nullable = false, unique = true, length = 100000000)
+    @Column(nullable = false)
     String picName;
 
     @Column(nullable = false, length = 100000000)
