@@ -21,6 +21,12 @@ body{
   text-align: center;
 }
 
+.nameImg{
+  margin:3%;
+  background-color: black;
+  border: none;
+  color:#d35400;
+}
 
 .error{
   color:red;
@@ -86,7 +92,6 @@ span {
   color: white;
   text-shadow: 2px 2px 0px black;
   border-radius: 5px;
-  float: right;
   margin-top:1%;
   margin-right: 5px;
 }

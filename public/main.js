@@ -184,10 +184,23 @@ $('#canvasHome').click('click',function(){
   console.log('clicked');
 });
 
+$('#canvasHome2').click('click', function(){
+  event.preventDefault();
+  $('.main-canvas').removeClass('inactive');
+  $('.profile').removeClass('inactive');
+});
+
 function hideHomePage(event) {
   $(".new-user").addClass('inactive');
   $(".main-canvas").removeClass('inactive');
 }
+
+$('#profileHome').click('click', function(event){
+  event.preventDefault();
+  $('.main-canvas').addClass('inactive');
+  $('.profile').removeClass('inactive');
+});
+
 
 document.getElementById('delete').addEventListener('click', function(){
   // deleteImg();
