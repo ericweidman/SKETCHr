@@ -94,8 +94,8 @@ function getGallery(){
         console.log(namer);
         var img = new Image();
         img.src = enc;
-        $('.gallerySpace').append(img);
-        $('.gallerySpace').append('<p>'+namer+' '+'created by '+arter+'</p>');
+        $('.gallerySpace').prepend(img);
+        $('.gallerySpace').prepend('<p>'+namer+' '+'created by '+arter+'</p>');
       });
     }
   });
@@ -184,37 +184,23 @@ $('#canvasHome').click('click',function(){
   console.log('clicked');
 });
 
-$('#canvasHome2').click('click', function(){
-  event.preventDefault();
-  $('.main-canvas').removeClass('inactive');
-  $('.profile').removeClass('inactive');
-});
+
 
 function hideHomePage(event) {
   $(".new-user").addClass('inactive');
   $(".main-canvas").removeClass('inactive');
 }
 
-$('#profileHome').click('click', function(event){
-  event.preventDefault();
-  $('.main-canvas').addClass('inactive');
-  $('.profile').removeClass('inactive');
-});
 
-
-document.getElementById('delete').addEventListener('click', function(){
-  // deleteImg();
-});
-
-document.getElementById('open').addEventListener('click', function(){
-  getCanvasImg();
-});
+// document.getElementById('open').addEventListener('click', function(){
+//   getCanvasImg();
+// });
 
 function grabSessionValue(name) {
   return window.sessionStorage.getItem(name);
 }
 
-$('#more').click('click',function(){
+$('#more').click('click',function(event){
   event.preventDefault();
   $('.about').toggle('.inactive');
 });
