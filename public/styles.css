@@ -7,6 +7,16 @@ body{
   color: white;
 }
 
+.hello{
+  color: lime;
+}
+.about{
+  width:100%;
+  color: white;
+  font-size: 18px;
+  overflow-y: scroll;
+  text-align:justify;
+}
 .splashHeader{
   text-align: center;
 }
@@ -79,7 +89,6 @@ span {
   float: right;
   margin-top:1%;
   margin-right: 5px;
-
 }
 
 .button:hover{

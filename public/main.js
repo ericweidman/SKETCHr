@@ -21,22 +21,13 @@ function addUser(user){
     data: JSON.stringify(user),
     success: function(data){
       console.log('user added!', data);
+
     },
     error: function(error){
       console.log("Add User", error);
     }
   });
 }
-
-$('#userForm').submit(function(event){
-  event.preventDefault();
-  var user= {};
-  user.userName = $('input[name="newName"]').val();
-  user.passwordHash = $('input[name="newPassword"]').val();
-  addUser(user);
-  console.log('submitted');
-});
-
 
 function logUser(curUser){
   $.ajax({
@@ -52,6 +43,7 @@ function logUser(curUser){
     },
     error: function(error){
         console.log('not logged in',error);
+        $('.error').html('');
         $('.error').append("user name or password incorrect");
     }
   });
@@ -70,18 +62,6 @@ function logout(){
       });
     };
 
-
-
-document.getElementById('save').addEventListener('click',function(){
-  event.preventDefault();
-  var imgName={};
-  imgName.picName = $('input[class="nameImg"]').val();
-  console.log('image give a name');
-  var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
-  // var canvasString = JSON.stringify(canvasDATA);
-  saveCanvasImg(canvasDATA,imgName.picName);
-});
-
 function saveCanvasImg(canvasDATA,imgName){
   // var imgString=JSON.stringify(imgName);
   console.log(imgName,canvasDATA);
@@ -98,35 +78,6 @@ function saveCanvasImg(canvasDATA,imgName){
     }
   });
 }
-
-
-
-/////===============DO NOT EDIT THIS =================///////
-//
-// function saveCanvasImg(canvasString){
-//   $.ajax({
-//     url:canvasApp.urls.canvasIMG,
-//     method:'POST',
-//     data: {canvasIMG:canvasString},
-//     success: function(canvasIMG){
-//       // console.log(canvasDATA);
-//       alert('it worked!');
-//     }
-//   });
-// }
-
-
-//
-// document.getElementById('save').addEventListener('click',function(){
-//   var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
-//   var canvasString = JSON.stringify(canvasDATA);
-//   console.log(canvasString);
-//   saveCanvasImg(canvasString);
-// });
-
-/////===============DO NOT EDIT THIS =================///////
-
-
 
 function getGallery(){
   $.ajax({
@@ -159,7 +110,6 @@ function deleteImg(){
     }
   });
 }
-id = '35';
 
 function getCanvasImg(){
   $.ajax({
@@ -199,6 +149,27 @@ $('#logOut').on('click',function(){
   // $(".main-canvas").addClass('inactive');
 });
 
+$('#userForm').submit(function(event){
+  event.preventDefault();
+  var user= {};
+  user.userName = $('input[name="newName"]').val();
+  user.passwordHash = $('input[name="newPassword"]').val();
+  addUser(user);
+  $('.hello').html('');
+  $('.hello').append("now just log in!");
+  console.log('submitted');
+});
+
+document.getElementById('save').addEventListener('click',function(){
+  event.preventDefault();
+  var imgName={};
+  imgName.picName = $('input[class="nameImg"]').val();
+  console.log('image give a name');
+  var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
+  // var canvasString = JSON.stringify(canvasDATA);
+  saveCanvasImg(canvasDATA,imgName.picName);
+});
+
 $('#galleryHome').click('click',function(){
   event.preventDefault();
   $(".main-canvas").addClass('inactive');
@@ -218,11 +189,9 @@ function hideHomePage(event) {
   $(".main-canvas").removeClass('inactive');
 }
 
-
 document.getElementById('delete').addEventListener('click', function(){
   // deleteImg();
 });
-
 
 document.getElementById('open').addEventListener('click', function(){
   getCanvasImg();
@@ -231,3 +200,8 @@ document.getElementById('open').addEventListener('click', function(){
 function grabSessionValue(name) {
   return window.sessionStorage.getItem(name);
 }
+
+$('#more').click('click',function(){
+  event.preventDefault();
+  $('.about').toggle('.inactive');
+});
