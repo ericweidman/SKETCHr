@@ -16,10 +16,10 @@ public class Drawing {
     @GeneratedValue
     int id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 100000000)
     String picName;
 
-    @Column(nullable = false, length = 100000)
+    @Column(nullable = false, length = 100000000)
     String fileName;
 
     @ManyToOne

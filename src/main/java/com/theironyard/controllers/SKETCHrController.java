@@ -73,7 +73,7 @@ public class SKETCHrController {
 
         }
     }
-
+//
 //    @RequestMapping(path = "/upload", method = RequestMethod.POST)
 //    public Drawing stringUp(@RequestBody String drawing, HttpSession session) throws Exception {
 //        String userName = (String) session.getAttribute("userName");
@@ -86,15 +86,17 @@ public class SKETCHrController {
 //        return null;
 //    }
 
-     //Adds the picName
+    // Adds the picName
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public Drawing drawingUp(@RequestBody Drawing drawing, HttpSession session) throws Exception {
+    public String drawingUp(@RequestBody Drawing drawing, HttpSession session) throws Exception {
         String userName = (String) session.getAttribute("userName");
         if(userName == null){
             throw new Exception("You must be logged in to upload photos.");
         }
+
         User user = users.findByUserName(userName);
         Drawing newDrawing = new Drawing(drawing.getPicName(), drawing.getFileName(), user);
+
         drawings.save(newDrawing);
         return null;
     }
