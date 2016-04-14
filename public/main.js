@@ -139,10 +139,12 @@ function getGallery(){
         console.log(data);
         var arter= element.user.userName;
         // var imgSrc = enc.slice(11,enc.length - 1);
+        var namer= element.picName;
+        console.log(namer);
         var img = new Image();
         img.src = enc;
         $('.gallerySpace').append(img);
-        $('.gallerySpace').append('<p>'+'created by '+arter+'</p>');
+        $('.gallerySpace').append('<p>'+namer+' '+'created by '+arter+'</p>');
       });
     }
   });
