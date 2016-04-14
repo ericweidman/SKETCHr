@@ -79,19 +79,19 @@ document.getElementById('save').addEventListener('click',function(){
   console.log('image give a name');
   var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
   var canvasString = JSON.stringify(canvasDATA);
-  saveCanvasImg(canvasString,imgName);
+  saveCanvasImg(canvasDATA,imgName.picName);
 });
 
 function saveCanvasImg(canvasString,imgName){
-  var imgString=JSON.stringify(imgName);
-  console.log(imgString,canvasString);
+  // var imgString=JSON.stringify(imgName);
+  console.log(imgName,canvasString);
   $.ajax({
     url:canvasApp.urls.canvasIMG,
     method:'POST',
     dataType:'json',
     data: {
-      imgName:imgString,
-      canvasIMG:canvasString
+      imgName:imgName,
+      canvasIMG:JSON.stringify(canvasString)
     },
     success: function(canvasIMG){
       alert('it worked!');
