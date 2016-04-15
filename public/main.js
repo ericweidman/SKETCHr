@@ -170,25 +170,46 @@ document.getElementById('save').addEventListener('click',function(){
   saveCanvasImg(canvasDATA,imgName.picName);
 });
 
-$('#galleryHome').click('click',function(){
+$('#goToCanvas').click('click',function(){
   event.preventDefault();
-  $(".main-canvas").addClass('inactive');
-  $('.gallery').removeClass('inactive');
+  $(".main-canvas").removeClass('inactive');
+  $(".profile").addClass('inactive');
   getGallery();
 });
 
-$('#canvasHome').click('click',function(){
+$('#goToGallery').click('click',function(){
   event.preventDefault();
-  $('.main-canvas').removeClass('inactive');
-  $('.gallery').addClass('inactive');
+  $('.gallery').removeClass('inactive');
+  $('.profile').addClass('inactive');
+  getGallery();
+})
+
+/*$('.profile').click('click',function(){
+  event.preventDefault();
+  $(".main-canvas").removeClass('inactive');
+  $(".profile").addClass('inactive');
+  getGallery();
+})
+$('.gallery').click('click',function(){
+  event.preventDefault();
+  $(".main-canvas").removeClass('inactive');
+  $(".galleryHome").addClass('inactive');
+  getGallery();
+})
+
+
+$('.gallery').click('click',function(){
+  event.preventDefault();
+  $('.galley').removeClass('inactive');
+  $('#profileHome').addClass('inactive');
   console.log('clicked');
-});
+});*/
 
 
 
 function hideHomePage(event) {
   $(".new-user").addClass('inactive');
-  $(".main-canvas").removeClass('inactive');
+  $(".profile").removeClass('inactive');
 }
 
 
