@@ -2,8 +2,8 @@
 //establish Canvas
 var canvasID = document.getElementById('canvasID');
 canvas = document.createElement('canvas');
-canvas.setAttribute('width', '500');
-canvas.setAttribute('height', '500');
+canvas.setAttribute('width', '650');
+canvas.setAttribute('height', '600');
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
 
