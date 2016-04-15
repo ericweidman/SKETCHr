@@ -182,28 +182,36 @@ $('#goToGallery').click('click',function(){
   $('.gallery').removeClass('inactive');
   $('.profile').addClass('inactive');
   getGallery();
-})
+});
 
-/*$('.profile').click('click',function(){
+//CLICK FROM CANVAS TO GALLERY
+$('#galleryHome').click('click',function(){
+  event.preventDefault();
+  $(".gallery").removeClass('inactive');
+  $(".main-canvas").addClass('inactive');
+  getGallery();
+});
+
+$('#profileHome').click('click',function(){
+  event.preventDefault();
+  $(".profile").removeClass('inactive');
+  $(".main-canvas").addClass('inactive');
+
+});
+//CLICK TO GO TO CANVAS FROM GALLERY
+$('#canvasHome').click('click',function(){
   event.preventDefault();
   $(".main-canvas").removeClass('inactive');
-  $(".profile").addClass('inactive');
-  getGallery();
-})
-$('.gallery').click('click',function(){
-  event.preventDefault();
-  $(".main-canvas").removeClass('inactive');
-  $(".galleryHome").addClass('inactive');
-  getGallery();
-})
+  $(".gallery").addClass('inactive');
+getGallery();
+});
 
-
-$('.gallery').click('click',function(){
+$('#profileHome').click('click',function(){
   event.preventDefault();
-  $('.galley').removeClass('inactive');
-  $('#profileHome').addClass('inactive');
-  console.log('clicked');
-});*/
+  $(".profile").removeClass('inactive');
+  $(".main-canvas").addClass('inactive');
+  getGallery();
+});
 
 
 
