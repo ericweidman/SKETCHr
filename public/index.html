@@ -44,73 +44,76 @@
                 other personal information; your sketches will speak for you.</p>
                 <p>So what are you waiting for? Sign Up now and start making art!</p>
           </div>
-
+        </div>
     </section>
 
+<section class='main inactive'>
+  <header>
+      <h1>SKETCH<span>r</span>
+          <input class='button-user' type='button' id='galleryHome' value='Gallery'/>
+          <input class='button-user' type='button' id='profileHome' value='Profile'/>
+          <input class='button-user' type='button' id='canvasHome' value='Canvas'/>
+          <button class='button-user' class='logout' id='logOut' type="button" name="out">Log Out</button>
+  </header>
 
-    <section class="main-canvas inactive">
-    <h1>SKETCH<span>r</span>
-        <input class='gallery' type='button' id='galleryHome' value='Gallery'/>
-        <input class='profile' type='button' id='profileHome' value='PROFILE PAGE'/>
-        <button class='logout' id='logOut' type="button" name="out">Log Out</button>
-        <h3>Hey<span class='artist'></span>, lets get sketching!<h3>
-        <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>Means these features aren't ready yet, but they will be soon!
-    </h1>
+  <section class="main-canvas">
 
-       <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
-       <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
-       <input class='statusButton' type='button' value='↻' id='redo'><span>REDO</span>
-       <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
 
-       <div id="empty">
-         <div id="canvasID"></div>
+    <h3>Hey<span class='artist'></span>, lets get sketching!<h3>
+    <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>Means these features aren't ready yet, but they will be soon!
+</h1>
+
+     <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
+     <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+     <input class='statusButton' type='button' value='↻' id='redo'><span>REDO</span>
+     <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+
+     <div id="empty">
+       <div id="canvasID"></div>
+    </div>
+  <!-- <input type="text" name="Password" placeholder="give your picture a name"> -->
+  <section class="sidebar">
+    <h4>Tools</h4>
+    <button class= "statusButton icon" type="button" id="crayon" value='crayon'><i class="fa fa-pencil"></i></button>
+    <button class= "statusButton icon" type="button" id="marker" value='marker'><i class="fa fa-paint-brush"></i></button>
+    <button class= "statusButton icon" type="button" id="eraser" value='eraser'><i class="fa fa-eraser"></i></button>
+    <button class= "statusButton icon" type="button" id="lineTool" value='lineTool'><i class="fa fa-arrows-h" aria-hidden="true"></i></button>
+    <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+    <button class= "statusButton icon" type="button" id="spray" value="spray"><i class="fa fa-tint" aria-hidden="true"></i></button>
+    <!-- <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i> -->
+    <h4>Size</h4>
+    <input id="slider" type ="range" min ="2" max="200" step ="2" value ="10"/>
+    <h4>Color</h4>
+        <input id='colorPick' type="color"/>
+          <input class='button' type='button' id='clear' value='clear all'>
+        <form id='nameImg'>
+          <p>Name your image</p>
+          <input class='nameImg' type="text" name="name" placeholder="name this image">
+          <input class='button' type='button' id='save' value='save'>
+        </form>
+    </section>
+
+  </section>
+
+   <section class='profile inactive'>
+    <h2>Welcome to your profile page!</h2>
+      <div class='profileSpace'>
       </div>
-    <!-- <input type="text" name="Password" placeholder="give your picture a name"> -->
-    <section class="sidebar">
-      <h4>Tools</h4>
-      <button class= "statusButton icon" type="button" id="crayon" value='crayon'><i class="fa fa-pencil"></i></button>
-      <button class= "statusButton icon" type="button" id="marker" value='marker'><i class="fa fa-paint-brush"></i></button>
-      <button class= "statusButton icon" type="button" id="eraser" value='eraser'><i class="fa fa-eraser"></i></button>
-      <button class= "statusButton icon" type="button" id="lineTool" value='lineTool'><i class="fa fa-arrows-h" aria-hidden="true"></i></button>
-      <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
-      <button class= "statusButton icon" type="button" id="spray" value="spray"><i class="fa fa-tint" aria-hidden="true"></i></button>
-      <!-- <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i> -->
-      <h4>Size</h4>
-      <input id="slider" type ="range" min ="2" max="200" step ="2" value ="10"/>
-      <h4>Color</h4>
-          <input id='colorPick' type="color"/>
-            <input class='button' type='button' id='clear' value='clear all'>
-          <form id='nameImg'>
-            <p>Name your image</p>
-            <input class='nameImg' type="text" name="name" placeholder="name this image">
-            <input class='button' type='button' id='save' value='save'>
-          </form>
-      </section>
 
-    </section>
+  </section>
 
-     <section class='profile inactive'>
-      <h1>SKETCH<span>r</span></h1>
-      <h2>Welcome to your profile page!</h2>
-        <input class='canvas' type='button' id='goToCanvas' value='Canvas'>
-        <input class='gallery' type='button' id='goToGallery' value='Gallery'>
-        <input class='delete' type="button" id='delete' value="remove">
-        <input class='open' type='button' id='open' value='open'>
-        <div class='profileSpace'></div>
+  <section class='gallery inactive'>
+      </h1>
+        <section class='openTEST'>
+        <h4><span class='artist'></span> this is the gallery Page</h4>
+        </section>
+        <div class="gallerySpace">
+        </div>
+  </section>
 
-    </section>
+</section>
 
-    <section class='gallery inactive'>
-        <h1>SKETCH<span>r</span>
-          <input class='canvas' type='button' id='canvasHome' value='Canvas'>
-          <input class='profile' type='button' id='profileHome' value='PROFILE PAIGE'>
-        </h1>
-          <section class='openTEST'>
-          <h4><span class='artist'></span> this is the gallery Page</h4>
-          </section>
-          <div class="gallerySpace">
-          </div>
-    </section>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="templates.js" charset="utf-8"></script>

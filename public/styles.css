@@ -15,6 +15,12 @@ body{
   color: white;
 }
 
+.profileSpace{
+  width: 500px;
+  height: 500px;
+  border: 1px solid white;
+}
+
 .hello{
   color: lime;
 }
@@ -155,6 +161,23 @@ span {
 }
 
 
+.buttonDel {
+  display: inline-block;
+  background: linear-gradient(#1D1F20,#3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 65px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 5px;
+}
+.buttonDel:hover{
+  background: none;
+  background-color: red;
+}
+
+
 .openTEST{
   width: 700px;
   margin-right: 25%;
@@ -204,6 +227,13 @@ span {
   margin-top: 5%;
 }
 
+header{
+  width: 1000px;
+  height: 100px;
+  display: inline-block;
+}
+
+
 .button-user {
   display: inline-block;
   background: linear-gradient(#1D1F20,#3F4041);
@@ -214,7 +244,6 @@ span {
   color: white;
   text-shadow: 2px 2px 0px black;
   border-radius: 10px;
-  margin: 15% 0 10% 15%;
 }
 
 .button-user:hover {
