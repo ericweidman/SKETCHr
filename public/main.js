@@ -203,7 +203,7 @@ $('#canvasHome').click('click',function(){
   event.preventDefault();
   $(".main-canvas").removeClass('inactive');
   $(".gallery").addClass('inactive');
-getGallery();
+  getGallery();
 });
 
 $('#profileHome').click('click',function(){
