@@ -16,8 +16,10 @@ public class Comment {
     @Column(nullable = false)
     String comment;
 
-    @ManyToOne
-    Drawing drawing;
+    @Column(nullable = false)
+    String userName;
+
+
 
     public Comment() {
     }
@@ -26,14 +28,16 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Comment(Drawing drawing) {
-        this.drawing = drawing;
+    public Comment(String comment, String userName) {
+        this.comment = comment;
+        this.userName = userName;
+
     }
 
-    public Comment(String comment, Drawing drawing) {
-        this.comment = comment;
-        this.drawing = drawing;
-    }
+
+
+
+
 
     public String getComment() {
         return comment;
@@ -43,11 +47,12 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Drawing getDrawing() {
-        return drawing;
+
+    public String getUserName() {
+        return userName;
     }
 
-    public void setDrawing(Drawing drawing) {
-        this.drawing = drawing;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
