@@ -184,3 +184,4 @@ $('#spray').click('click',function(){
    currentSize=this.value;
    console.log(this.value);
  });
+ 

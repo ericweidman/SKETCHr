@@ -8,7 +8,7 @@ var canvasApp ={
     createUser:       '/create-user/',
     logIt:            '/login',
     logOut:           '/logout',
-    getAllImg:        '/user-photos'
+    getAllImg:        '/user-photos/'
   }
 };
 
@@ -38,7 +38,6 @@ function logUser(curUser){
     success: function(data){
       hideHomePage();
       console.log('user logged in!', data);
-      console.log('this');
       $('.artist').append("<span class='artistName'>"+" "+curUser.userName+"</span>");
     },
     error: function(error){
@@ -101,7 +100,31 @@ function getGallery(){
   });
 }
 
-function deleteImg(){
+function getCanvasImg(){
+  $.ajax({
+    method:'GET',
+    url:canvasApp.urls.getAllImg,
+    contentType: 'json',
+    success: function(data){
+      $('.profileSpace').html('');
+      data.forEach(function(element,ndx){
+        var enco = decodeURIComponent(element.fileName);
+        // var pic= element.picName;
+        var namae= element.picName;
+        var pic = new Image();
+        pic.src = enco;
+        pic.classList.add('picture');
+        pic.setAttribute('data-id',element.id);
+        console.log('the ID of',element.picName,'is:', element.id);
+        $('.profileSpace').append(pic);
+        $('.profileSpace').append("<button class='buttonDel'>Delete</button>")
+      })
+    }
+  });
+}
+
+
+function deleteImg(id){
   $.ajax({
     method:'DELETE',
     url: canvasApp.urls.deleteCanvas + id,
@@ -111,27 +134,16 @@ function deleteImg(){
   });
 }
 
-function getCanvasImg(){
-  $.ajax({
-    method:'GET',
-    url:canvasApp.urls.getAllImg,
-    // contentType: 'json',
-    success: function(data){
-        console.log(data);
-        var enc = decodeURIComponent(data[0].fileName);
-        var imgSrc = enc.slice(11,enc.length - 1);
-        var img = new Image();
-        img.src = imgSrc;
-        $('.profileSpace').append(img);
-      // console.log(data);
-      // var enc = decodeURIComponent(data[0].fileName);
-      // var imgSrc = enc.slice(11,enc.length - 1);
-      // var img = new Image();
-      // img.src = imgSrc;
-      // $('.gallerySpace').append(img);
-    }
-  });
-}
+
+$('.profileSpace').on('click', '.picture', function(event){
+    event.preventDefault();
+    var id = $(this).data('id');
+    $(this).remove();
+    deleteImg(id);
+   console.log(id);
+});
+
+
 
 $('#logIn').submit(function(event){
   event.preventDefault();
@@ -170,60 +182,33 @@ document.getElementById('save').addEventListener('click',function(){
   saveCanvasImg(canvasDATA,imgName.picName);
 });
 
-$('#goToCanvas').click('click',function(){
-  event.preventDefault();
-  $(".main-canvas").removeClass('inactive');
-  $(".profile").addClass('inactive');
-  getGallery();
-});
-
-$('#goToGallery').click('click',function(){
-  event.preventDefault();
-  $('.gallery').removeClass('inactive');
-  $('.profile').addClass('inactive');
-  getGallery();
-});
-
-//CLICK FROM CANVAS TO GALLERY
-$('#galleryHome').click('click',function(){
-  event.preventDefault();
-  $(".gallery").removeClass('inactive');
-  $(".main-canvas").addClass('inactive');
-  getGallery();
-});
-
-$('#profileHome').click('click',function(){
-  event.preventDefault();
-  $(".profile").removeClass('inactive');
-  $(".main-canvas").addClass('inactive');
-
-});
-//CLICK TO GO TO CANVAS FROM GALLERY
-$('#canvasHome').click('click',function(){
-  event.preventDefault();
-  $(".main-canvas").removeClass('inactive');
-  $(".gallery").addClass('inactive');
-  getGallery();
-});
-
-$('#profileHome').click('click',function(){
-  event.preventDefault();
-  $(".profile").removeClass('inactive');
-  $(".main-canvas").addClass('inactive');
-  getGallery();
-});
-
-
-
 function hideHomePage(event) {
   $(".new-user").addClass('inactive');
-  $(".profile").removeClass('inactive');
+  $(".main").removeClass('inactive');
 }
 
+$('#profileHome').on('click', function(){
+  $('.main-canvas').addClass('inactive');
+  $('.gallery').addClass('inactive');
+  $('.profile').removeClass('inactive');
+  getCanvasImg();
+});
 
-// document.getElementById('open').addEventListener('click', function(){
-//   getCanvasImg();
-// });
+$('#galleryHome').on('click', function(){
+  $('.profile').addClass('inactive');
+  $('.main-canvas').addClass('inactive')
+  $('.gallery').removeClass('inactive');
+  getGallery();
+});
+
+
+$('#canvasHome').on('click',function(){
+  $('.main-canvas').removeClass('inactive');
+  $('.gallery').addClass('inactive');
+  $('.profile').addClass('inactive')
+
+});
+
 
 function grabSessionValue(name) {
   return window.sessionStorage.getItem(name);

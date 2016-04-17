@@ -1,5 +1,6 @@
 package com.theironyard.controllers;
 
+import com.theironyard.entities.Comment;
 import com.theironyard.entities.Drawing;
 import com.theironyard.entities.User;
 import com.theironyard.services.CommentRepository;
@@ -74,20 +75,7 @@ public class SKETCHrController {
 
         }
     }
-//
-//    @RequestMapping(path = "/upload", method = RequestMethod.POST)
-//    public Drawing stringUp(@RequestBody String drawing, HttpSession session) throws Exception {
-//        String userName = (String) session.getAttribute("userName");
-//        if (userName == null) {
-//            throw new Exception("You must be logged in to upload photos.");
-//        }
-//        User user = users.findByUserName(userName);
-//        Drawing newDrawing = new Drawing(drawing, user);
-//        drawings.save(newDrawing);
-//        return null;
-//    }
 
-    // Adds the picName
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public Drawing drawingUp(String imgName, String canvasIMG, HttpSession session) throws Exception {
         String userName = (String) session.getAttribute("userName");
@@ -126,8 +114,9 @@ public class SKETCHrController {
     @RequestMapping(path = "/gallery", method = RequestMethod.GET)
     public List<Drawing> allDrawings() {
         List<Drawing> allDrawings = (List<Drawing>) drawings.findAll();
-        return allDrawings;
+          return allDrawings;
     }
+
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.PUT)
     public Drawing editDrawing(@PathVariable("id") int id, @RequestBody Drawing drawing) {
@@ -137,8 +126,46 @@ public class SKETCHrController {
         return drawing;
     }
 
+    @RequestMapping(path = "/add-comment", method = RequestMethod.POST)
+    public Comment addComment(String comment, HttpSession session){
+        String userName = (String) session.getAttribute("userName");
+        Comment newComment = new Comment(comment, userName);
+        comments.save(newComment);
+        return null;
+    }
+
+
+
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) {
         session.invalidate();
     }
+
+
+//    @RequestMapping(path = "/user-photos", method = RequestMethod.GET)
+//    public List<Drawing> userDrawing(HttpSession session){
+//        String userName = (String) session.getAttribute("userName");
+//        User user = users.findByUserName(userName);
+//        List<Drawing> allInfo = drawings.findByUser(user);
+//        List<Drawing> passThis =  new ArrayList<>();
+//        for (Drawing drawing : allInfo){
+//            User user1 = new User(user.getId(), user.getUserName());
+//            Drawing temp = new Drawing(drawing.getId(), drawing.getPicName(), drawing.getFileName(), user1);
+//            passThis.add(temp);
+//        }
+//             return passThis;
+//
+//    }
+//    @RequestMapping(path = "/upload", method = RequestMethod.POST)
+//    public Drawing stringUp(@RequestBody String drawing, HttpSession session) throws Exception {
+//        String userName = (String) session.getAttribute("userName");
+//        if (userName == null) {
+//            throw new Exception("You must be logged in to upload photos.");
+//        }
+//        User user = users.findByUserName(userName);
+//        Drawing newDrawing = new Drawing(drawing, user);
+//        drawings.save(newDrawing);
+//        return null;
+//    }
+
 }

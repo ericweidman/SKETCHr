@@ -14,16 +14,16 @@ public class Drawing {
 
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
     @Column(nullable = false)
-    String picName;
+    private String picName;
 
     @Column(nullable = false, length = 100000000)
-    String fileName;
+    private String fileName;
 
     @ManyToOne
-    User user;
+    private User user;
 
 
     public Drawing() {
@@ -34,6 +34,13 @@ public class Drawing {
     }
 
     public Drawing(User user) {
+        this.user = user;
+    }
+
+    public Drawing(int id, String picName, String fileName, User user) {
+        this.id = id;
+        this.picName = picName;
+        this.fileName = fileName;
         this.user = user;
     }
 
