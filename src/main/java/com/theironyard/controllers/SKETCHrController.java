@@ -1,5 +1,6 @@
 package com.theironyard.controllers;
 
+import com.theironyard.entities.Comment;
 import com.theironyard.entities.Drawing;
 import com.theironyard.entities.User;
 import com.theironyard.services.CommentRepository;
@@ -124,6 +125,16 @@ public class SKETCHrController {
         drawings.save(drawing);
         return drawing;
     }
+
+    @RequestMapping(path = "/add-comment", method = RequestMethod.POST)
+    public Comment addComment(String comment, HttpSession session){
+        String userName = (String) session.getAttribute("userName");
+        Comment newComment = new Comment(comment, userName);
+        comments.save(newComment);
+        return null;
+    }
+
+
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) {
