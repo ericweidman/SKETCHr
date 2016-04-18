@@ -118,7 +118,7 @@ $('body').on('click','.critique',function(event){
 function postComment(com,id){
   $.ajax({
     url:canvasApp.urls.makeComment +"/"+id,
-    method:'GET',
+    method:'POST',
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
     data: {
