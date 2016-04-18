@@ -127,9 +127,10 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/add-comment", method = RequestMethod.POST)
-    public Comment addComment(String comment, HttpSession session){
+    public Comment addComment(String comment, int id, HttpSession session){
         String userName = (String) session.getAttribute("userName");
-        Comment newComment = new Comment(comment, userName);
+        Drawing drawing = drawings.findOne(id);
+        Comment newComment = new Comment(comment, userName, drawing);
         comments.save(newComment);
         return null;
     }
