@@ -19,6 +19,7 @@ body{
   width: 500px;
   height: 500px;
   border: 1px solid white;
+  display: block;
 }
 
 .hello{
@@ -104,7 +105,7 @@ h1 {
 span {
   color:#d35400;
 }
-.canvas, .logout, {
+.canvas, .logout,{
   display: inline-block;
   background: linear-gradient(#1D1F20,#3F4041);
   height: 30px;
@@ -163,7 +164,7 @@ span {
 }
 
 
-.buttonDel {
+.delThis{
   display: inline-block;
   background: linear-gradient(#1D1F20,#3F4041);
   height: 30px;
@@ -173,8 +174,10 @@ span {
   color: white;
   text-shadow: 2px 2px 0px black;
   border-radius: 5px;
+  float: left;
+  margin: 5px;
 }
-.buttonDel:hover{
+.delThis:hover{
   background: none;
   background-color: red;
 }
