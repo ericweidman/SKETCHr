@@ -2,8 +2,10 @@
 //establish Canvas
 var canvasID = document.getElementById('canvasID');
 canvas = document.createElement('canvas');
-canvas.setAttribute('width', '650');
-canvas.setAttribute('height', '600');
+
+canvas.setAttribute('width', '700');
+canvas.setAttribute('height', '700');
+
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
 
@@ -184,4 +186,3 @@ $('#spray').click('click',function(){
    currentSize=this.value;
    console.log(this.value);
  });
- 

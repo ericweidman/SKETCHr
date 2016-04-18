@@ -363,3 +363,10 @@ img{
   border: 2px solid red;
   display: inline-block;
 }
+
+.picture{
+  display: inline-block;
+  width: 245px;
+  border: 2px solid #D35400;
+  overflow-x: scroll;
+}
