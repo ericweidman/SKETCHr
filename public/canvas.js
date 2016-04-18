@@ -4,7 +4,7 @@ var canvasID = document.getElementById('canvasID');
 canvas = document.createElement('canvas');
 
 canvas.setAttribute('width', '700');
-canvas.setAttribute('height', '700');
+canvas.setAttribute('height', '500');
 
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
@@ -17,7 +17,7 @@ context = canvas.getContext('2d');
 
 var crayonImg = new Image();
 crayonImg.globalAlpha=0.1;
-crayonImg.src='/img/crayon-tool.png';
+crayonImg.src='/img/crayon-tool.jpg';
 
 //clicking the mouse
 
