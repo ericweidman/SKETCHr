@@ -22,9 +22,18 @@ body{
 .profileSpace{
   width: 50%;
   height: 500px;
-  border: 1px solid white;
+  //border: 1px solid white;
   display: block;
-    margin-left: 25%;
+  margin-left: 25%;
+
+}
+
+.profileSpace img {
+  width: 450px;
+  height: 450px;
+  display: block;
+  margin-top: 60px;
+  margin-left: 15%;
 }
 
 .hello{
@@ -185,12 +194,13 @@ span {
   height: 30px;
   font-size: 14px;
   border: none;
-  width: 65px;
+  width: 95px;
   color: white;
   text-shadow: 2px 2px 0px black;
   border-radius: 5px;
   float: left;
-  margin: 5px;
+  margin-top: 10px;
+  margin-left: 15%;
 }
 .delThis:hover{
   background: none;
@@ -224,7 +234,7 @@ span {
  text-align: center;
  color: white;
  background: radial-gradient(#474748,#1D1F20);
- margin-left: 25%;
+ margin-left: 24%;
  margin-top: 10%;
 
 }
@@ -255,9 +265,11 @@ header{
 .draw{
   padding: 5px;
   font-size: 18px;
-  margin-left: 18px;
+  margin-left: 24px;
 }
+.nav-bar{
 
+}
 .nav-buttons{
   width: 100%;
   margin-left: 48%;
@@ -409,4 +421,40 @@ img{
   width: 245px;
   border: 2px solid #D35400;
   overflow-x: scroll;
+}
+
+.comment {
+  width: 170px;
+  height: 22px;
+  border-radius: 5px;
+  margin:2%;
+  background-color: black;
+  border: 1px solid #D35400;
+  padding: 1%;
+  color:#d35400;
+}
+.comment:focus{
+  outline: 0;
+}
+
+.critique {
+  background: linear-gradient(#1D1F20,#3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 110px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 10px;
+  margin: 20px 60px 20px -245px;
+}
+
+.critique:hover {
+  background: none;
+  background-color:#d35400;
+  border-radius: 5px;
+}
+
+.critique:focus{
+  outline: none;
 }
