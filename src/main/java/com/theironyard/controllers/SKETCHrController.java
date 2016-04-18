@@ -16,6 +16,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -139,8 +140,13 @@ public class SKETCHrController {
 
      @RequestMapping(path = "/get-comments/{id}", method = RequestMethod.GET)
      public List<Comment> getComments(@PathVariable("id") int id){
-         List<Comment> comment = comments.findAllByDrawingId(id);
-         return comment;
+         List<Comment> comment1 = comments.findAllByDrawingId(id);
+         List<Comment> passThese = new ArrayList<>();
+         for (Comment comment : comment1){
+             Comment temp = new Comment(comment.getId(), comment.getComment(), comment.getUserName());
+             passThese.add(temp);
+         }
+         return passThese;
 
      }
 

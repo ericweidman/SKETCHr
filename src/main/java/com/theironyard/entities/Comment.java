@@ -70,4 +70,12 @@ public class Comment {
         this.comment = comment;
         this.userName = userName;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
