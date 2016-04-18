@@ -34,11 +34,6 @@ public class Comment {
 
     }
 
-
-
-
-
-
     public String getComment() {
         return comment;
     }
@@ -55,4 +50,5 @@ public class Comment {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
 }
