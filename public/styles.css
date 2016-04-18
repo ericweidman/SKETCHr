@@ -6,6 +6,10 @@
   cursor: cell;
 }
 
+.comment{
+  float: left;
+}
+
 body{
   display: inline-block;
   width: 100%;
