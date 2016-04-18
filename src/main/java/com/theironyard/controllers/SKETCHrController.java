@@ -9,6 +9,7 @@ import com.theironyard.services.UserRepository;
 import com.theironyard.utils.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -97,7 +98,9 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.DELETE)
-    public void deleteDrawing(@PathVariable("id") int id) {
+    public void  deleteDrawing(@PathVariable("id") int id) {
+        List<Comment> commentsById = comments.findAllByDrawingId(id);
+        comments.delete(commentsById);
         drawings.delete(id);
     }
 
@@ -126,7 +129,7 @@ public class SKETCHrController {
     }
 
     @RequestMapping(path = "/add-comment/{id}", method = RequestMethod.POST)
-    public Comment addComment(@RequestBody String theComment, @PathVariable int id, HttpSession session){
+    public Comment addComment(String theComment, @PathVariable int id, HttpSession session){
          String userName = (String) session.getAttribute("userName");
          Drawing drawing = drawings.findOne(id);
          Comment comment = new Comment(drawing, theComment, userName);
@@ -134,9 +137,9 @@ public class SKETCHrController {
         return null;
     }
 
-     @RequestMapping(path = "/get-comments", method = RequestMethod.GET)
+     @RequestMapping(path = "/get-comments/{id}", method = RequestMethod.GET)
      public List<Comment> getComments(@PathVariable("id") int id){
-         List<Comment> comment = comments.findAllByDrawing(id);
+         List<Comment> comment = comments.findAllByDrawingId(id);
          return comment;
 
      }
