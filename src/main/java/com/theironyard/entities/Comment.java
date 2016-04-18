@@ -19,6 +19,8 @@ public class Comment {
     @Column(nullable = false)
     String userName;
 
+    @ManyToOne
+    Drawing drawing;
 
 
     public Comment() {
@@ -33,11 +35,6 @@ public class Comment {
         this.userName = userName;
 
     }
-
-
-
-
-
 
     public String getComment() {
         return comment;
@@ -54,5 +51,11 @@ public class Comment {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public Comment(String comment, String userName, Drawing drawing) {
+        this.comment = comment;
+        this.userName = userName;
+        this.drawing = drawing;
     }
 }

@@ -26,12 +26,12 @@ body{
   color: lime;
 }
 .about{
-  width:100%;
+  width:90%;
   color: white;
   font-size: 14px;
   //overflow-y: scroll;
   text-align:left;
-  margin: 0 1px 1px 4px;
+  margin: 0 1px 1px 10px;
   letter-spacing: 1px;
 }
 .splashHeader{
@@ -64,7 +64,7 @@ body{
   display: inline-block;
   border: 1px solid black;
   float: left;
-  margin: 1%;
+  margin: 1% 0 0 5%;
   background-color: white;
 
 }
@@ -73,7 +73,7 @@ body{
   width: 25%;
   height: 500px;
   float: left;
-  margin: 1%;
+  margin: 1% 0 0 5%;
   background: radial-gradient(#474748,#1D1F20);
   box-shadow: 4px 4px 4px solid black;
   border-radius: 10px;
@@ -100,6 +100,12 @@ h1 {
   height: 30px;
   width: 80%;
   font-size: 40px;
+  margin-left: 10%;
+}
+
+h2 {
+  margin-left: 230px;
+  letter-spacing: 1px;
 }
 
 span {
@@ -208,9 +214,9 @@ span {
  width: 50%;
  text-align: center;
  color: white;
- border:2px solid #d35400;
+/* border:2px solid #d35400;*/
  background: radial-gradient(#474748,#1D1F20);
- margin-left: 20%;
+ margin-left: 25%;
  margin-top: 10%;
 
 }
@@ -235,9 +241,20 @@ span {
 header{
   width: 1000px;
   height: 100px;
+  margin-left: 10%;
   display: inline-block;
 }
+.draw{
+  padding: 5px;
+  font-size: 18px;
+  margin-left: 18px;
+}
 
+.nav-buttons{
+  width: 100%;
+  margin-left: 34%;
+margin-top: -7.8%;
+}
 
 .button-user {
   display: inline-block;
@@ -245,10 +262,11 @@ header{
   height: 30px;
   font-size: 14px;
   border: none;
-  width: 85px;
+  width: 100px;
   color: white;
   text-shadow: 2px 2px 0px black;
   border-radius: 10px;
+  margin: 20px 0 20px 20px;
 }
 
 .button-user:hover {
@@ -258,6 +276,28 @@ header{
 }
 
 .button-user:focus{
+  outline: none;
+}
+
+.where {
+  background: linear-gradient(#1D1F20,#3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 130px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 10px;
+  margin: 20px 60px 20px -245px;
+}
+
+.where:hover {
+  background: none;
+  background-color:#d35400;
+  border-radius: 5px;
+}
+
+.where:focus{
   outline: none;
 }
 

@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by ericweidman on 4/3/16.
@@ -26,6 +27,7 @@ public class Drawing {
     private User user;
 
 
+
     public Drawing() {
     }
 
@@ -43,6 +45,7 @@ public class Drawing {
         this.fileName = fileName;
         this.user = user;
     }
+
 
     public Drawing(String picName, String fileName, User user) {
         this.picName = picName;
@@ -82,4 +85,5 @@ public class Drawing {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

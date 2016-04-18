@@ -8,7 +8,8 @@ var canvasApp ={
     createUser:       '/create-user/',
     logIt:            '/login',
     logOut:           '/logout',
-    getAllImg:        '/user-photos/'
+    getAllImg:        '/user-photos/',
+    makeComment:      '/add-comment',
   }
 };
 
@@ -94,11 +95,41 @@ function getGallery(){
         var img = new Image();
         img.src = enc;
         $('.gallerySpace').prepend(img);
-        $('.gallerySpace').prepend('<p>'+namer+' '+'created by '+arter+'</p>');
+        $('.gallerySpace').prepend('<p data-image-id="' + element.id +'">' + namer+' '+'created by '+arter+'</p>');
+        $('.gallerySpace').prepend('<input type=text class="comment"/><button type="submit" class="critique"/>');
       });
     }
   });
 }
+
+$('body').on('click','.critique',function(event){
+  event.preventDefault();
+  console.log("WHAT AM I",this)
+  var id = $(this).siblings('p').data('image-id');
+  console.log("ID IS THIS", $(this).siblings('p').data('image-id'));
+  var com={};
+  com.thisComment=$('input[class="comment"]').val();
+  console.log('comment sent');
+  postComment(com,id);
+});
+
+
+
+function postComment(com,id){
+  $.ajax({
+    url:canvasApp.urls.makeComment +"/"+id,
+    method:'GET',
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    data: {
+      theComment: JSON.stringify(com)
+    },
+    success: function(){
+      console.log('this comment',com);
+    }
+  })
+}
+
 
 function getCanvasImg(){
   $.ajax({
@@ -203,10 +234,12 @@ $('#galleryHome').on('click', function(){
   getGallery();
 });
 
+
 $('#canvasHome').on('click',function(){
   $('.main-canvas').removeClass('inactive');
   $('.gallery').addClass('inactive');
   $('.profile').addClass('inactive')
+
 });
 
 
