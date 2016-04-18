@@ -107,8 +107,7 @@ $('body').on('click','.critique',function(event){
   console.log("WHAT AM I",this)
   var id = $(this).siblings('p').data('image-id');
   console.log("ID IS THIS", $(this).siblings('p').data('image-id'));
-  var com={};
-  com.thisComment=$('input[class="comment"]').val();
+  var com = $('input[class="comment"]').val();
   console.log('comment sent');
   postComment(com,id);
 });
@@ -127,7 +126,7 @@ function postComment(com,id){
     success: function(){
       console.log('this comment',com);
     }
-  })
+  });
 }
 
 
