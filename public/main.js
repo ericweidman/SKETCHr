@@ -10,6 +10,7 @@ var canvasApp ={
     logOut:           '/logout',
     getAllImg:        '/user-photos/',
     makeComment:      '/add-comment',
+    getComment:       '/get-comments/'
   }
 };
 
@@ -79,41 +80,6 @@ function saveCanvasImg(canvasDATA,imgName){
   });
 }
 
-function getGallery(){
-  $.ajax({
-    url:canvasApp.urls.canvasGallery,
-    method:'GET',
-    success: function(data){
-      $('.gallerySpace').html('');
-      data.forEach(function(element,idx) {
-        var enc = decodeURIComponent(element.fileName);
-        console.log(data);
-        var arter= element.user.userName;
-        // var imgSrc = enc.slice(11,enc.length - 1);
-        var namer= element.picName;
-        console.log(namer);
-        var img = new Image();
-        img.src = enc;
-
-        $('.gallerySpace').prepend('<article data-image-id="'+element.id+'"><p>' + namer+' '+'created by '+arter+'</p><input type=text class="comment"/><button type="button" class="critique">Add Comment</button></article>');
-        $('[data-image-id=' + element.id+']').prepend(img);
-
-      });
-    }
-  });
-}
-
-$('body').on('click','.critique',function(event){
-  event.preventDefault();
-  console.log("WHAT AM I",this)
-  var id = parseInt($(this).closest('article').data('image-id'));
-  console.log("ID IS THIS", $(this).closest('article').data('image-id'));
-  var comment = $(this).closest('article').find('input[class="comment"]').val();
-  console.log('comment sent', comment);
-  postComment(comment,id);
-});
-
-
 
 function postComment(com,id){
   $.ajax({
@@ -130,6 +96,58 @@ function postComment(com,id){
   });
 }
 
+$('body').on('click','.critique',function(event){
+  event.preventDefault();
+  console.log("WHAT AM I",this)
+  var id = parseInt($(this).closest('article').data('image-id'));
+  console.log("ID IS THIS", $(this).closest('article').data('image-id'));
+  var comment = $(this).closest('article').find('input[class="comment"]').val();
+  console.log('comment sent', comment);
+  postComment(comment,id);
+});
+
+function getGallery(){
+  $.ajax({
+    url:canvasApp.urls.canvasGallery,
+    method:'GET',
+    success: function(data){
+      $('.gallerySpace').html('');
+      data.forEach(function(element,idx) {
+        var enc = decodeURIComponent(element.fileName);
+        console.log(data);
+        var arter= element.user.userName;
+        // var imgSrc = enc.slice(11,enc.length - 1);
+        var namer= element.picName;
+        console.log(namer);
+        var img = new Image();
+        img.src = enc;
+        $('.gallerySpace').prepend('<article data-image-id="'+element.id+'"><p>' +
+        namer+' '+'created by '+arter+ '<div class="commentBox"></div>'+
+        '</p><input type=text class="comment"/><button type="button" class="critique">Add Comment</button></article>');
+        $('[data-image-id=' + element.id+']').prepend(img);
+        returnComment(element.id);
+      });
+    }
+  });
+}
+
+function returnComment(id){
+  console.log("IS THIS THE RIGHT ID", id);
+  $.ajax({
+    url: canvasApp.urls.getComment+id,
+    dataType: 'json',
+    method:"GET",
+    success:function(data){
+      console.log('comments', data);
+      // $('article');
+      setInterval(function(){
+        data.forEach(function(el) {
+          $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p>'+el.comment+''+el.userName+'</p>');
+        });
+      },3000);
+    }
+  });
+}
 
 function getCanvasImg(){
   $.ajax({
