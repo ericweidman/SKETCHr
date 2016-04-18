@@ -118,10 +118,10 @@ function postComment(com,id){
   $.ajax({
     url:canvasApp.urls.makeComment +"/"+id,
     method:'POST',
-    contentType: 'application/json; charset=utf-8',
+  //  contentType: 'application/json; charset=utf-8',
     dataType: 'json',
     data: {
-      theComment: JSON.stringify(com)
+      com
     },
     success: function(){
       console.log('this comment',com);

@@ -58,4 +58,16 @@ public class Comment {
         this.userName = userName;
         this.drawing = drawing;
     }
+
+    public Comment(int id, String comment, String userName) {
+        this.id = id;
+        this.comment = comment;
+        this.userName = userName;
+    }
+
+    public Comment(Drawing drawing, String comment, String userName) {
+        this.drawing = drawing;
+        this.comment = comment;
+        this.userName = userName;
+    }
 }

@@ -99,7 +99,6 @@ public class SKETCHrController {
     @RequestMapping(path = "/photo/{id}", method = RequestMethod.DELETE)
     public void deleteDrawing(@PathVariable("id") int id) {
         drawings.delete(id);
-
     }
 
     @RequestMapping(path ="/user-photos", method = RequestMethod.GET)
@@ -126,15 +125,21 @@ public class SKETCHrController {
         return drawing;
     }
 
-    @RequestMapping(path = "/add-comment", method = RequestMethod.POST)
-    public Comment addComment(String comment, int id, HttpSession session){
-        String userName = (String) session.getAttribute("userName");
-        Drawing drawing = drawings.findOne(id);
-        Comment newComment = new Comment(comment, userName, drawing);
-        comments.save(newComment);
+    @RequestMapping(path = "/add-comment/{id}", method = RequestMethod.POST)
+    public Comment addComment(@RequestBody String theComment, @PathVariable int id, HttpSession session){
+         String userName = (String) session.getAttribute("userName");
+         Drawing drawing = drawings.findOne(id);
+         Comment comment = new Comment(drawing, theComment, userName);
+         comments.save(comment);
         return null;
     }
 
+     @RequestMapping(path = "/get-comments", method = RequestMethod.GET)
+     public List<Comment> getComments(@PathVariable("id") int id){
+         List<Comment> comment = comments.findAllByDrawing(id);
+         return comment;
+
+     }
 
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
