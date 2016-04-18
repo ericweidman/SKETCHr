@@ -122,7 +122,7 @@ function postComment(com,id){
   //  contentType: 'application/json; charset=utf-8',
     dataType: 'json',
     data: {
-      com: JSON.stringify(com)
+      theComment: JSON.stringify(com)
     },
     success: function(){
       console.log('this comment',com);
