@@ -8,7 +8,8 @@ var canvasApp ={
     createUser:       '/create-user/',
     logIt:            '/login',
     logOut:           '/logout',
-    getAllImg:        '/user-photos/'
+    getAllImg:        '/user-photos/',
+    makeComment:      '/add-comment',
   }
 };
 
@@ -94,11 +95,41 @@ function getGallery(){
         var img = new Image();
         img.src = enc;
         $('.gallerySpace').prepend(img);
-        $('.gallerySpace').prepend('<p>'+namer+' '+'created by '+arter+'</p>');
+        $('.gallerySpace').prepend('<p data-image-id="' + element.id +'">' + namer+' '+'created by '+arter+'</p>');
+        $('.gallerySpace').prepend('<input type=text class="comment"/><button type="submit" class="critique"/>');
       });
     }
   });
 }
+
+$('body').on('click','.critique',function(event){
+  event.preventDefault();
+  console.log("WHAT AM I",this)
+  var id = $(this).siblings('p').data('image-id');
+  console.log("ID IS THIS", $(this).siblings('p').data('image-id'));
+  var com={};
+  com.thisComment=$('input[class="comment"]').val();
+  console.log('comment sent');
+  postComment(com,id);
+});
+
+
+
+function postComment(com,id){
+  $.ajax({
+    url:canvasApp.urls.makeComment +"/"+id,
+    method:'GET',
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    data: {
+      theComment: JSON.stringify(com)
+    },
+    success: function(){
+      console.log('this comment',com);
+    }
+  })
+}
+
 
 function getCanvasImg(){
   $.ajax({
@@ -116,7 +147,8 @@ function getCanvasImg(){
         pic.classList.add('picture');
         pic.setAttribute('data-id',element.id);
         console.log('the ID of',element.picName,'is:', element.id);
-        $('.profileSpace').prepend(pic);
+        $('.profileSpace').append(pic);
+        $('.profileSpace').append('<button class="delThis" onclick="deleteThis(this)" data-id="' + element.id + '">delete</button>')
       });
     }
   });
@@ -133,26 +165,16 @@ function deleteImg(id){
   });
 }
 
-$('#deletePage').on('click', '.picture', function(){
-  console.log('you can now delete');
-  deleleThis();
-});
+function deleteThis(elem){
+  if(confirm('are you sure you want to delete this image?')){  var id = $(elem).data('id');
+    console.log('this is the id',id);
+    $("*[data-id="+id+"]").remove();
+    deleteImg(id);
+  }else{
+    alert('image not deleted');
+  }
 
-$('#deletePace').off('click');
-
-function deleteThis(){
-  $('.profileSpace').on('click', '.picture', function(event){
-      event.preventDefault();
-      var id = $(this).data('id');
-      $(this).remove();
-      deleteImg(id);
-     console.log(id);
-  });
 }
-
-
-
-
 
 $('#logIn').submit(function(event){
   event.preventDefault();
