@@ -31,7 +31,7 @@
           <input type="password" name="Password" placeholder="password">
           <button class='button-user' type="submit" name="submit">Log In</button>
           <p class='error'></p>
-          <button class='button-user' id='more' type="button">Where am I?</button>
+          <button class='where' id='more' type="button">Where am I?</button>
       </form>
 
           <div class='about inactive'>
@@ -50,23 +50,24 @@
 <section class='main inactive'>
   <header>
       <h1>SKETCH<span>r</span>
+        <div class="nav-buttons">
           <input class='button-user' type='button' id='galleryHome' value='Gallery'/>
           <input class='button-user' type='button' id='profileHome' value='Profile'/>
           <input class='button-user' type='button' id='canvasHome' value='Canvas'/>
           <button class='button-user' class='logout' id='logOut' type="button" name="out">Log Out</button>
+       </div>
   </header>
 
   <section class="main-canvas">
 
 
-    <h3>Hey<span class='artist'></span>, lets get sketching!<h3>
-    <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>Means these features aren't ready yet, but they will be soon!
+    <h2>Hey<span class='artist'></span>, lets get sketching!</h2>
+    <!--<i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>Means these features aren't ready yet, but they will be soon! -->
 </h1>
 
-     <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
-     <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
-     <input class='statusButton' type='button' value='↻' id='redo'><span>REDO</span>
-     <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+    <!-- <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
+    <input class='statusButton' type='button' value='↻' id='redo'><span>REDO</span>
+     <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>-->
 
      <div id="empty">
        <div id="canvasID"></div>
@@ -77,9 +78,11 @@
     <button class= "statusButton icon" type="button" id="crayon" value='crayon'><i class="fa fa-pencil"></i></button>
     <button class= "statusButton icon" type="button" id="marker" value='marker'><i class="fa fa-paint-brush"></i></button>
     <button class= "statusButton icon" type="button" id="eraser" value='eraser'><i class="fa fa-eraser"></i></button>
-    <button class= "statusButton icon" type="button" id="lineTool" value='lineTool'><i class="fa fa-arrows-h" aria-hidden="true"></i></button>
-    <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>
-    <button class= "statusButton icon" type="button" id="spray" value="spray"><i class="fa fa-tint" aria-hidden="true"></i></button>
+
+      <!--<button class= "statusButton icon" type="button" id="lineTool" value='lineTool'><i class="fa fa-arrows-h" aria-hidden="true"></i></button>
+    <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i>-->
+     <button class= "statusButton icon" type="button" id="spray" value="spray"><i class="fa fa-tint" aria-hidden="true"></i></button>
+      <input class='statusButton' type='button' value='↺' id='undo'><span>UNDO</span>
     <!-- <i class="fa fa-minus-circle" id='comingSoon' aria-hidden="true"></i> -->
     <h4>Size</h4>
     <input id="slider" type ="range" min ="2" max="200" step ="2" value ="10"/>

@@ -212,10 +212,12 @@ $('#galleryHome').on('click', function(){
   getGallery();
 });
 
+
 $('#canvasHome').on('click',function(){
   $('.main-canvas').removeClass('inactive');
   $('.gallery').addClass('inactive');
   $('.profile').addClass('inactive')
+
 });
 
 

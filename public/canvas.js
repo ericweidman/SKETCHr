@@ -2,8 +2,10 @@
 //establish Canvas
 var canvasID = document.getElementById('canvasID');
 canvas = document.createElement('canvas');
+
 canvas.setAttribute('width', '700');
 canvas.setAttribute('height', '700');
+
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
 
@@ -184,40 +186,3 @@ $('#spray').click('click',function(){
    currentSize=this.value;
    console.log(this.value);
  });
-
-
-
-
- // SPRAY TOOL
- /*var timeout;
- var density = 50;
-
- function getRandomFloat(min, max) {
-   return Math.random() * (max - min) + min;
- }
-
- canvasID.onmousedown = function(e) {
-   ctx.lineJoin = context.lineCap = 'round';
-   clickX = e.clickX;
-   clickY = e.clickY;
-
-   timeout = setTimeout(function draw() {
-     for (var i = density; i--; ) {
-       var angle = getRandomFloat(0, Math.PI*2);
-       var radius = getRandomFloat(0, 20);
-       context.fillRect(
-         clientX + radius * Math.cos(angle),
-         clientY + radius * Math.sin(angle),
-         1, 1);
-     }
-     if (!timeout) return;
-     timeout = setTimeout(draw, 50);
-   }, 50);
- };
- canvasID.onmousemove = function(e) {
-   clickX = e.clickX;
-   clickY = e.clickY;
- };
- canvasID.onmouseup = function() {
-   clearTimeout(timeout);
- };*/
