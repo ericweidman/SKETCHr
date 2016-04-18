@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by ericweidman on 4/3/16.
@@ -24,9 +25,6 @@ public class Drawing {
 
     @ManyToOne
     private User user;
-
-    @ManyToOne
-    private Comment comment;
 
 
 
@@ -87,6 +85,5 @@ public class Drawing {
     public void setUser(User user) {
         this.user = user;
     }
-
 
 }
