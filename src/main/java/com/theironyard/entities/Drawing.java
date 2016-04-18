@@ -25,6 +25,10 @@ public class Drawing {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private Comment comment;
+
+
 
     public Drawing() {
     }
@@ -43,6 +47,7 @@ public class Drawing {
         this.fileName = fileName;
         this.user = user;
     }
+
 
     public Drawing(String picName, String fileName, User user) {
         this.picName = picName;
@@ -82,4 +87,6 @@ public class Drawing {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }
