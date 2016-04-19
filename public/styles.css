@@ -103,7 +103,8 @@ body{
   border: 2px solid #474748;
 }
 h4{
-  font-size: 14px;
+  height: 25px;
+  font-size: 16px;
   background: linear-gradient(#474748,#1D1F20);
   border-radius: 5px;
   border: 2px solid #474748;
@@ -433,7 +434,7 @@ img{
   width: 170px;
   height: 22px;
   border-radius: 5px;
-  margin:2%;
+  margin: 9px 0 0 0;
   background-color: black;
   border: 1px solid #D35400;
   padding: 1%;
@@ -452,7 +453,7 @@ img{
   color: white;
   text-shadow: 2px 2px 0px black;
   border-radius: 10px;
-  margin: 20px 60px 20px -245px;
+  margin: 12px 60px 20px 10px;
 }
 
 .critique:hover {
