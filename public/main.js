@@ -140,12 +140,10 @@ function returnComment(id){
     success:function(data){
       console.log('comments', data);
       // $('article');
-      setInterval(function(){
         data.forEach(function(el) {
           $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p>'+el.comment+''+el.userName+'</p>');
         });
-      },3000);
-    }
+      }
   });
 }
 
