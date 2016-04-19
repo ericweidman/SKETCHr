@@ -9,7 +9,6 @@ import com.theironyard.services.UserRepository;
 import com.theironyard.utils.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -103,6 +102,10 @@ public class SKETCHrController {
         List<Comment> commentsById = comments.findAllByDrawingId(id);
         comments.delete(commentsById);
         drawings.delete(id);
+    }
+    @RequestMapping(path = "/comment/{id}", method = RequestMethod.DELETE)
+    public void deleteComment(@PathVariable("id") int id){
+        comments.delete(id);
     }
 
     @RequestMapping(path ="/user-photos", method = RequestMethod.GET)
