@@ -132,6 +132,14 @@ public class SKETCHrController {
         return drawing;
     }
 
+    @RequestMapping(path = "/comment/{id}", method = RequestMethod.PUT)
+    public Comment editComment(@PathVariable("id") int id, String comment){
+        Comment saveComment = comments.findOne(id);
+        saveComment.setComment(comment);
+        comments.save(saveComment);
+        return saveComment;
+    }
+
     @RequestMapping(path = "/add-comment/{id}", method = RequestMethod.POST)
     public Comment addComment(String theComment, @PathVariable int id, HttpSession session){
          String userName = (String) session.getAttribute("userName");
