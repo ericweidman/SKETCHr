@@ -10,7 +10,8 @@ var canvasApp ={
     logOut:           '/logout',
     getAllImg:        '/user-photos/',
     makeComment:      '/add-comment',
-    getComment:       '/get-comments/'
+    getComment:       '/get-comments/',
+    deleteComment:    '/comment/'
   }
 };
 
@@ -106,6 +107,16 @@ $('body').on('click','.critique',function(event){
   postComment(comment,id);
 });
 
+function deleteComment(){
+  $.ajax({
+    url:canvasApp.urls.deleteComment,
+    method:'DELETE',
+    success:function(id){
+      console.log('commentDeleted');
+    }
+  });
+}
+
 function getGallery(){
   $.ajax({
     url:canvasApp.urls.canvasGallery,
@@ -141,7 +152,7 @@ function returnComment(id){
       console.log('comments', data);
       // $('article');
         data.forEach(function(el) {
-          $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p>'+el.comment+''+el.userName+'</p>');
+          $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p>'+el.comment+''+el.userName+'<span class="removeComment">X</span></p>');
         });
       }
   });
