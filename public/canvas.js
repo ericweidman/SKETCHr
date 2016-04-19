@@ -87,7 +87,7 @@ var i=clickX.length-1;
 /////code by ZACH ⚔ ^//
 if(curTool == "crayon") {
   context.globalAlpha=0.3;
-  context.drawImage(crayonImg,clickX[i],clickY[j],currentSize,currentSize)
+  // context.drawImage(crayonImg,clickX[i],clickY[j],currentSize,currentSize)
 }
 else {
   context.beginPath();
@@ -122,6 +122,7 @@ $('#canvas').mousemove(function(e){
 //after the mouse button is released
 $('#canvas').mouseup(function(e){
   paint=false;
+  contextPush();
 });
 //when the mouse leaves the canvas
 $('#canvas').mouseleave(function(e){
@@ -145,17 +146,34 @@ $('#canvas').mouseleave(function(e){
 
  //UNDO
 
+var contextPushArray = new Array();
+var contextStep= -1;
+
+function contextPush(){
+contextStep++;
+if (contextStep < contextPushArray.length){
+  contextPushArray.length= contextStep;
+}
+contextPushArray.push(document.getElementById('canvas').toDataURL());
+}
+
  function undo(){
-   clickX.pop();
-   clickY.pop();
-   draw();
+  if (contextStep > 0){
+    contextStep --;
+    var canvasImg = new Image();
+    canvasImg.src = contextPushArray[contextStep];
+    canvasImg.onload = function(){
+      context.drawImage(0,0,canvas.width,canvas.height);
+      console.log(canvasImg);
+    };
+  }
+
  }
- $('#undo').mousedown(function() {
-   interval = setInterval(undo,50)
- });
- $('#undo').mouseup(function(){
-   clearInterval(interval);
- })
+ $('#undo').click('click',function() {
+   undo();
+   console.log('undo');
+});
+
 
 $('#spray').click('click',function(){
    curTool='spray';
