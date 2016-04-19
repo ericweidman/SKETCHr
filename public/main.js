@@ -107,15 +107,58 @@ $('body').on('click','.critique',function(event){
   postComment(comment,id);
 });
 
-function deleteComment(){
+function deleteComment(comID){
   $.ajax({
-    url:canvasApp.urls.deleteComment,
+    url:canvasApp.urls.deleteComment+comID,
     method:'DELETE',
     success:function(id){
       console.log('commentDeleted');
     }
   });
 }
+
+function delComment(user,commentID){
+  $('.removeComment').click('click',function(){
+    console.log(this);
+    var loggedUser = document.querySelectorAll('.artistName')[0].textContent.trim();
+    // $('.artistName').first().text();
+    var userName = $(this).parent().data('user');
+    if(loggedUser === userName){
+      console.log('can delete');
+      var comID=commentID;
+      console.log('this is the ID:',comID);
+      // var comID = $()
+      deleteComment(comID);
+    }
+    else{
+      console.log('cant delete');
+    }
+    // if (user==user){
+    //     $("*[data-id="+commentId+"]").remove();
+    //   }
+    // else{
+    //
+    // }
+  })
+}
+
+function returnComment(id){
+  console.log("IS THIS THE RIGHT ID", id);
+  $.ajax({
+    url: canvasApp.urls.getComment+id,
+    dataType: 'json',
+    method:"GET",
+    success:function(data){
+      console.log('comments', data);
+      // $('article');
+        data.forEach(function(el) {
+          $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p class="thisComment" data-user="'+ el.userName + '">'+el.comment+''+el.userName+'<span class="removeComment">X</span></p>');
+          delComment(el.userName,el.id);
+        });
+      }
+  });
+}
+
 
 function getGallery(){
   $.ajax({
@@ -139,22 +182,6 @@ function getGallery(){
         returnComment(element.id);
       });
     }
-  });
-}
-
-function returnComment(id){
-  console.log("IS THIS THE RIGHT ID", id);
-  $.ajax({
-    url: canvasApp.urls.getComment+id,
-    dataType: 'json',
-    method:"GET",
-    success:function(data){
-      console.log('comments', data);
-      // $('article');
-        data.forEach(function(el) {
-          $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p>'+el.comment+''+el.userName+'<span class="removeComment">X</span></p>');
-        });
-      }
   });
 }
 
