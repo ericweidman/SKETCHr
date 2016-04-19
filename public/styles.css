@@ -5,6 +5,9 @@
 #canvasID:active{
   cursor: cell;
 }
+.removeComment{
+  color:red;
+}
 
 .comment{
   float: left;
