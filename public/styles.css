@@ -97,7 +97,8 @@ body{
   border: 2px solid #474748;
 }
 h4{
-  font-size: 14px;
+  height: 25px;
+  font-size: 16px;
   background: linear-gradient(#474748,#1D1F20);
   border-radius: 5px;
   border: 2px solid #474748;
