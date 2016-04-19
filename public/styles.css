@@ -9,6 +9,12 @@
 .comment{
   float: left;
 }
+.commentBox{
+  width: 300px;
+  height: 100px;
+  border: 1px solid white;
+  overflow-y: scroll;
+}
 
 body{
   display: inline-block;
