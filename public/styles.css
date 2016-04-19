@@ -14,6 +14,7 @@
   height: 100px;
   border: 1px solid white;
   overflow-y: scroll;
+  margin-left: 20%;
 }
 
 body{
@@ -39,7 +40,7 @@ body{
   height: 450px;
   display: block;
   margin-top: 60px;
-  margin-left: 15%;
+  margin-left: 13%;
 }
 
 .hello{
@@ -124,9 +125,9 @@ h1 {
   color: white;
   background: linear-gradient(#3F4041,#1D1F20);
   height: 30px;
-  width: 80%;
+  width: 69%;
   font-size: 40px;
-  margin-left: 10%;
+  margin-left: 14%;
 }
 
 h2 {
@@ -207,7 +208,7 @@ span {
   border-radius: 5px;
   float: left;
   margin-top: 10px;
-  margin-left: 15%;
+  margin-left: 13%;
 }
 .delThis:hover{
   background: none;
@@ -401,6 +402,7 @@ img{
   overflow-y: scroll;
   display: inline-block;
   margin-left: 25%;
+
 }
 .gallerySpace::-webkit-scrollbar {
     width: 12px;
@@ -421,6 +423,8 @@ img{
   width: 300px;
   border: 2px solid red;
   display: inline-block;
+  margin-left: 20%;
+  margin-top: 40px;
 }
 
 .picture{
@@ -434,7 +438,7 @@ img{
   width: 170px;
   height: 22px;
   border-radius: 5px;
-  margin: 9px 0 0 0;
+  margin: 9px 0 0 126px;
   background-color: black;
   border: 1px solid #D35400;
   padding: 1%;
@@ -464,4 +468,14 @@ img{
 
 .critique:focus{
   outline: none;
+}
+
+.createdBy {
+  margin-left: 20%;
+}
+
+.profPage{
+  margin-left: 36%;
+  margin-top: 55px;
+  letter-spacing: 1px;
 }

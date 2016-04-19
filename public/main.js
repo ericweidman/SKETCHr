@@ -121,7 +121,7 @@ function getGallery(){
         console.log(namer);
         var img = new Image();
         img.src = enc;
-        $('.gallerySpace').prepend('<article data-image-id="'+element.id+'"><p>' +
+        $('.gallerySpace').prepend('<article data-image-id="'+element.id+'"><p class="createdBy">' +
         namer+' '+'created by '+arter+ '<div class="commentBox"></div>'+
         '</p><input type=text class="comment"/><button type="button" class="critique">Add Comment</button></article>');
         $('[data-image-id=' + element.id+']').prepend(img);
