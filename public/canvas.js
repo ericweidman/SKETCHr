@@ -4,7 +4,7 @@ var canvasID = document.getElementById('canvasID');
 canvas = document.createElement('canvas');
 
 canvas.setAttribute('width', '700');
-canvas.setAttribute('height', '500');
+canvas.setAttribute('height', '585');
 
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
