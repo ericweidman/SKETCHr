@@ -124,6 +124,7 @@ function deleteComment(comID){
     url:canvasApp.urls.deleteComment+comID,
     method:'DELETE',
     success:function(id){
+      console.log("deleteCommentFIRING")
       console.log('commentDeleted');
     }
   });
@@ -209,8 +210,9 @@ function getCanvasImg(){
         pic.setAttribute('data-id',element.id);
         console.log('the ID of',element.picName,'is:', element.id);
         $('.profileSpace').prepend('<div class="profilePic"><button class="delThis" onclick="deleteThis(this)" data-id="' + element.id + '">delete</button></div>')
-        $('.profileSpace').prepend(pic);
         $('.profileSpace').prepend('<button class="open" onclick="openThis(this)" data-filename='+element.fileName+' data-id='+element.id+'>open</button>');
+        $('.profileSpace').prepend(pic);
+
       });
     }
   });
@@ -225,15 +227,13 @@ function openThis(elem){
     context.clearRect(0,0,canvas.width,canvas.height);
     context.drawImage(canvasImg,0,0, canvas.width, canvas.height);
     console.log(canvasImg);
-    if(confirm('do you want to save a copy of the original?')){
-      console.log('canvasID', canvasID);
-    }else{
-      alert('original image kept in profile');
-      $("*[data-id="+id+"]").remove();
-      deleteImg(canvasID);
-    }
-  };
-}
+    $("*[data-id="+id+"]").remove();
+    deleteImg(id);
+    $('.profile').addClass('inactive');
+    $('.main-canvas').removeClass('inactive');
+    alert('make sure and save your image after editing it, or youll lose it forever!');
+    };
+  }
 
 
 
@@ -255,7 +255,6 @@ function deleteThis(elem){
   }else{
     alert('image not deleted');
   }
-
 }
 
 $('#logIn').submit(function(event){
