@@ -214,7 +214,7 @@ function deleteImg(id){
 }
 
 function deleteThis(elem){
-  if(confirm('are you sure you want to delete this image?')){  var id = $(elem).data('id');
+  if(confirm('Are you sure you want to delete this image?')){  var id = $(elem).data('id');
     console.log('this is the id',id);
     $("*[data-id="+id+"]").remove();
     deleteImg(id);

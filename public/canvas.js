@@ -87,7 +87,7 @@ var i=clickX.length-1;
 /////code by ZACH ⚔ ^//
 if(curTool == "crayon") {
   context.globalAlpha=0.3;
-  // context.drawImage(crayonImg,clickX[i],clickY[j],currentSize,currentSize)
+  context.drawImage(crayonImg,clickX[i],clickY[j],currentSize,currentSize)
 }
 else {
   context.beginPath();
