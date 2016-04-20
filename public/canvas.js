@@ -105,7 +105,7 @@ context.globalAlpha = curVal; // Transparency
 
 }
 
-var curVal = context.globalAlpha=0.5;
+var curVal = context.globalAlpha=1;
 
 // setInterval(contextPush, 5000);
 

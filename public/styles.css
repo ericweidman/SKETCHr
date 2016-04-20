@@ -231,6 +231,25 @@ span {
   background-color: red;
 }
 
+.open{
+  display: inline-block;
+  background: linear-gradient(#1D1F20,#3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 95px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 5px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 13%;
+}
+
+.open:hover{
+  background: none;
+  background-color:#d35400; 
+}
 
 .openTEST{
   width: 50%;
