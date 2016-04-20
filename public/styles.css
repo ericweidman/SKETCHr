@@ -13,15 +13,24 @@
   float: left;
 }
 .commentBox{
-  width: 300px;
-  height: 100px;
-  border: 1px solid white;
+  width: 400px;
+  height: 50px;
   overflow-y: scroll;
   margin-left: 20%;
   font-size: 14px;
-  font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+  /*font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;*/
+}
 
+.thisComment{
+  border-bottom:2px solid #d35400;
+  background: rgba(221, 84, 0, 0.3);
+  padding: 5px;
+  border-radius: 15px;
+}
 
+.commentUser{
+  margin-left: 5px;
+  color:#d35400;
 }
 
 body{
@@ -251,6 +260,7 @@ span {
  background: radial-gradient(#474748,#1D1F20);
  margin-left: 23%;
  margin-top: 10%;
+ border-radius: 25px;
 
 }
 
@@ -428,8 +438,8 @@ img{
 }
 
 .gallerySpace img{
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   border: 2px solid red;
   display: inline-block;
   margin-left: 20%;
@@ -493,4 +503,6 @@ img{
 .removeComment{
   margin-left: 10px;
   cursor: pointer;
+  float: right;
+  display:block;
 }

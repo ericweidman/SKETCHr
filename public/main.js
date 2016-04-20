@@ -106,6 +106,7 @@ $('body').on('click','.critique',function(event){
   console.log('comment sent', comment);
   postComment(comment,id);
   getGallery();
+  delComment(user,commentID);
 });
 
 function deleteComment(comID){
@@ -129,6 +130,8 @@ function delComment(user,commentID){
       var comID=commentID;
       console.log('this is the ID:',comID);
       // var comID = $()
+      $("*[data-id="+comID+"]").remove();
+       deleteComment(comID);
     }
     else{
       console.log('cant delete');
@@ -146,7 +149,7 @@ function returnComment(id){
       console.log('comments', data);
       // $('article');
         data.forEach(function(el) {
-          $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p class="thisComment" data-user="'+ el.userName + '">'+el.comment+''+el.userName+'<span class="removeComment">X</span></p>');
+          $('article[data-image-id="'+ id +'"]').children('.commentBox').prepend('<p class="thisComment" data-user="'+ el.userName + '">'+el.comment+''+'-'+''+el.userName+'<span class="removeComment">✗</span></p>');
           delComment(el.userName,el.id);
         });
       }
@@ -195,8 +198,8 @@ function getCanvasImg(){
         pic.classList.add('picture');
         pic.setAttribute('data-id',element.id);
         console.log('the ID of',element.picName,'is:', element.id);
+        $('.profileSpace').prepend('<div class="profilePic"><button class="delThis" onclick="deleteThis(this)" data-id="' + element.id + '">delete</button></div>')
         $('.profileSpace').prepend(pic);
-        $('.profileSpace').prepend('<button class="delThis" onclick="deleteThis(this)" data-id="' + element.id + '">delete</button>')
       });
     }
   });
