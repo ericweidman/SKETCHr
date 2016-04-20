@@ -99,12 +99,13 @@ function postComment(com,id){
 
 $('body').on('click','.critique',function(event){
   event.preventDefault();
-  console.log("WHAT AM I",this)
+  console.log("WHAT AM I",this);
   var id = parseInt($(this).closest('article').data('image-id'));
   console.log("ID IS THIS", $(this).closest('article').data('image-id'));
   var comment = $(this).closest('article').find('input[class="comment"]').val();
   console.log('comment sent', comment);
   postComment(comment,id);
+  getGallery();
 });
 
 function deleteComment(comID){
