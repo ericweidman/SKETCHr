@@ -81,6 +81,16 @@ function saveCanvasImg(canvasDATA,imgName){
   });
 }
 
+document.getElementById('save').addEventListener('click',function(){
+  event.preventDefault();
+  var imgName={};
+  imgName.picName = $('input[class="nameImg"]').val();
+  console.log('image give a name');
+  var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
+  // var canvasString = JSON.stringify(canvasDATA);
+  saveCanvasImg(canvasDATA,imgName.picName);
+  alert('Image saved to your profile and posted to the Gallery!');
+});
 
 function postComment(com,id){
   $.ajax({
@@ -200,10 +210,31 @@ function getCanvasImg(){
         console.log('the ID of',element.picName,'is:', element.id);
         $('.profileSpace').prepend('<div class="profilePic"><button class="delThis" onclick="deleteThis(this)" data-id="' + element.id + '">delete</button></div>')
         $('.profileSpace').prepend(pic);
+        $('.profileSpace').prepend('<button class="open" onclick="openThis(this)" data-filename='+element.fileName+' data-id='+element.id+'>open</button>');
       });
     }
   });
 }
+
+function openThis(elem){
+  var id = $(elem).data('id');
+  // console.log('canvasID', canvasID);
+  var canvasImg = new Image();
+  canvasImg.src = $(elem).data('filename');
+  canvasImg.onload = function(){
+    context.clearRect(0,0,canvas.width,canvas.height);
+    context.drawImage(canvasImg,0,0, canvas.width, canvas.height);
+    console.log(canvasImg);
+    if(confirm('do you want to save a copy of the original?')){
+      console.log('canvasID', canvasID);
+    }else{
+      alert('original image kept in profile');
+      $("*[data-id="+id+"]").remove();
+      deleteImg(canvasID);
+    }
+  };
+}
+
 
 
 function deleteImg(id){
@@ -254,17 +285,6 @@ $('#userForm').submit(function(event){
   $('.hello').html('');
   $('.hello').append('now just log in!');
   console.log('submitted');
-});
-
-document.getElementById('save').addEventListener('click',function(){
-  event.preventDefault();
-  var imgName={};
-  imgName.picName = $('input[class="nameImg"]').val();
-  console.log('image give a name');
-  var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
-  // var canvasString = JSON.stringify(canvasDATA);
-  saveCanvasImg(canvasDATA,imgName.picName);
-  alert('Image saved to your profile and posted to the Gallery!');
 });
 
 function hideHomePage(event) {
