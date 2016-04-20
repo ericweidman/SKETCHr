@@ -111,7 +111,7 @@ body{
 .sidebar{
   display: inline-block;
   width: 25%;
-  height: 500px;
+  height: 585px;
   float: left;
   margin: 1% 0 0 5%;
   background: radial-gradient(#474748,#1D1F20);
@@ -147,7 +147,7 @@ h1 {
 }
 
 h2 {
-  margin-left: 61px;
+  margin-left: 63px;
   letter-spacing: 1px;
 }
 
@@ -182,15 +182,15 @@ span {
 .statusButton {
   display: inline-block;
   background: linear-gradient(#1D1F20,#3F4041);
-  height: 30px;
-  width: 36px;
+  height: 37px;
+  width: 43px;
   border: none;
   font-size: 25px;
   color: white;
   text-shadow: 2px 2px 0px black;
   border-radius: 15px;
   margin-top:1%;
-  margin-left: 2%;
+  margin-left: 4.5%;
 
 }
 
@@ -258,7 +258,7 @@ span {
  text-align: center;
  color: white;
  background: radial-gradient(#474748,#1D1F20);
- margin-left: 24%;
+ margin-left: 23%;
  margin-top: 10%;
  border-radius: 25px;
 
@@ -436,6 +436,23 @@ img{
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px #D35400;
 }
+
+.commentBox::-webkit-scrollbar {
+width: 4px;
+margin-left: 2px;
+
+}
+.commentBox::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px #D35400;
+  border-radius: 10px;
+
+}
+.commentBox::-webkit-scrollbar {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #D35400;
+}
+
+
 
 .gallerySpace img{
   height: 400px;
