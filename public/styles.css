@@ -18,6 +18,10 @@
   border: 1px solid white;
   overflow-y: scroll;
   margin-left: 20%;
+  font-size: 14px;
+  font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+
+
 }
 
 body{
@@ -71,6 +75,7 @@ body{
   border: none;
   padding: 1%;
   color:#d35400;
+  font-size: 14px;
 }
 .nameImg:focus{
   outline: 0;
@@ -370,6 +375,7 @@ header{
     color: #D35400 ;
     border: none;
     background-color: black;
+    font-size: 13px;
     /*background: rgba(255, 255, 255, 0);*/
 }
 #logIn input {
@@ -381,6 +387,7 @@ header{
     background-color: black;
     color: #D35400 ;
     border: none;
+    font-size: 13px;
     /*background: rgba(255, 255, 255, 0);*/
 }
 
@@ -446,6 +453,8 @@ img{
   border: 1px solid #D35400;
   padding: 1%;
   color:#d35400;
+  font-size: 14px;
+
 }
 .comment:focus{
   outline: 0;
@@ -481,4 +490,8 @@ img{
   margin-left: 36%;
   margin-top: 55px;
   letter-spacing: 1px;
+}
+.removeComment{
+  margin-left: 10px;
+  cursor: pointer;
 }
