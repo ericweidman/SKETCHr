@@ -18,7 +18,6 @@ context = canvas.getContext('2d');
 var crayonImg = new Image();
 crayonImg.globalAlpha=0.1;
 crayonImg.src='/img/crayon-tool.jpg';
-
 //clicking the mouse
 
 
@@ -102,11 +101,14 @@ else {
   context.lineWidth = lineSize[i];
   context.stroke();
 }
-context.globalAlpha = 1; // Transparency
+context.globalAlpha = curVal; // Transparency
 
 }
 
-setInterval(contextPush, 5000);
+var curVal = context.globalAlpha=0.5;
+
+// setInterval(contextPush, 5000);
+
 $('#canvas').mousedown(function(e){
   var moveX = e.pageX - this.offsetLeft;
   var moveY = e.pageY - this.offsetTop;
@@ -125,7 +127,7 @@ $('#canvas').mousemove(function(e){
 //after the mouse button is released
 $('#canvas').mouseup(function(e){
   paint=false;
-
+  contextPush();
 });
 //when the mouse leaves the canvas
 $('#canvas').mouseleave(function(e){
@@ -160,6 +162,8 @@ if (contextStep < contextPushArray.length){
 contextPushArray.push(document.getElementById('canvas').toDataURL());
 }
 
+contextPush();
+
  function undo(){
   if (contextStep > 0){
     contextStep --;
@@ -177,7 +181,6 @@ contextPushArray.push(document.getElementById('canvas').toDataURL());
    undo();
    console.log('undo');
 });
-
 
 $('#spray').click('click',function(){
    curTool='spray';
@@ -208,3 +211,9 @@ $('#spray').click('click',function(){
    currentSize=this.value;
    console.log(this.value);
  });
+
+///////
+$('.opacity').on('input', function(){
+  curVal=this.value;
+  console.log(this.value);
+});
