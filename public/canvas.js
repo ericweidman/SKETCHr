@@ -4,7 +4,7 @@ var canvasID = document.getElementById('canvasID');
 canvas = document.createElement('canvas');
 
 canvas.setAttribute('width', '700');
-canvas.setAttribute('height', '500');
+canvas.setAttribute('height', '585');
 
 canvas.setAttribute('id', 'canvas');
 canvasID.appendChild(canvas);
@@ -86,7 +86,7 @@ var i=clickX.length-1;
 /////code by ZACH ⚔ ^//
 if(curTool == "crayon") {
   context.globalAlpha=0.3;
-  // context.drawImage(crayonImg,clickX[i],clickY[j],currentSize,currentSize)
+  context.drawImage(crayonImg,clickX[i],clickY[j],currentSize,currentSize)
 }
 else {
   context.beginPath();
