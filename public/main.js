@@ -129,9 +129,9 @@ function delComment(user,commentID){
       console.log('can delete');
       var comID=commentID;
       console.log('this is the ID:',comID);
+      deleteComment(comID);
       // var comID = $()
-      $("*[data-id="+comID+"]").remove();
-       deleteComment(comID);
+      $(this).parent().remove();
     }
     else{
       console.log('cant delete');
