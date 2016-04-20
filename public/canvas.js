@@ -103,8 +103,10 @@ else {
   context.stroke();
 }
 context.globalAlpha = 1; // Transparency
+
 }
 
+setInterval(contextPush, 5000);
 $('#canvas').mousedown(function(e){
   var moveX = e.pageX - this.offsetLeft;
   var moveY = e.pageY - this.offsetTop;
@@ -117,12 +119,13 @@ $('#canvas').mousemove(function(e){
   if(paint){
     addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
     draw();
+
   }
 });
 //after the mouse button is released
 $('#canvas').mouseup(function(e){
   paint=false;
-  contextPush();
+
 });
 //when the mouse leaves the canvas
 $('#canvas').mouseleave(function(e){
@@ -146,7 +149,7 @@ $('#canvas').mouseleave(function(e){
 
  //UNDO
 
-var contextPushArray = new Array();
+var contextPushArray = [];
 var contextStep= -1;
 
 function contextPush(){
@@ -163,7 +166,8 @@ contextPushArray.push(document.getElementById('canvas').toDataURL());
     var canvasImg = new Image();
     canvasImg.src = contextPushArray[contextStep];
     canvasImg.onload = function(){
-      context.drawImage(0,0,canvas.width,canvas.height);
+      context.clearRect(0,0,canvas.width,canvas.height);
+      context.drawImage(canvasImg,0,0, canvas.width, canvas.height);
       console.log(canvasImg);
     };
   }

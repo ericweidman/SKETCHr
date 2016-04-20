@@ -128,18 +128,11 @@ function delComment(user,commentID){
       var comID=commentID;
       console.log('this is the ID:',comID);
       // var comID = $()
-      deleteComment(comID);
     }
     else{
       console.log('cant delete');
     }
-    // if (user==user){
-    //     $("*[data-id="+commentId+"]").remove();
-    //   }
-    // else{
-    //
-    // }
-  })
+  });
 }
 
 function returnComment(id){
@@ -201,8 +194,8 @@ function getCanvasImg(){
         pic.classList.add('picture');
         pic.setAttribute('data-id',element.id);
         console.log('the ID of',element.picName,'is:', element.id);
-        $('.profileSpace').append(pic);
-        $('.profileSpace').append('<button class="delThis" onclick="deleteThis(this)" data-id="' + element.id + '">delete</button>')
+        $('.profileSpace').prepend(pic);
+        $('.profileSpace').prepend('<button class="delThis" onclick="deleteThis(this)" data-id="' + element.id + '">delete</button>')
       });
     }
   });
@@ -267,6 +260,7 @@ document.getElementById('save').addEventListener('click',function(){
   var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
   // var canvasString = JSON.stringify(canvasDATA);
   saveCanvasImg(canvasDATA,imgName.picName);
+  alert('Image saved to your profile and posted to the Gallery!');
 });
 
 function hideHomePage(event) {
