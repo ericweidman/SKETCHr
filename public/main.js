@@ -81,16 +81,22 @@ function saveCanvasImg(canvasDATA,imgName){
   });
 }
 
-document.getElementById('save').addEventListener('click',function(){
+
+document.getElementById('save').addEventListener('click', function(){
   event.preventDefault();
+  saveThis();
+    alert('Image saved to your profile and posted to the Gallery!');
+  })
+
+function saveThis(){
   var imgName={};
   imgName.picName = $('input[class="nameImg"]').val();
   console.log('image give a name');
   var canvasDATA = canvas.toDataURL(0, 0, context.canvas.width, context.canvas.height);
   // var canvasString = JSON.stringify(canvasDATA);
   saveCanvasImg(canvasDATA,imgName.picName);
-  alert('Image saved to your profile and posted to the Gallery!');
-});
+  console.log('saved');
+};
 
 function postComment(com,id){
   $.ajax({
@@ -228,6 +234,7 @@ function openThis(elem){
     context.drawImage(canvasImg,0,0, canvas.width, canvas.height);
     console.log(canvasImg);
     $("*[data-id="+id+"]").remove();
+    saveThis();
     deleteImg(id);
     $('.profile').addClass('inactive');
     $('.main-canvas').removeClass('inactive');
