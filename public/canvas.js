@@ -107,6 +107,7 @@ context.globalAlpha = curVal; // Transparency
 
 var curVal = context.globalAlpha=0.5;
 
+
 // setInterval(contextPush, 5000);
 
 $('#canvas').mousedown(function(e){

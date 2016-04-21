@@ -194,6 +194,11 @@ span {
 
 }
 
+.statusButton:active {
+
+  background-color:#d35400;
+}
+
 .statusButton:focus{
   outline:none;
 }
