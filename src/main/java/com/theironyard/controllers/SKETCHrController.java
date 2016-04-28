@@ -161,7 +161,6 @@ public class SKETCHrController {
 
      }
 
-
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) {
         session.invalidate();
