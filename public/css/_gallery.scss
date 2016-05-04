@@ -1,0 +1,27 @@
+.removeComment{
+  color:red;
+}
+
+.comment{
+  float: left;
+}
+.commentBox{
+  width: 400px;
+  height: 50px;
+  overflow-y: scroll;
+  margin-left: 20%;
+  font-size: 14px;
+  /*font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;*/
+}
+
+.thisComment{
+  border-bottom:2px solid $main-orange;
+  background: rgba(221, 84, 0, 0.3);
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.commentUser{
+  margin-left: 5px;
+  color:$main-orange;
+}

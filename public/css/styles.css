@@ -1,0 +1,729 @@
+
+#canvasID:hover {
+  cursor: cell; }
+
+#canvasID:active {
+  cursor: cell; }
+
+.removeComment {
+  color: red; }
+
+.comment {
+  float: left; }
+
+.commentBox {
+  width: 400px;
+  height: 50px;
+  overflow-y: scroll;
+  margin-left: 20%;
+  font-size: 14px;
+  /*font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;*/ }
+
+.thisComment {
+  border-bottom: 2px solid #d35400;
+  background: rgba(221, 84, 0, 0.3);
+  padding: 5px;
+  border-radius: 15px; }
+
+.commentUser {
+  margin-left: 5px;
+  color: #d35400; }
+
+body {
+  display: inline-block;
+  width: 100%;
+  font-size: 12px;
+  font-family: 'open sans', sans-serif;
+  background-color: #1D1F20;
+  color: white; }
+
+.profileSpace {
+  width: 50%;
+  height: 500px;
+  display: block;
+  margin-left: 25%;
+  float: left; }
+
+.profileSpace img {
+  width: 450px;
+  height: 450px;
+  display: block;
+  margin-top: 60px;
+  margin-left: 13%; }
+
+.hello {
+  color: lime; }
+
+.about {
+  width: 90%;
+  color: white;
+  font-size: 14px;
+  text-align: left;
+  margin: 0 1px 1px 10px;
+  letter-spacing: 1px; }
+
+.splashHeader {
+  text-align: center; }
+
+.nameImg {
+  width: 165px;
+  height: 22px;
+  border-radius: 5px;
+  margin: 2%;
+  background-color: black;
+  border: none;
+  padding: 1%;
+  color: #d35400;
+  font-size: 14px; }
+
+.nameImg:focus {
+  outline: 0; }
+
+.error {
+  color: red; }
+
+.artistName {
+  color: #d35400; }
+
+#canvas {
+  display: inline-block;
+  border: 1px solid black;
+  float: left;
+  margin: 1% 0 0 5%;
+  background-color: white; }
+
+.sidebar {
+  display: inline-block;
+  width: 25%;
+  height: 585px;
+  float: left;
+  margin: 1% 0 0 5%;
+  background: radial-gradient(#474748, #1D1F20);
+  box-shadow: 4px 4px 4px solid black;
+  border-radius: 10px;
+  border: 2px solid #474748; }
+
+h4 {
+  height: 25px;
+  font-size: 16px;
+  background: linear-gradient(#474748, #1D1F20);
+  border-radius: 5px;
+  border: 2px solid #474748; }
+
+#colorPick {
+  margin-left: 3%;
+  width: 70px;
+  height: 35px; }
+
+h1 {
+  border-top: 5px solid black;
+  text-shadow: 2px 2px 2px black;
+  color: white;
+  background: linear-gradient(#3F4041, #1D1F20);
+  height: 30px;
+  width: 69%;
+  font-size: 40px;
+  margin-left: 14%; }
+
+h2 {
+  margin-left: 63px;
+  letter-spacing: 1px; }
+
+span {
+  color: #d35400; }
+
+.canvas, .logout {
+  display: inline-block;
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 65px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-right: 5px; }
+
+.button:hover {
+  background: none;
+  background-color: #d35400;
+  border-radius: 5px; }
+
+.statusButton:focus {
+  outline: none; }
+
+.button:focus {
+  outline: none; }
+
+.statusButton {
+  display: inline-block;
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 37px;
+  width: 43px;
+  border: none;
+  font-size: 25px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 15px;
+  margin-top: 1%;
+  margin-left: 4.5%; }
+
+.statusButton:active {
+  background-color: #d35400; }
+
+.statusButton:focus {
+  outline: none; }
+
+.user {
+  float: none;
+  width: 100px; }
+
+.icon {
+  font-size: 25px; }
+
+.statusButton:hover {
+  background: none;
+  background-color: #d35400; }
+
+.delThis {
+  display: inline-block;
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 95px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 5px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 13%; }
+
+.delThis:hover {
+  background: none;
+  background-color: red; }
+
+.open {
+  display: inline-block;
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 95px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 5px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 13%; }
+
+.open:hover {
+  background: none;
+  background-color: #d35400; }
+
+.openTEST {
+  width: 50%;
+  margin-left: 25%;
+  height: 100px;
+  display: inline-block; }
+
+.tools {
+  margin-left: 5px;
+  background: linear-gradient(#1D1F20, #3F4041);
+  font-size: 12px;
+  color: white;
+  text-shadow: 2px 2px 0px black; }
+
+.inactive {
+  display: none; }
+
+.pageOne {
+  width: 50%;
+  text-align: center;
+  color: white;
+  background: radial-gradient(#474748, #1D1F20);
+  margin-left: 23%;
+  margin-top: 10%;
+  border-radius: 25px; }
+
+#userForm {
+  margin-right: 0;
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: -3%;
+  margin-top: 5%; }
+
+#logIn {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20%;
+  margin-top: 5%; }
+
+header {
+  width: 1600px;
+  height: 100px;
+  margin-left: -13.5%;
+  display: inline-block; }
+
+.draw {
+  padding: 5px;
+  font-size: 18px;
+  margin-left: 24px; }
+
+
+
+  .btn-login {
+    display: inline-block;
+    background: linear-gradient(#1D1F20, #3F4041);
+    height: 30px;
+    font-size: 14px;
+    border: none;
+    width: 100px;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+    border-radius: 10px;
+    margin: 20px 0 20px 35px; }
+
+  .btn-login:hover {
+    background: none;
+    background-color: #d35400;
+    border-radius: 5px; }
+
+  .btn-login:focus {
+    outline: none; }
+
+  .sign-up {
+    display: inline-block;
+    background: linear-gradient(#1D1F20, #3F4041);
+    height: 30px;
+    font-size: 14px;
+    border: none;
+    width: 100px;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+    border-radius: 10px;
+    margin: 20px 0 20px 35px; }
+
+  .sign-up:hover {
+    background: none;
+    background-color: #d35400;
+    border-radius: 5px; }
+
+  .sihn-up:focus {
+    outline: none; }
+
+.nav-buttons {
+  width: 100%;
+  margin-left: 48%;
+  margin-top: -4.5%; }
+
+.button-user {
+  display: inline-block;
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 100px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 10px;
+  margin: 20px 0 20px 35px; }
+
+.button-user:hover {
+  background: none;
+  background-color: #d35400;
+  border-radius: 5px; }
+
+.button-user:focus {
+  outline: none; }
+
+.clear {
+  display: inline-block;
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 100px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 10px;
+  margin: 20px 0 20px 35px; }
+
+.clear:hover {
+  background: none;
+  background-color: #d35400;
+  border-radius: 5px; }
+
+.clear:focus {
+  outline: none; }
+
+.where {
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 130px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 10px;
+  margin: 20px 60px 20px -245px; }
+
+.where:hover {
+  background: none;
+  background-color: #d35400;
+  border-radius: 5px; }
+
+.where:focus {
+  outline: none; }
+
+#slider {
+  margin-left: 2%; }
+
+#userForm input {
+  width: 60%;
+  height: 29px;
+  margin-left: 18%;
+  margin-top: 5%;
+  text-align: center;
+  color: #D35400;
+  border: none;
+  background-color: black;
+  font-size: 13px;
+  /*background: rgba(255, 255, 255, 0);*/ }
+
+#logIn input {
+  width: 60%;
+  height: 29px;
+  margin-left: 18%;
+  margin-top: 5%;
+  text-align: center;
+  background-color: black;
+  color: #D35400;
+  border: none;
+  font-size: 13px;
+  /*background: rgba(255, 255, 255, 0);*/ }
+
+#userForm input, #logIn input:focus {
+  outline: none; }
+
+#comingSoon {
+  color: yellow;
+  font-size: 12px; }
+
+img {
+  background-color: white; }
+
+.gallerySpace {
+  height: 600px;
+  width: 50%;
+  overflow-y: scroll;
+  display: inline-block;
+  margin-left: 25%; }
+
+.gallerySpace::-webkit-scrollbar {
+  width: 12px; }
+
+.gallerySpace::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #D35400;
+  border-radius: 10px; }
+
+.gallerySpace::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #D35400; }
+
+.commentBox::-webkit-scrollbar {
+  width: 4px;
+  margin-left: 2px; }
+
+.commentBox::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px #D35400;
+  border-radius: 10px; }
+
+.commentBox::-webkit-scrollbar {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #D35400; }
+
+.gallerySpace img {
+  height: 400px;
+  width: 400px;
+  border: 2px solid red;
+  display: inline-block;
+  margin-left: 20%;
+  margin-top: 40px; }
+
+.picture {
+  display: inline-block;
+  width: 245px;
+  border: 2px solid #D35400;
+  overflow-x: scroll; }
+
+.comment {
+  width: 170px;
+  height: 22px;
+  border-radius: 5px;
+  margin: 9px 0 0 126px;
+  background-color: black;
+  border: 1px solid #D35400;
+  padding: 1%;
+  color: #d35400;
+  font-size: 14px; }
+
+.comment:focus {
+  outline: 0; }
+
+.critique {
+  background: linear-gradient(#1D1F20, #3F4041);
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  width: 110px;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+  border-radius: 10px;
+  margin: 12px 60px 20px 10px; }
+
+.critique:hover {
+  background: none;
+  background-color: #d35400;
+  border-radius: 5px; }
+
+.critique:focus {
+  outline: none; }
+
+.createdBy {
+  margin-left: 20%; }
+
+.profPage {
+  margin-left: 36%;
+  margin-top: 55px;
+  letter-spacing: 1px; }
+
+.removeComment {
+  margin-left: 10px;
+  cursor: pointer;
+  float: right;
+  display: block; }
+
+  /*RESPONSIVE*/
+
+  @media(min-width: 0px) and (max-width: 460px){
+    .pageOne {
+      width: 70%;
+      margin-left: 15%;
+
+  }
+
+  h1 {
+  width: 100%;
+  margin-left: 10px;
+  }
+
+#userForm input {
+  width: 112%;
+  margin-left: 3px;
+
+
+}
+
+
+#logIn input {
+width: 113%;
+margin-left: -3px;
+
+}
+.sign-up {
+  width: 100%;
+  margin-left: 11px;
+}
+.btn-login {
+  width: 100%;
+  margin-left: 4px;
+}
+.draw{
+  margin-left: 5px;
+}
+
+.where {
+  margin-right: -107px;
+}
+
+#canvas {
+  width: 350px;
+  height:350px;
+}
+.button-user{
+  width: 66px;
+}
+.nav-buttons {
+  margin: 10px 2px 0 20px;
+}
+
+.sidebar {
+  width: 350px;
+  margin-top: 15px;
+}
+
+.clear {
+  margin-top: -2px;
+  margin-left: 7px;
+}
+
+.artist-welcome{
+  width: 310px;
+  margin-left: -78px;
+  margin-top: 30px;
+}
+.gallerySpace{
+  width: 90%;
+  margin-left: 13px;
+}
+.gallerySpace Img {
+  width: 300px;
+  height: 300px;
+  margin-left: 10px;
+}
+
+.createdBy {
+  margin-left: 11px;
+}
+.commentBox{
+  margin-left: 11px;
+  width: 300px;
+}
+.comment {
+  margin-left: 11px;
+}
+
+.profPage {
+  margin-left: 20px;
+}
+.profileSpace Img {
+  width: 300px;
+  height: 300px;
+  margin-left: -50px;
+}
+
+.open {
+  margin-left: -51px;
+}
+.delThis {
+margin-left: 15px;
+}
+    }
+
+@media (min-width: 460px) and (max-width: 650px){
+    .pageOne {
+          width: 70%;
+          margin-left: 6%;
+
+      }
+
+      #userForm input {
+        width: 120%;
+        margin-left: 3px;
+
+      }
+      #logIn input {
+      width: 120%;
+      margin-left: -14px;
+
+      }
+      .sign-up{
+        margin-left: 21px;
+      }
+      .btn-login {
+        margin-left: -5px;
+      }
+.where {
+  margin-left: -110px;
+}
+#canvas {
+  width: 450px;
+  height:350px;
+  margin-left: 90px;
+}
+.button-user{
+  width: 66px;
+}
+.nav-buttons {
+  margin: 10px 2px 0 140px;
+}
+
+h2 {
+  margin-left: 90px;
+}
+.sidebar {
+  width: 450px;
+  margin-top: 20px;
+  margin-left: 90px;
+}
+.gallerySpace{
+  width: 90%;
+  margin-left: 5px;
+}
+.gallerySpace Img {
+  width: 300px;
+  height: 300px;
+  margin-left: 130px;
+  margin-top: 20px;
+}
+
+.artist-welcome {
+    margin: 30px 0 0 19px;
+}
+
+.profileSpace {
+  width: 90%;
+  margin-left: 5px;
+}
+
+.profileSpace Img {
+  width: 300px;
+  height: 300px;
+  margin-left: 110px;
+  margin-top: 60px;
+}
+
+.profPage {
+  margin: 30px 0 0 111px;
+}
+
+.createdBy{
+  margin-left: 123px;
+}
+.commentBox {
+  margin-left: 123px;
+}
+
+.openTEST {
+  margin-left: 110px;
+}
+.open {
+  margin-top: 20px;
+  margin-left: 109px;
+}
+.delThis {
+margin-left: 15px;
+margin-top: 20px;
+}
+
+}
+
+@media (min-width: 651px) and (max-width: 1260px){
+.pageOne {
+ width: 80%;
+ margin-left: 9%;
+}
+
+.where {
+  margin-right: 7px;
+}
+
+
+
+
+
+}
