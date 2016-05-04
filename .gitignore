@@ -50,6 +50,4 @@ crashlytics-build.properties
 .DS_Store
 *.db
 
-
-
-
+node_modules

@@ -1,0 +1,51 @@
+#canvasID:hover{
+  cursor: cell;
+}
+#canvasID:active{
+  cursor: cell;
+}
+//Input for naming an image
+.nameImg{
+  width: 165px;
+  height: 22px;
+  border-radius: 5px;
+  margin:2%;
+  background-color: black;
+  border: none;
+  padding: 1%;
+  color:$main-orange;
+  font-size: 14px;
+}
+.nameImg:focus{
+  outline: 0;
+}
+#canvas{
+  display: inline-block;
+  border: 1px solid black;
+  float: left;
+  margin: 1% 0 0 5%;
+  background-color: white;
+
+}
+
+//sidebar=tools
+.sidebar{
+  display: inline-block;
+  width: 25%;
+  height: 585px;
+  float: left;
+  margin: 1% 0 0 5%;
+  background: radial-gradient(#474748,#1D1F20);
+  box-shadow: 4px 4px 4px solid black;
+  border-radius: 10px;
+  border: 2px solid #474748;
+}
+
+h4{
+  height: 25px;
+  font-size: 16px;
+  background: linear-gradient(#474748,#1D1F20);
+  border-radius: 5px;
+  border: 2px solid #474748;
+
+}
