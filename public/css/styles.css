@@ -614,7 +614,7 @@ margin-left: 15px;
 }
     }
 
-@media (min-width: 461px) and (max-width: 650px){
+@media (min-width: 460px) and (max-width: 650px){
     .pageOne {
           width: 70%;
           margin-left: 6%;
@@ -712,9 +712,14 @@ margin-top: 20px;
 
 }
 
-@media (min-width: 461px) and (max-width: 650px){
+@media (min-width: 651px) and (max-width: 1260px){
 .pageOne {
  width: 80%;
+ margin-left: 9%;
+}
+
+.where {
+  margin-right: 7px;
 }
 
 
