@@ -12,7 +12,9 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'spring-boot' 
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+apply plugin: 'jetty'
 
 jar {
 	baseName = 'SKETCHr'
@@ -45,7 +47,4 @@ eclipse {
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.9'
-}
-task stage {
-	dependsOn build
 }
