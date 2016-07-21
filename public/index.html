@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
   </head>
   <body>
@@ -23,14 +25,14 @@
       <form id='userForm'>
         <input class="name" type="text" name="newName" placeholder="new user name">
         <input type="password" name="newPassword" placeholder="new password">
-        <button class='button-user' type="submit" name="submit">Sign Up!</button>
+        <button class='sign-up' type="submit" name="submit">Sign Up!</button>
         <p class='hello'></p>
       </form>
 
       <form id="logIn">
           <input type="text" name="Name" placeholder="user name">
           <input type="password" name="Password" placeholder="password">
-          <button class='button-user' type="submit" name="submit">Log In</button>
+          <button class='btn-login' type="submit" name="submit">Log In</button>
           <p class='error'></p>
           <button class='where' id='more' type="button">Where am I?</button>
       </form>
@@ -114,7 +116,7 @@
   <section class='gallery inactive'>
       </h1>
         <section class='openTEST'>
-        <h4><span class='artist'></span>, welcome to the gallery feed!</h4>
+        <h4 class="artist-welcome"><span class='artist'></span>, welcome to the gallery feed!</h4>
         </section>
         <div class="gallerySpace">
         </div>
